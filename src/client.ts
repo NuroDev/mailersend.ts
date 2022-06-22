@@ -8,10 +8,11 @@ import type {
   ActivityListParams,
   AddDomainParams,
   AddInboundRouteParams,
+  AddToSuppressionListParams,
+  AllRecipientsParams,
   AllTemplatesParams,
-  DeleteDomainParams,
+  DeleteFromSuppressionListParams,
   DnsRecordsParams,
-  DomainByIdParams,
   ListDomainsParams,
   ListInboundRoutesParams,
   ListMessagesParams,
@@ -19,6 +20,7 @@ import type {
   RecipientsForDomainParams,
   SendBulkParams,
   SendParams,
+  SuppressionListParams,
   UpdateDomainSettingsParams,
   UpdateInboundRouteParams,
   VerificationStatusParams,
@@ -66,8 +68,8 @@ export class Client implements IClient {
   public async addDomain(options: AddDomainParams) {
     return modules.addDomain(this._apiKey, options);
   }
-  public async deleteDomain(options: DeleteDomainParams) {
-    return modules.deleteDomain(this._apiKey, options);
+  public async deleteDomain(domainId: string) {
+    return modules.deleteDomain(this._apiKey, domainId);
   }
   public async dnsRecords(options: DnsRecordsParams) {
     return modules.dnsRecords(this._apiKey, options);
@@ -75,8 +77,8 @@ export class Client implements IClient {
   public async recipientsForDomain(options: RecipientsForDomainParams) {
     return modules.recipientsForDomain(this._apiKey, options);
   }
-  public async domainById(options: DomainByIdParams) {
-    return modules.domainById(this._apiKey, options);
+  public async domainById(domainId: string) {
+    return modules.domainById(this._apiKey, domainId);
   }
   public async verificationStatus(options: VerificationStatusParams) {
     return modules.verificationStatus(this._apiKey, options);
@@ -131,6 +133,31 @@ export class Client implements IClient {
   }
   public async messageInfoById(messageId: string) {
     return modules.messageInfoById(this._apiKey, messageId);
+  }
+
+  // ------------------------------------------------------------
+  // Recipients
+  // ------------------------------------------------------------
+
+  public async addToSuppressionList(options: AddToSuppressionListParams) {
+    return modules.addToSuppressionList(this._apiKey, options);
+  }
+  public async allRecipients(options: AllRecipientsParams) {
+    return modules.allRecipients(this._apiKey, options);
+  }
+  public async deleteFromSuppressionList(
+    options: DeleteFromSuppressionListParams
+  ) {
+    return modules.deleteFromSuppressionList(this._apiKey, options);
+  }
+  public async deleteRecipient(recipientId: string) {
+    return modules.deleteRecipient(this._apiKey, recipientId);
+  }
+  public async recipientById(recipientId: string) {
+    return modules.recipientById(this._apiKey, recipientId);
+  }
+  public async suppressionList(options: SuppressionListParams) {
+    return modules.suppressionList(this._apiKey, options);
   }
 
   // ------------------------------------------------------------

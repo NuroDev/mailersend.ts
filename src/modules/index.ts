@@ -61,6 +61,19 @@ export {
 } from "./scheduledMessages";
 
 export {
+  addToSuppressionList,
+  allRecipients,
+  deleteFromSuppressionList,
+  deleteRecipient,
+  recipientById,
+  suppressionList,
+  type AddToSuppressionListParams,
+  type AllRecipientsParams,
+  type DeleteFromSuppressionListParams,
+  type SuppressionListParams,
+} from "./recipients";
+
+export {
   allTemplates,
   deleteTemplate,
   templateById,

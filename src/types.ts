@@ -6,7 +6,10 @@ import type {
   ActivityListParams,
   AddDomainParams,
   AddInboundRouteParams,
+  AddToSuppressionListParams,
+  AllRecipientsParams,
   AllTemplatesParams,
+  DeleteFromSuppressionListParams,
   DnsRecordsParams,
   ListDomainsParams,
   ListInboundRoutesParams,
@@ -15,6 +18,7 @@ import type {
   RecipientsForDomainParams,
   SendBulkParams,
   SendParams,
+  SuppressionListParams,
   UpdateDomainSettingsParams,
   UpdateInboundRouteParams,
   VerificationStatusParams,
@@ -107,6 +111,10 @@ export interface ClientConfig {
 }
 
 export interface IClient {
+  // ------------------------------------------------------------
+  // Activity
+  // ------------------------------------------------------------
+
   /**
    * Activity List
    *
@@ -119,6 +127,10 @@ export interface IClient {
    * @param {Object} options - Activity list options
    */
   activityList(options: ActivityListParams): Promise<Record<string, any>>;
+
+  // ------------------------------------------------------------
+  // Analytics
+  // ------------------------------------------------------------
 
   /**
    * Activity By Country
@@ -169,6 +181,10 @@ export interface IClient {
   activityByUserAgent(
     options: ActivityByUserAgentParams
   ): Promise<Record<string, any>>;
+
+  // ------------------------------------------------------------
+  // Domains
+  // ------------------------------------------------------------
 
   /**
    * Add Domain
@@ -264,6 +280,10 @@ export interface IClient {
     options: UpdateDomainSettingsParams
   ): Promise<Record<string, any>>;
 
+  // ------------------------------------------------------------
+  // Email
+  // ------------------------------------------------------------
+
   /**
    * Bulk Email Status
    *
@@ -304,6 +324,10 @@ export interface IClient {
    * @param {Object} options - Send bulk emails options
    */
   sendBulk(options: Array<SendBulkParams>): Promise<Record<string, any>>;
+
+  // ------------------------------------------------------------
+  // Inbound Routing
+  // ------------------------------------------------------------
 
   /**
    * Add Inbound Route
@@ -364,6 +388,10 @@ export interface IClient {
     options: UpdateInboundRouteParams
   ): Promise<Record<string, any>>;
 
+  // ------------------------------------------------------------
+  // Messages
+  // ------------------------------------------------------------
+
   /**
    * List Messages
    *
@@ -385,6 +413,84 @@ export interface IClient {
    * @param {String} messageId - Unique message identifier
    */
   messageInfoById(messageId: string): Promise<Record<string, any>>;
+
+  // ------------------------------------------------------------
+  // Recipients
+  // ------------------------------------------------------------
+
+  /**
+   * Add To Suppression List
+   *
+   * @description Add a recipient to a blocklist
+   *
+   * @see https://developers.mailersend.com/api/v1/recipients.html#add-recipients-to-a-suppression-list
+   *
+   * @param {Object} options - Add to suppression list options
+   */
+  addToSuppressionList(
+    options: AddToSuppressionListParams
+  ): Promise<Record<string, any>>;
+
+  /**
+   * All Recipients
+   *
+   * @description Retrieve the email addresses of recipients
+   *
+   * @see https://developers.mailersend.com/api/v1/recipients.html#get-recipients
+   *
+   * @param {Object} options - All recipients options
+   */
+  allRecipients(options: AllRecipientsParams): Promise<Record<string, any>>;
+
+  /**
+   * Delete From Suppression List
+   *
+   * @description Delete one or more blocklist entries
+   *
+   * @see https://developers.mailersend.com/api/v1/recipients.html#delete-recipients-from-a-suppression-list
+   *
+   * @param {Object} options - Delete from suppression list options
+   */
+  deleteFromSuppressionList(
+    options: DeleteFromSuppressionListParams
+  ): Promise<Record<string, any>>;
+
+  /**
+   * Delete Recipient
+   *
+   * @description Delete the information of a single recipient and its domain
+   *
+   * @see https://developers.mailersend.com/api/v1/recipients.html#delete-a-recipient
+   *
+   * @param {String} recipientId - Unique recipient identifier
+   */
+  deleteRecipient(recipientId: string): Promise<Record<string, any>>;
+
+  /**
+   * Recipient by ID
+   *
+   * @description Retrieve the information of a single recipient and its domain
+   *
+   * @see https://developers.mailersend.com/api/v1/recipients.html#get-a-single-recipient
+   *
+   * @param {String} recipientId - Unique recipient identifier
+   */
+  recipientById(recipientId: string): Promise<Record<string, any>>;
+
+  /**
+   * Suppression List
+   *
+   * @description Retrieve the recipients in a blocklist of an account or domain by passing the blocklist ID
+   *
+   * @see https://developers.mailersend.com/api/v1/recipients.html#get-recipients-from-a-suppression-list
+   *
+   * @param {Object} options - Suppression list options
+   */
+  suppressionList(options: SuppressionListParams): Promise<Record<string, any>>;
+
+  // ------------------------------------------------------------
+  // Scheduled Messages
+  // ------------------------------------------------------------
 
   /**
    * Delete Scheduled Message
@@ -420,6 +526,10 @@ export interface IClient {
    * @param {String} messageId - Message ID from the Send an email's response headers or Get scheduled messages response.
    */
   singleScheduledMessage(messageId: string): Promise<Record<string, any>>;
+
+  // ------------------------------------------------------------
+  // Temlates
+  // ------------------------------------------------------------
 
   /**
    * All Templates
