@@ -1,13 +1,20 @@
-import { getActivityList } from "~/modules";
+import {
+  getActivityByCountry,
+  getActivityByDate,
+  getActivityByReadingEnvironment,
+  getActivityByUserAgent,
+  getActivityList,
+} from "~/modules";
 
-import type { ActivityListParams } from "~/modules";
+import type {
+  ActivityListParams,
+  ActivityByCountryParams,
+  ActivityByDateParams,
+  ActivityByReadingEnvironmentParams,
+  ActivityByUserAgentParams,
+} from "~/modules";
 import type { ClientConfig, IClient } from "~/types";
 
-/**
- * Client
- *
- * @description Create a new MailerSend client instance that provides all module API methods
- */
 export class Client implements IClient {
   private _apiKey: string;
 
@@ -17,5 +24,19 @@ export class Client implements IClient {
 
   public async activityList(options: ActivityListParams) {
     return getActivityList(this._apiKey, options);
+  }
+  public async activityByCountry(options: ActivityByCountryParams) {
+    return getActivityByCountry(this._apiKey, options);
+  }
+  public async activityByDate(options: ActivityByDateParams) {
+    return getActivityByDate(this._apiKey, options);
+  }
+  public async activityByReadingEnvironment(
+    options: ActivityByReadingEnvironmentParams
+  ) {
+    return getActivityByReadingEnvironment(this._apiKey, options);
+  }
+  public async activityByUserAgent(options: ActivityByUserAgentParams) {
+    return getActivityByUserAgent(this._apiKey, options);
   }
 }
