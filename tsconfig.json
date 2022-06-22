@@ -10,7 +10,12 @@
     "esModuleInterop": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
   },
   "include": ["./src"]
 }
