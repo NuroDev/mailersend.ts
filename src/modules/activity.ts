@@ -38,13 +38,13 @@ export interface ActivityListParams extends Record<string, any> {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Activity list options
  */
-export async function getActivityList(
+export async function getActivityList<TResponse = Record<string, any>>(
   apiKey: string,
   { domainId, ...params }: ActivityListParams
-) {
+): Promise<TResponse> {
   return fetch({
-    endpoint: `/activity/${domainId}`,
     apiKey,
+    endpoint: `/activity/${domainId}`,
     method: "GET",
     params,
   });
