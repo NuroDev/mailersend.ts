@@ -8,6 +8,7 @@ import type {
   DeleteDomainParams,
   DnsRecordsParams,
   ListDomainsParams,
+  ListScheduledMessagesParams,
   RecipientsForDomainParams,
   SendBulkParams,
   SendParams,
@@ -300,4 +301,39 @@ export interface IClient {
    * @param {Object} options - Send bulk options
    */
   sendBulk(options: Array<SendBulkParams>): Promise<Record<string, any>>;
+
+  /**
+   * Delete Scheduled Message
+   *
+   * @description Delete a scheduled message
+   *
+   * @see https://developers.mailersend.com/api/v1/message-schedules.html#delete-a-scheduled-message
+   *
+   * @param {String} messageId - Message ID from the Send an email's response headers or Get scheduled messages response.
+   */
+  deleteScheduledMessage(messageId: string): Promise<Record<string, any>>;
+
+  /**
+   * List Scheduled Messages
+   *
+   * @description Get information on scheduled messages, such as subject, time of creation, and time of sending
+   *
+   * @see https://developers.mailersend.com/api/v1/message-schedules.html#get-list-of-scheduled-messages
+   *
+   * @param {Object} options - Additional request options
+   */
+  listScheduledMessages(
+    options: ListScheduledMessagesParams
+  ): Promise<Record<string, any>>;
+
+  /**
+   * Single Scheduled Message
+   *
+   * @description Get information about a specific scheduled message, like its subject, creation date, sending date and domain
+   *
+   * @see https://developers.mailersend.com/api/v1/message-schedules.html#get-a-single-scheduled-message
+   *
+   * @param {String} messageId - Message ID from the Send an email's response headers or Get scheduled messages response.
+   */
+  singleScheduledMessage(messageId: string): Promise<Record<string, any>>;
 }

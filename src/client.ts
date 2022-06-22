@@ -2,6 +2,7 @@ import {
   addDomain,
   bulkEmailStatus,
   deleteDomain,
+  deleteScheduledMessage,
   getActivityByCountry,
   getActivityByDate,
   getActivityByReadingEnvironment,
@@ -12,8 +13,10 @@ import {
   getSingleDomain,
   getVerificationStatus,
   listDomains,
+  listScheduledMessages,
   send,
   sendBulk,
+  singleScheduledMessage,
   updateDomainSettings,
 } from "~/modules";
 
@@ -27,6 +30,7 @@ import type {
   DeleteDomainParams,
   DnsRecordsParams,
   ListDomainsParams,
+  ListScheduledMessagesParams,
   RecipientsForDomainParams,
   SendBulkParams,
   SendParams,
@@ -94,5 +98,15 @@ export class Client implements IClient {
   }
   public async sendBulk(options: Array<SendBulkParams>) {
     return sendBulk(this._apiKey, options);
+  }
+
+  public async deleteScheduledMessage(messageId: string) {
+    return deleteScheduledMessage(this._apiKey, messageId);
+  }
+  public async listScheduledMessages(options: ListScheduledMessagesParams) {
+    return listScheduledMessages(this._apiKey, options);
+  }
+  public async singleScheduledMessage(messageId: string) {
+    return singleScheduledMessage(this._apiKey, messageId);
   }
 }

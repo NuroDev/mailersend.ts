@@ -38,3 +38,10 @@ export {
   type SendParams,
 } from "./email";
 
+export {
+  deleteScheduledMessage,
+  listScheduledMessages,
+  singleScheduledMessage,
+  type ListScheduledMessagesParams,
+} from "./scheduledMessages";
+
