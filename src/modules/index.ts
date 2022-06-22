@@ -39,6 +39,17 @@ export {
 } from "./email";
 
 export {
+  addInboundRoute,
+  deleteInboundRoute,
+  listInboundRoutes,
+  inboundRouteById,
+  updateInboundRoute,
+  type AddInboundRouteParams,
+  type ListInboundRoutesParams,
+  type UpdateInboundRouteParams,
+} from "./inboundRouting";
+
+export {
   deleteScheduledMessage,
   listScheduledMessages,
   singleScheduledMessage,

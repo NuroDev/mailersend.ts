@@ -5,16 +5,19 @@ import type {
   ActivityByUserAgentParams,
   ActivityListParams,
   AddDomainParams,
+  AddInboundRouteParams,
   AllTemplatesParams,
   DeleteDomainParams,
   DnsRecordsParams,
+  DomainByIdParams,
   ListDomainsParams,
+  ListInboundRoutesParams,
   ListScheduledMessagesParams,
   RecipientsForDomainParams,
   SendBulkParams,
   SendParams,
-  DomainByIdParams,
   UpdateDomainSettingsParams,
+  UpdateInboundRouteParams,
   VerificationStatusParams,
 } from "~/modules";
 
@@ -302,6 +305,65 @@ export interface IClient {
    * @param {Object} options - Send bulk options
    */
   sendBulk(options: Array<SendBulkParams>): Promise<Record<string, any>>;
+
+  /**
+   * Add Inbound Route
+   *
+   * @description If you want to add a new inbound route to a domain
+   *
+   * @see https://developers.mailersend.com/api/v1/inbound.html#add-an-inbound-route
+   *
+   * @param {Object} options - Additional request options
+   */
+  addInboundRoute(options: AddInboundRouteParams): Promise<Record<string, any>>;
+
+  /**
+   * Delete Inbound Route
+   *
+   * @description If you want to delete an inbound route
+   *
+   * @see https://developers.mailersend.com/api/v1/inbound.html#delete-an-inbound-route
+   *
+   * @param {String} inboundId - Unique inbound identifier
+   */
+  deleteInboundRoute(inboundId: string): Promise<Record<string, any>>;
+
+  /**
+   * List Inbound Routes
+   *
+   * @description If you want to retrieve information about multiple inbound routes
+   *
+   * @see https://developers.mailersend.com/api/v1/inbound.html#get-a-list-of-inbound-routes
+   *
+   * @param {Object} options - Additional request options
+   */
+  listInboundRoutes(
+    options: ListInboundRoutesParams
+  ): Promise<Record<string, any>>;
+
+  /**
+   * Inbound Route by ID
+   *
+   * @description If you want to retrieve a single inbound route
+   *
+   * @see https://developers.mailersend.com/api/v1/inbound.html#get-a-single-inbound-route
+   *
+   * @param {String} inboundId - Unique inbound identifier
+   */
+  inboundRouteById(inboundId: string): Promise<Record<string, any>>;
+
+  /**
+   * Update Inbound Route
+   *
+   * @description If you want to update the information of an existing inbound route
+   *
+   * @see https://developers.mailersend.com/api/v1/inbound.html#update-an-inbound-route
+   *
+   * @param {Object} options - Additional request options
+   */
+  updateInboundRoute(
+    options: UpdateInboundRouteParams
+  ): Promise<Record<string, any>>;
 
   /**
    * Delete Scheduled Message

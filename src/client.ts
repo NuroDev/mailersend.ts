@@ -7,16 +7,19 @@ import type {
   ActivityByUserAgentParams,
   ActivityListParams,
   AddDomainParams,
+  AddInboundRouteParams,
   AllTemplatesParams,
   DeleteDomainParams,
   DnsRecordsParams,
+  DomainByIdParams,
   ListDomainsParams,
+  ListInboundRoutesParams,
   ListScheduledMessagesParams,
   RecipientsForDomainParams,
   SendBulkParams,
   SendParams,
-  DomainByIdParams,
   UpdateDomainSettingsParams,
+  UpdateInboundRouteParams,
   VerificationStatusParams,
 } from "~/modules";
 import type { ClientConfig, IClient } from "~/types";
@@ -79,6 +82,22 @@ export class Client implements IClient {
   }
   public async sendBulk(options: Array<SendBulkParams>) {
     return modules.sendBulk(this._apiKey, options);
+  }
+
+  public async addInboundRoute(options: AddInboundRouteParams) {
+    return modules.addInboundRoute(this._apiKey, options);
+  }
+  public async deleteInboundRoute(inboundId: string) {
+    return modules.deleteInboundRoute(this._apiKey, inboundId);
+  }
+  public async listInboundRoutes(options: ListInboundRoutesParams) {
+    return modules.listInboundRoutes(this._apiKey, options);
+  }
+  public async inboundRouteById(inboundId: string) {
+    return modules.inboundRouteById(this._apiKey, inboundId);
+  }
+  public async updateInboundRoute(options: UpdateInboundRouteParams) {
+    return modules.updateInboundRoute(this._apiKey, options);
   }
 
   public async deleteScheduledMessage(messageId: string) {
