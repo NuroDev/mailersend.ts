@@ -21,11 +21,9 @@ export {
   listDomains,
   updateDomainSettings,
   type AddDomainParams,
-  type DeleteDomainParams,
   type DnsRecordsParams,
   type ListDomainsParams,
   type RecipientsForDomainParams,
-  type DomainByIdParams,
   type UpdateDomainSettingsParams,
   type VerificationStatusParams,
 } from "./domains";

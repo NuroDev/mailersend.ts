@@ -35,10 +35,6 @@ export async function listDomains<TResponse = Response>(
   });
 }
 
-export interface DomainByIdParams extends Record<string, any> {
-  domainId: string;
-}
-
 /**
  * Domain by ID
  *
@@ -47,17 +43,16 @@ export interface DomainByIdParams extends Record<string, any> {
  * @see https://developers.mailersend.com/api/v1/domains.html#get-a-single-domain
  *
  * @param {String} apiKey - Unique API access token
- * @param {Object} options - Domain by ID options
+ * @param {String} domainId - Unique domain identifier
  */
 export async function domainById<TResponse = Response>(
   apiKey: string,
-  { domainId, ...params }: DomainByIdParams
+  domainId: string
 ): Promise<TResponse> {
   return fetch({
     apiKey,
     endpoint: `/domains/${domainId}`,
     method: "GET",
-    params,
   });
 }
 
@@ -104,10 +99,6 @@ export async function addDomain<TResponse = Response>(
   });
 }
 
-export interface DeleteDomainParams {
-  domainId: string;
-}
-
 /**
  * Delete Domain
  *
@@ -116,15 +107,15 @@ export interface DeleteDomainParams {
  * @see https://developers.mailersend.com/api/v1/domains.html#delete-a-domain
  *
  * @param {String} apiKey - Unique API access token
- * @param {Object} options - Delete domain options
+ * @param {String} domainId - Unique domain identifier
  */
 export async function deleteDomain<TResponse = Response>(
   apiKey: string,
-  params: DeleteDomainParams
+  domainId: string
 ): Promise<TResponse> {
   return fetch({
     apiKey,
-    endpoint: `/domains/${params.domainId}`,
+    endpoint: `/domains/${domainId}`,
     method: "DELETE",
   });
 }

@@ -7,9 +7,7 @@ import type {
   AddDomainParams,
   AddInboundRouteParams,
   AllTemplatesParams,
-  DeleteDomainParams,
   DnsRecordsParams,
-  DomainByIdParams,
   ListDomainsParams,
   ListInboundRoutesParams,
   ListMessagesParams,
@@ -190,9 +188,9 @@ export interface IClient {
    *
    * @see https://developers.mailersend.com/api/v1/domains.html#delete-a-domain
    *
-   * @param {Object} options - Delete domain options
+   * @param {String} domainId - Unique domain identifier
    */
-  deleteDomain(options: DeleteDomainParams): Promise<Record<string, any>>;
+  deleteDomain(domainId: string): Promise<Record<string, any>>;
 
   /**
    * DNS Records
@@ -225,9 +223,9 @@ export interface IClient {
    *
    * @see https://developers.mailersend.com/api/v1/domains.html#get-a-single-domain
    *
-   * @param {Object} options - Domain by ID options
+   * @param {String} domainId - Unique domain identifier
    */
-  domainById(options: DomainByIdParams): Promise<Record<string, any>>;
+  domainById(domainId: string): Promise<Record<string, any>>;
 
   /**
    * Verification Status
@@ -278,7 +276,7 @@ export interface IClient {
   bulkEmailStatus(bulkEmailId: string): Promise<Record<string, any>>;
 
   /**
-   * Send
+   * Send Email
    *
    * @description This endpoint allows you to send an asynchronous email.
    *
@@ -286,12 +284,12 @@ export interface IClient {
    *
    * @see https://developers.mailersend.com/api/v1/email.html#send-an-email
    *
-   * @param {Object} options - Send options
+   * @param {Object} options - Send email options
    */
   send(options: SendParams): Promise<Record<string, any>>;
 
   /**
-   * Send Bulk
+   * Send Bulk Emails
    *
    * @description This endpoint allows you to send multiple asynchronous emails.
    *
@@ -303,7 +301,7 @@ export interface IClient {
    *
    * @see https://developers.mailersend.com/api/v1/email.html#send-bulk-emails
    *
-   * @param {Object} options - Send bulk options
+   * @param {Object} options - Send bulk emails options
    */
   sendBulk(options: Array<SendBulkParams>): Promise<Record<string, any>>;
 
@@ -314,7 +312,7 @@ export interface IClient {
    *
    * @see https://developers.mailersend.com/api/v1/inbound.html#add-an-inbound-route
    *
-   * @param {Object} options - Additional request options
+   * @param {Object} options - Add inbound route options
    */
   addInboundRoute(options: AddInboundRouteParams): Promise<Record<string, any>>;
 
@@ -336,7 +334,7 @@ export interface IClient {
    *
    * @see https://developers.mailersend.com/api/v1/inbound.html#get-a-list-of-inbound-routes
    *
-   * @param {Object} options - Additional request options
+   * @param {Object} options - List inbound routes options
    */
   listInboundRoutes(
     options: ListInboundRoutesParams
@@ -360,7 +358,7 @@ export interface IClient {
    *
    * @see https://developers.mailersend.com/api/v1/inbound.html#update-an-inbound-route
    *
-   * @param {Object} options - Additional request options
+   * @param {Object} options - Update inbound route options
    */
   updateInboundRoute(
     options: UpdateInboundRouteParams
@@ -373,9 +371,9 @@ export interface IClient {
    *
    * @see https://developers.mailersend.com/api/v1/messages.html#get-a-list-of-messages
    *
-   * @param {Object} params - Additional request parameters
+   * @param {Object} options - List messages options
    */
-  listMessages(params: ListMessagesParams): Promise<Record<string, any>>;
+  listMessages(options: ListMessagesParams): Promise<Record<string, any>>;
 
   /**
    * Message Info by ID
@@ -406,7 +404,7 @@ export interface IClient {
    *
    * @see https://developers.mailersend.com/api/v1/message-schedules.html#get-list-of-scheduled-messages
    *
-   * @param {Object} options - Additional request options
+   * @param {Object} options - List scheduled messages options
    */
   listScheduledMessages(
     options: ListScheduledMessagesParams
@@ -430,7 +428,7 @@ export interface IClient {
    *
    * @see https://developers.mailersend.com/api/v1/templates.html#get-templates
    *
-   * @param {Object} options - Additional request parameters
+   * @param {Object} options - All templates options
    */
   allTemplates(options: AllTemplatesParams): Promise<Record<string, any>>;
 

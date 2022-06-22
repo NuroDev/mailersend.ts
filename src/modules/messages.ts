@@ -20,17 +20,17 @@ export interface ListMessagesParams extends Record<string, any> {
  * @see https://developers.mailersend.com/api/v1/messages.html#get-a-list-of-messages
  *
  * @param {String} apiKey - Unique API access token
- * @param {Object} params - Additional request parameters
+ * @param {Object} options - Additional request options
  */
 export async function listMessages<TResponse = Response>(
   apiKey: string,
-  params: ListMessagesParams
+  options: ListMessagesParams
 ): Promise<TResponse> {
   return fetch({
     apiKey,
     endpoint: "/messages",
     method: "GET",
-    params,
+    params: options,
   });
 }
 
