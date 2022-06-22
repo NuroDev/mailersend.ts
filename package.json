@@ -1,13 +1,13 @@
 {
-  "name": "typescript-lib",
+  "name": "mailersend.ts",
   "version": "0.1.1",
-  "description": "Project template to bootstrap a new TypeScript library",
+  "description": "Lightweight MailerSend Node.js api written in TypeScript",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nurodev/typescript-lib.git"
+    "url": "https://github.com/nurodev/ mailersend.ts.git"
   },
-  "homepage": "https://github.com/nurodev/typescript-lib",
-  "bugs": "https://github.com/nurodev/typescript-lib/issues",
+  "homepage": "https://github.com/nurodev/ mailersend.ts",
+  "bugs": "https://github.com/nurodev/ mailersend.ts/issues",
   "author": {
     "name": "nurodev",
     "email": "me@nuro.dev",
