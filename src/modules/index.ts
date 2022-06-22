@@ -45,3 +45,10 @@ export {
   type ListScheduledMessagesParams,
 } from "./scheduledMessages";
 
+export {
+  allTemplates,
+  deleteTemplate,
+  templateById,
+  type AllTemplatesParams,
+} from "./templates";
+

@@ -5,6 +5,7 @@ import type {
   ActivityByUserAgentParams,
   ActivityListParams,
   AddDomainParams,
+  AllTemplatesParams,
   DeleteDomainParams,
   DnsRecordsParams,
   ListDomainsParams,
@@ -336,4 +337,37 @@ export interface IClient {
    * @param {String} messageId - Message ID from the Send an email's response headers or Get scheduled messages response.
    */
   singleScheduledMessage(messageId: string): Promise<Record<string, any>>;
+
+  /**
+   * All Templates
+   *
+   * @description Retrieve the account templates
+   *
+   * @see https://developers.mailersend.com/api/v1/templates.html#get-templates
+   *
+   * @param {Object} options - Additional request parameters
+   */
+  allTemplates(options: AllTemplatesParams): Promise<Record<string, any>>;
+
+  /**
+   * Delete Template
+   *
+   * @description Delete a template
+   *
+   * @see https://developers.mailersend.com/api/v1/templates.html#delete-a-template
+   *
+   * @param {String} templateId - Unique template identifier
+   */
+  deleteTemplate(templateId: string): Promise<Record<string, any>>;
+
+  /**
+   * Template by ID
+   *
+   * @description Retrieve the information of a single template, its category, domain, and stats
+   *
+   * @see https://developers.mailersend.com/api/v1/templates.html#get-a-single-template
+   *
+   * @param {String} templateId - Unique template identifier
+   */
+  templateById(templateId: string): Promise<Record<string, any>>;
 }

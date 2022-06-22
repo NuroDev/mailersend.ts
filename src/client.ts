@@ -1,8 +1,10 @@
 import {
   addDomain,
+  allTemplates,
   bulkEmailStatus,
   deleteDomain,
   deleteScheduledMessage,
+  deleteTemplate,
   getActivityByCountry,
   getActivityByDate,
   getActivityByReadingEnvironment,
@@ -17,6 +19,7 @@ import {
   send,
   sendBulk,
   singleScheduledMessage,
+  templateById,
   updateDomainSettings,
 } from "~/modules";
 
@@ -27,6 +30,7 @@ import type {
   ActivityByUserAgentParams,
   ActivityListParams,
   AddDomainParams,
+  AllTemplatesParams,
   DeleteDomainParams,
   DnsRecordsParams,
   ListDomainsParams,
@@ -108,5 +112,15 @@ export class Client implements IClient {
   }
   public async singleScheduledMessage(messageId: string) {
     return singleScheduledMessage(this._apiKey, messageId);
+  }
+
+  public async allTemplates(options: AllTemplatesParams) {
+    return allTemplates(this._apiKey, options);
+  }
+  public async deleteTemplate(templateId: string) {
+    return deleteTemplate(this._apiKey, templateId);
+  }
+  public async templateById(templateId: string) {
+    return templateById(this._apiKey, templateId);
   }
 }
