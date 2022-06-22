@@ -10,3 +10,23 @@ export {
   type ActivityByReadingEnvironmentParams,
   type ActivityByUserAgentParams,
 } from "./analytics";
+
+export {
+  addDomain,
+  deleteDomain,
+  getDnsRecords,
+  getRecipientsForDomain,
+  getSingleDomain,
+  getVerificationStatus,
+  listDomains,
+  updateDomainSettings,
+  type AddDomainParams,
+  type DeleteDomainParams,
+  type DnsRecordsParams,
+  type ListDomainsParams,
+  type RecipientsForDomainParams,
+  type SingleDomainParams,
+  type UpdateDomainSettingsParams,
+  type VerificationStatusParams,
+} from "./domains";
+

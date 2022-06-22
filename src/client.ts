@@ -4,14 +4,30 @@ import {
   getActivityByReadingEnvironment,
   getActivityByUserAgent,
   getActivityList,
+  addDomain,
+  deleteDomain,
+  getDnsRecords,
+  getRecipientsForDomain,
+  getSingleDomain,
+  getVerificationStatus,
+  listDomains,
+  updateDomainSettings,
 } from "~/modules";
 
 import type {
-  ActivityListParams,
   ActivityByCountryParams,
   ActivityByDateParams,
   ActivityByReadingEnvironmentParams,
   ActivityByUserAgentParams,
+  ActivityListParams,
+  AddDomainParams,
+  DeleteDomainParams,
+  DnsRecordsParams,
+  ListDomainsParams,
+  RecipientsForDomainParams,
+  SingleDomainParams,
+  UpdateDomainSettingsParams,
+  VerificationStatusParams,
 } from "~/modules";
 import type { ClientConfig, IClient } from "~/types";
 
@@ -38,5 +54,30 @@ export class Client implements IClient {
   }
   public async activityByUserAgent(options: ActivityByUserAgentParams) {
     return getActivityByUserAgent(this._apiKey, options);
+  }
+
+  public async addDomain(options: AddDomainParams) {
+    return addDomain(this._apiKey, options);
+  }
+  public async deleteDomain(options: DeleteDomainParams) {
+    return deleteDomain(this._apiKey, options);
+  }
+  public async dnsRecords(options: DnsRecordsParams) {
+    return getDnsRecords(this._apiKey, options);
+  }
+  public async recipientsForDomain(options: RecipientsForDomainParams) {
+    return getRecipientsForDomain(this._apiKey, options);
+  }
+  public async singleDomain(options: SingleDomainParams) {
+    return getSingleDomain(this._apiKey, options);
+  }
+  public async verificationStatus(options: VerificationStatusParams) {
+    return getVerificationStatus(this._apiKey, options);
+  }
+  public async listDomains(options: ListDomainsParams) {
+    return listDomains(this._apiKey, options);
+  }
+  public async updateDomainSettings(options: UpdateDomainSettingsParams) {
+    return updateDomainSettings(this._apiKey, options);
   }
 }

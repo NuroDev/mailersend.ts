@@ -4,6 +4,14 @@ import type {
   ActivityByReadingEnvironmentParams,
   ActivityByUserAgentParams,
   ActivityListParams,
+  AddDomainParams,
+  DeleteDomainParams,
+  DnsRecordsParams,
+  ListDomainsParams,
+  RecipientsForDomainParams,
+  SingleDomainParams,
+  UpdateDomainSettingsParams,
+  VerificationStatusParams,
 } from "~/modules";
 
 export type HttpMethod =
@@ -103,5 +111,99 @@ export interface IClient {
    */
   activityByUserAgent(
     options: ActivityByUserAgentParams
+  ): Promise<Record<string, any>>;
+
+  /**
+   * Add Domain
+   *
+   * @description If you want to add a new domain
+   *
+   * @see https://developers.mailersend.com/api/v1/domains.html#add-a-domain
+   *
+   * @param {Object} options - Add domain options
+   */
+  addDomain(options: AddDomainParams): Promise<Record<string, any>>;
+
+  /**
+   * Delete Domain
+   *
+   * @description If you want to delete a domain name
+   *
+   * @see https://developers.mailersend.com/api/v1/domains.html#delete-a-domain
+   *
+   * @param {Object} options - Delete domain options
+   */
+  deleteDomain(options: DeleteDomainParams): Promise<Record<string, any>>;
+
+  /**
+   * DNS Records
+   *
+   * @description If you want to retrieve the domain's DNS records
+   *
+   * @see https://developers.mailersend.com/api/v1/domains.html#get-dns-records
+   *
+   * @param {Object} options - Dns records options
+   */
+  dnsRecords(options: DnsRecordsParams): Promise<Record<string, any>>;
+
+  /**
+   * Recipients For Domain
+   *
+   * @description If you want to retrieve information (creation date, update date, deletion date) about the recipients for a domain name
+   *
+   * @see https://developers.mailersend.com/api/v1/domains.html#get-recipients-for-a-domain
+   *
+   * @param {Object} options - Recipients for domain options
+   */
+  recipientsForDomain(
+    options: RecipientsForDomainParams
+  ): Promise<Record<string, any>>;
+
+  /**
+   * Single Domain
+   *
+   * @description Retrieve information about a single domain name
+   *
+   * @see https://developers.mailersend.com/api/v1/domains.html#get-a-single-domain
+   *
+   * @param {Object} options - Single domain options
+   */
+  singleDomain(options: SingleDomainParams): Promise<Record<string, any>>;
+
+  /**
+   * Verification Status
+   *
+   * @description If you want to retrieve the verification status for a domain
+   *
+   * @see https://developers.mailersend.com/api/v1/domains.html#get-verification-status
+   *
+   * @param {Object} options - Verification status options
+   */
+  verificationStatus(
+    options: VerificationStatusParams
+  ): Promise<Record<string, any>>;
+
+  /**
+   * List Domains
+   *
+   * @description Retrieve information about multiple domains
+   *
+   * @see https://developers.mailersend.com/api/v1/domains.html#get-a-list-of-domains
+   *
+   * @param {Object} options - List domains options
+   */
+  listDomains(options: ListDomainsParams): Promise<Record<string, any>>;
+
+  /**
+   * Update Domain Settings
+   *
+   * @description If you want to update the domain name settings
+   *
+   * @see https://developers.mailersend.com/api/v1/domains.html#update-domain-settings
+   *
+   * @param {Object} options - Update domain settings options
+   */
+  updateDomainSettings(
+    options: UpdateDomainSettingsParams
   ): Promise<Record<string, any>>;
 }
