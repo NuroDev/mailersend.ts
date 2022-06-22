@@ -24,6 +24,10 @@ export type Event =
   | "spam_complaints"
   | "unsubscribed";
 
+export type ScheduleStatus = "scheduled" | "sent" | "error";
+
+export type GroupBy = "ays" | "weeks" | "months" | "years";
+
 export interface ClientConfig {
   /**
    * @see https://www.mailersend.com/help/managing-api-tokens
