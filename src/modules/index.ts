@@ -30,3 +30,11 @@ export {
   type VerificationStatusParams,
 } from "./domains";
 
+export {
+  bulkEmailStatus,
+  send,
+  sendBulk,
+  type SendBulkParams,
+  type SendParams,
+} from "./email";
+

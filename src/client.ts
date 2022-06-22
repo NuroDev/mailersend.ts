@@ -1,16 +1,19 @@
 import {
+  addDomain,
+  bulkEmailStatus,
+  deleteDomain,
   getActivityByCountry,
   getActivityByDate,
   getActivityByReadingEnvironment,
   getActivityByUserAgent,
   getActivityList,
-  addDomain,
-  deleteDomain,
   getDnsRecords,
   getRecipientsForDomain,
   getSingleDomain,
   getVerificationStatus,
   listDomains,
+  send,
+  sendBulk,
   updateDomainSettings,
 } from "~/modules";
 
@@ -25,6 +28,8 @@ import type {
   DnsRecordsParams,
   ListDomainsParams,
   RecipientsForDomainParams,
+  SendBulkParams,
+  SendParams,
   SingleDomainParams,
   UpdateDomainSettingsParams,
   VerificationStatusParams,
@@ -79,5 +84,15 @@ export class Client implements IClient {
   }
   public async updateDomainSettings(options: UpdateDomainSettingsParams) {
     return updateDomainSettings(this._apiKey, options);
+  }
+
+  public async bulkEmailStatus(bulkEmailId: string) {
+    return bulkEmailStatus(this._apiKey, bulkEmailId);
+  }
+  public async send(options: SendParams) {
+    return send(this._apiKey, options);
+  }
+  public async sendBulk(options: Array<SendBulkParams>) {
+    return sendBulk(this._apiKey, options);
   }
 }
