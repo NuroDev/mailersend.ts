@@ -88,3 +88,13 @@ export {
   type UpdateTokenParams,
 } from "./tokens";
 
+export {
+  createWebhook,
+  deleteWebhook,
+  listWebhooks,
+  updateWebhook,
+  webhookById,
+  type CreateWebhookParams,
+  type ListWebhooksParams,
+  type UpdateWebhookParams,
+} from "./webhooks";

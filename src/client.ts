@@ -12,12 +12,14 @@ import type {
   AllRecipientsParams,
   AllTemplatesParams,
   CreateTokenParams,
+  CreateWebhookParams,
   DeleteFromSuppressionListParams,
   DnsRecordsParams,
   ListDomainsParams,
   ListInboundRoutesParams,
   ListMessagesParams,
   ListScheduledMessagesParams,
+  ListWebhooksParams,
   RecipientsForDomainParams,
   SendBulkParams,
   SendParams,
@@ -25,6 +27,7 @@ import type {
   UpdateDomainSettingsParams,
   UpdateInboundRouteParams,
   UpdateTokenParams,
+  UpdateWebhookParams,
   VerificationStatusParams,
 } from "~/modules";
 import type { ClientConfig, IClient } from "~/types";
@@ -202,5 +205,25 @@ export class Client implements IClient {
   }
   public async updateToken(options: UpdateTokenParams) {
     return modules.updateToken(this._apiKey, options);
+  }
+
+  // ------------------------------------------------------------
+  // Webhooks
+  // ------------------------------------------------------------
+
+  public async createWebhook(options: CreateWebhookParams) {
+    return modules.createWebhook(this._apiKey, options);
+  }
+  public async deleteWebhook(webhookId: string) {
+    return modules.deleteWebhook(this._apiKey, webhookId);
+  }
+  public async listWebhooks(options: ListWebhooksParams) {
+    return modules.listWebhooks(this._apiKey, options);
+  }
+  public async updateWebhook(options: UpdateWebhookParams) {
+    return modules.updateWebhook(this._apiKey, options);
+  }
+  public async webhookById(webhookId: string) {
+    return modules.webhookById(this._apiKey, webhookId);
   }
 }
