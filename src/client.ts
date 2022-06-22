@@ -11,6 +11,7 @@ import type {
   AddToSuppressionListParams,
   AllRecipientsParams,
   AllTemplatesParams,
+  CreateTokenParams,
   DeleteFromSuppressionListParams,
   DnsRecordsParams,
   ListDomainsParams,
@@ -23,6 +24,7 @@ import type {
   SuppressionListParams,
   UpdateDomainSettingsParams,
   UpdateInboundRouteParams,
+  UpdateTokenParams,
   VerificationStatusParams,
 } from "~/modules";
 import type { ClientConfig, IClient } from "~/types";
@@ -186,5 +188,19 @@ export class Client implements IClient {
   }
   public async templateById(templateId: string) {
     return modules.templateById(this._apiKey, templateId);
+  }
+
+  // ------------------------------------------------------------
+  // Tokens
+  // ------------------------------------------------------------
+
+  public async createToken(options: CreateTokenParams) {
+    return modules.createToken(this._apiKey, options);
+  }
+  public async deleteToken(tokenId: string) {
+    return modules.deleteToken(this._apiKey, tokenId);
+  }
+  public async updateToken(options: UpdateTokenParams) {
+    return modules.updateToken(this._apiKey, options);
   }
 }

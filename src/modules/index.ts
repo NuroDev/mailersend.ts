@@ -80,3 +80,11 @@ export {
   type AllTemplatesParams,
 } from "./templates";
 
+export {
+  createToken,
+  deleteToken,
+  updateToken,
+  type CreateTokenParams,
+  type UpdateTokenParams,
+} from "./tokens";
+

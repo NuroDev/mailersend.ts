@@ -9,6 +9,7 @@ import type {
   AddToSuppressionListParams,
   AllRecipientsParams,
   AllTemplatesParams,
+  CreateTokenParams,
   DeleteFromSuppressionListParams,
   DnsRecordsParams,
   ListDomainsParams,
@@ -21,6 +22,7 @@ import type {
   SuppressionListParams,
   UpdateDomainSettingsParams,
   UpdateInboundRouteParams,
+  UpdateTokenParams,
   VerificationStatusParams,
 } from "~/modules";
 
@@ -528,7 +530,7 @@ export interface IClient {
   singleScheduledMessage(messageId: string): Promise<Record<string, any>>;
 
   // ------------------------------------------------------------
-  // Temlates
+  // Templates
   // ------------------------------------------------------------
 
   /**
@@ -563,4 +565,41 @@ export interface IClient {
    * @param {String} templateId - Unique template identifier
    */
   templateById(templateId: string): Promise<Record<string, any>>;
+
+  // ------------------------------------------------------------
+  // Templates
+  // ------------------------------------------------------------
+
+  /**
+   * Create Token
+   *
+   * @description Create an API token
+   *
+   * @see https://developers.mailersend.com/api/v1/tokens.html#create-a-token
+   *
+   * @param {Object} options - Create token options
+   */
+  createToken(options: CreateTokenParams): Promise<Record<string, any>>;
+
+  /**
+   * Delete Token
+   *
+   * @description Delete an API token
+   *
+   * @see https://developers.mailersend.com/api/v1/tokens.html#delete-a-token
+   *
+   * @param {String} tokenId - Unique token identifier
+   */
+  deleteToken(tokenId: string): Promise<Record<string, any>>;
+
+  /**
+   * Update Token
+   *
+   * @description Update an API token
+   *
+   * @see https://developers.mailersend.com/api/v1/tokens.html#update-a-token
+   *
+   * @param {Object} options - Update token options
+   */
+  updateToken(options: UpdateTokenParams): Promise<Record<string, any>>;
 }
