@@ -1,5 +1,9 @@
-export { Client } from "./client";
+import { Client } from "./client";
 
-export { type ActivityListParams, getActivityList } from "./modules";
+export * from "./modules";
 
 export { type ClientConfig } from "./types";
+
+export { Client };
+
+export default Client;
