@@ -50,6 +50,12 @@ export {
 } from "./inboundRouting";
 
 export {
+  listMessages,
+  messageInfoById,
+  type ListMessagesParams,
+} from "./messages";
+
+export {
   deleteScheduledMessage,
   listScheduledMessages,
   singleScheduledMessage,

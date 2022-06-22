@@ -12,6 +12,7 @@ import type {
   DomainByIdParams,
   ListDomainsParams,
   ListInboundRoutesParams,
+  ListMessagesParams,
   ListScheduledMessagesParams,
   RecipientsForDomainParams,
   SendBulkParams,
@@ -364,6 +365,28 @@ export interface IClient {
   updateInboundRoute(
     options: UpdateInboundRouteParams
   ): Promise<Record<string, any>>;
+
+  /**
+   * List Messages
+   *
+   * @description Retrieve a information about all messaged
+   *
+   * @see https://developers.mailersend.com/api/v1/messages.html#get-a-list-of-messages
+   *
+   * @param {Object} params - Additional request parameters
+   */
+  listMessages(params: ListMessagesParams): Promise<Record<string, any>>;
+
+  /**
+   * Message Info by ID
+   *
+   * @description Retrieve information for a single message
+   *
+   * @see https://developers.mailersend.com/api/v1/messages.html#get-information-for-a-single-message
+   *
+   * @param {String} messageId - Unique message identifier
+   */
+  messageInfoById(messageId: string): Promise<Record<string, any>>;
 
   /**
    * Delete Scheduled Message
