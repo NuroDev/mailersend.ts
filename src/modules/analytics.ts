@@ -42,7 +42,7 @@ export interface ActivityByDateParams extends Record<string, any> {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Activity by date options
  */
-export async function getActivityByDate<TResponse = Record<string, any>>(
+export async function activityByDate<TResponse = Record<string, any>>(
   apiKey: string,
   { domainId, ...params }: ActivityByDateParams
 ): Promise<TResponse> {
@@ -89,7 +89,7 @@ export interface ActivityByCountryParams extends Record<string, any> {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Activity by country options
  */
-export async function getActivityByCountry<TResponse = Record<string, any>>(
+export async function activityByCountry<TResponse = Record<string, any>>(
   apiKey: string,
   params: ActivityByCountryParams
 ): Promise<TResponse> {
@@ -136,7 +136,7 @@ export interface ActivityByUserAgentParams extends Record<string, any> {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Activity by user agent options
  */
-export async function getActivityByUserAgent<TResponse = Record<string, any>>(
+export async function activityByUserAgent<TResponse = Record<string, any>>(
   apiKey: string,
   params: ActivityByUserAgentParams
 ): Promise<TResponse> {
@@ -184,7 +184,7 @@ export interface ActivityByReadingEnvironmentParams
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Activity by reading environment options
  */
-export async function getActivityByReadingEnvironment<
+export async function activityByReadingEnvironment<
   TResponse = Record<string, any>
 >(
   apiKey: string,

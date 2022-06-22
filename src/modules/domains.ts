@@ -35,23 +35,23 @@ export async function listDomains<TResponse = Response>(
   });
 }
 
-export interface SingleDomainParams extends Record<string, any> {
+export interface DomainByIdParams extends Record<string, any> {
   domainId: string;
 }
 
 /**
- * Get Single Domain
+ * Domain by ID
  *
  * @description Retrieve information about a single domain name
  *
  * @see https://developers.mailersend.com/api/v1/domains.html#get-a-single-domain
  *
  * @param {String} apiKey - Unique API access token
- * @param {Object} options - Single domain options
+ * @param {Object} options - Domain by ID options
  */
-export async function getSingleDomain<TResponse = Response>(
+export async function domainById<TResponse = Response>(
   apiKey: string,
-  { domainId, ...params }: SingleDomainParams
+  { domainId, ...params }: DomainByIdParams
 ): Promise<TResponse> {
   return fetch({
     apiKey,
@@ -143,7 +143,7 @@ export interface RecipientsForDomainParams extends Record<string, any> {
 }
 
 /**
- * Get Recipients For Domain
+ * Recipients For Domain
  *
  * @description If you want to retrieve information (creation date, update date, deletion date) about the recipients for a domain name
  *
@@ -152,7 +152,7 @@ export interface RecipientsForDomainParams extends Record<string, any> {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Recipients for domain options
  */
-export async function getRecipientsForDomain<TResponse = Response>(
+export async function recipientsForDomain<TResponse = Response>(
   apiKey: string,
   { domainId, ...params }: RecipientsForDomainParams
 ): Promise<TResponse> {
@@ -205,7 +205,7 @@ export interface DnsRecordsParams extends Record<string, any> {
 }
 
 /**
- * Get DNS Records
+ * DNS Records
  *
  * @description If you want to retrieve the domain's DNS records
  *
@@ -214,7 +214,7 @@ export interface DnsRecordsParams extends Record<string, any> {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Dns records options
  */
-export async function getDnsRecords<TResponse = Response>(
+export async function dnsRecords<TResponse = Response>(
   apiKey: string,
   { domainId, ...params }: DnsRecordsParams
 ): Promise<TResponse> {
@@ -240,7 +240,7 @@ export interface VerificationStatusParams extends Record<string, any> {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Verification status options
  */
-export async function getVerificationStatus<TResponse = Response>(
+export async function verificationStatus<TResponse = Response>(
   apiKey: string,
   { domainId, ...params }: VerificationStatusParams
 ): Promise<TResponse> {

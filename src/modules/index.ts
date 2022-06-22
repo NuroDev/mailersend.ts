@@ -1,10 +1,10 @@
-export { getActivityList, type ActivityListParams } from "./activity";
+export { activityList, type ActivityListParams } from "./activity";
 
 export {
-  getActivityByCountry,
-  getActivityByDate,
-  getActivityByReadingEnvironment,
-  getActivityByUserAgent,
+  activityByCountry,
+  activityByDate,
+  activityByReadingEnvironment,
+  activityByUserAgent,
   type ActivityByCountryParams,
   type ActivityByDateParams,
   type ActivityByReadingEnvironmentParams,
@@ -14,10 +14,10 @@ export {
 export {
   addDomain,
   deleteDomain,
-  getDnsRecords,
-  getRecipientsForDomain,
-  getSingleDomain,
-  getVerificationStatus,
+  dnsRecords,
+  recipientsForDomain,
+  domainById,
+  verificationStatus,
   listDomains,
   updateDomainSettings,
   type AddDomainParams,
@@ -25,7 +25,7 @@ export {
   type DnsRecordsParams,
   type ListDomainsParams,
   type RecipientsForDomainParams,
-  type SingleDomainParams,
+  type DomainByIdParams,
   type UpdateDomainSettingsParams,
   type VerificationStatusParams,
 } from "./domains";

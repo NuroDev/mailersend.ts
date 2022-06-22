@@ -13,7 +13,7 @@ import type {
   RecipientsForDomainParams,
   SendBulkParams,
   SendParams,
-  SingleDomainParams,
+  DomainByIdParams,
   UpdateDomainSettingsParams,
   VerificationStatusParams,
 } from "~/modules";
@@ -215,15 +215,15 @@ export interface IClient {
   ): Promise<Record<string, any>>;
 
   /**
-   * Single Domain
+   * Domain by ID
    *
    * @description Retrieve information about a single domain name
    *
    * @see https://developers.mailersend.com/api/v1/domains.html#get-a-single-domain
    *
-   * @param {Object} options - Single domain options
+   * @param {Object} options - Domain by ID options
    */
-  singleDomain(options: SingleDomainParams): Promise<Record<string, any>>;
+  domainById(options: DomainByIdParams): Promise<Record<string, any>>;
 
   /**
    * Verification Status

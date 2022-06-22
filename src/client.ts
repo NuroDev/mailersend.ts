@@ -15,7 +15,7 @@ import type {
   RecipientsForDomainParams,
   SendBulkParams,
   SendParams,
-  SingleDomainParams,
+  DomainByIdParams,
   UpdateDomainSettingsParams,
   VerificationStatusParams,
 } from "~/modules";
@@ -29,21 +29,21 @@ export class Client implements IClient {
   }
 
   public async activityList(options: ActivityListParams) {
-    return modules.getActivityList(this._apiKey, options);
+    return modules.activityList(this._apiKey, options);
   }
   public async activityByCountry(options: ActivityByCountryParams) {
-    return modules.getActivityByCountry(this._apiKey, options);
+    return modules.activityByCountry(this._apiKey, options);
   }
   public async activityByDate(options: ActivityByDateParams) {
-    return modules.getActivityByDate(this._apiKey, options);
+    return modules.activityByDate(this._apiKey, options);
   }
   public async activityByReadingEnvironment(
     options: ActivityByReadingEnvironmentParams
   ) {
-    return modules.getActivityByReadingEnvironment(this._apiKey, options);
+    return modules.activityByReadingEnvironment(this._apiKey, options);
   }
   public async activityByUserAgent(options: ActivityByUserAgentParams) {
-    return modules.getActivityByUserAgent(this._apiKey, options);
+    return modules.activityByUserAgent(this._apiKey, options);
   }
 
   public async addDomain(options: AddDomainParams) {
@@ -53,16 +53,16 @@ export class Client implements IClient {
     return modules.deleteDomain(this._apiKey, options);
   }
   public async dnsRecords(options: DnsRecordsParams) {
-    return modules.getDnsRecords(this._apiKey, options);
+    return modules.dnsRecords(this._apiKey, options);
   }
   public async recipientsForDomain(options: RecipientsForDomainParams) {
-    return modules.getRecipientsForDomain(this._apiKey, options);
+    return modules.recipientsForDomain(this._apiKey, options);
   }
-  public async singleDomain(options: SingleDomainParams) {
-    return modules.getSingleDomain(this._apiKey, options);
+  public async domainById(options: DomainByIdParams) {
+    return modules.domainById(this._apiKey, options);
   }
   public async verificationStatus(options: VerificationStatusParams) {
-    return modules.getVerificationStatus(this._apiKey, options);
+    return modules.verificationStatus(this._apiKey, options);
   }
   public async listDomains(options: ListDomainsParams) {
     return modules.listDomains(this._apiKey, options);

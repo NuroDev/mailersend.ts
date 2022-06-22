@@ -27,7 +27,7 @@ export interface ActivityListParams extends Record<string, any> {
 }
 
 /**
- * Get Activity List
+ * Activity List
  *
  * @description Get information about your domain activity, including your sent emails and whether they were received by the recipient.
  *
@@ -38,7 +38,7 @@ export interface ActivityListParams extends Record<string, any> {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Activity list options
  */
-export async function getActivityList<TResponse = Record<string, any>>(
+export async function activityList<TResponse = Record<string, any>>(
   apiKey: string,
   { domainId, ...params }: ActivityListParams
 ): Promise<TResponse> {
