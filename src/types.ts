@@ -42,6 +42,57 @@ export type ScheduleStatus = "scheduled" | "sent" | "error";
 
 export type GroupBy = "ays" | "weeks" | "months" | "years";
 
+export interface Attachment<T = string> {
+  content: T;
+  filename: string;
+  id?: string;
+}
+
+export interface Recipient {
+  email: string;
+  name: string;
+}
+
+/**
+ * @see https://developers.mailersend.com/api/v1/email.html#send-an-email
+ */
+export interface EmailParams {
+  attachments?: Array<Attachment>;
+  bcc?: Array<Recipient>;
+  cc?: Array<Recipient>;
+  from: {
+    email: string;
+    name?: string;
+  };
+  html: string;
+  personalization?: Array<{
+    email: string;
+    data: Array<any>;
+  }>;
+  precedence_bulk?: boolean;
+  recipients: Array<Recipient>;
+  reply_to?: {
+    email?: string;
+    name?: string;
+  };
+  send_at?: number;
+  subject: string;
+  tags: Array<string>;
+  to: Array<{
+    email: string;
+    name?: string;
+  }>;
+  template_id: string;
+  text: string;
+  variables?: Array<{
+    email: string;
+    substitutions: Array<{
+      var: string;
+      value: string;
+    }>;
+  }>;
+}
+
 export interface ClientConfig {
   /**
    * @see https://www.mailersend.com/help/managing-api-tokens
