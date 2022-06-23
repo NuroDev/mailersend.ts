@@ -2,6 +2,19 @@ import { fetch } from "~/util";
 
 import type { EmailParams } from "~/types";
 
+export interface BulkEmailStatusResponse {
+  created_at: string;
+  id: string;
+  messages_id: string;
+  state: string;
+  suppressed_recipients_count: number;
+  suppressed_recipients: unknown;
+  total_recipients_count: number;
+  updated_at: string;
+  validation_errors_count: number;
+  validation_errors: unknown;
+}
+
 /**
  * Bulk Email Status
  *
@@ -12,7 +25,7 @@ import type { EmailParams } from "~/types";
  * @param {String} apiKey - Unique API access token
  * @param {Object} bulkEmailId - Unique bulk email identifier
  */
-export async function bulkEmailStatus<TResponse = Response>(
+export async function bulkEmailStatus<TResponse = BulkEmailStatusResponse>(
   apiKey: string,
   bulkEmailId: string
 ): Promise<TResponse> {
@@ -24,6 +37,20 @@ export async function bulkEmailStatus<TResponse = Response>(
 }
 
 export interface SendParams extends EmailParams, Record<string, any> {}
+
+export interface SendResponse {
+  errors?: Record<string, Array<string>>;
+  message?: string;
+  warnings?: Array<{
+    type: string;
+    warning: string;
+    recipients: Array<{
+      email: string;
+      name: string;
+      reasons: Array<string>;
+    }>;
+  }>;
+}
 
 /**
  * Send
@@ -37,7 +64,7 @@ export interface SendParams extends EmailParams, Record<string, any> {}
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Send options
  */
-export async function send<TResponse = Response>(
+export async function send<TResponse = SendResponse>(
   apiKey: string,
   options: SendParams
 ): Promise<TResponse> {
@@ -50,6 +77,11 @@ export async function send<TResponse = Response>(
 }
 
 export interface SendBulkParams extends EmailParams, Record<string, any> {}
+
+export interface SendBulkResponse {
+  bulk_email_id: string;
+  message: string;
+}
 
 /**
  * Send Bulk
@@ -67,7 +99,7 @@ export interface SendBulkParams extends EmailParams, Record<string, any> {}
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Send bulk options
  */
-export async function sendBulk<TResponse = Response>(
+export async function sendBulk<TResponse = SendBulkResponse>(
   apiKey: string,
   options: Array<SendBulkParams>
 ): Promise<TResponse> {

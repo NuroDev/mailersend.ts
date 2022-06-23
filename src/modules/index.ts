@@ -59,8 +59,11 @@ export {
   bulkEmailStatus,
   send,
   sendBulk,
+  type BulkEmailStatusResponse,
   type SendBulkParams,
+  type SendBulkResponse,
   type SendParams,
+  type SendResponse,
 } from "./email";
 
 export {
