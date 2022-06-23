@@ -1,6 +1,6 @@
 import { fetch } from "~/util";
 
-import type { GroupBy } from "~/types";
+import type { BaseReponse, GroupBy } from "~/types";
 
 export interface ActivityByDateParams extends Record<string, any> {
   domain_id?: string;
@@ -32,6 +32,28 @@ export interface ActivityByDateParams extends Record<string, any> {
   event: Array<Event>;
 }
 
+export interface ActivityByDateData {
+  date_from: string;
+  date_to: string;
+  group_by: string;
+  stats: Array<{
+    clicked: number;
+    date: string;
+    delivered: number;
+    hard_bounced: number;
+    junk: number;
+    opened: number;
+    processed: number;
+    queued: number;
+    sent: number;
+    soft_bounced: number;
+    spam_complaints: number;
+    unsubscribed: number;
+  }>;
+}
+
+export type ActivityByDateResponse = BaseReponse<Array<ActivityByDateData>>;
+
 /**
  * Get Activity By Date
  *
@@ -42,7 +64,7 @@ export interface ActivityByDateParams extends Record<string, any> {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Activity by date options
  */
-export async function activityByDate<TResponse = Record<string, any>>(
+export async function activityByDate<TResponse = ActivityByDateResponse>(
   apiKey: string,
   { domainId, ...params }: ActivityByDateParams
 ): Promise<TResponse> {
@@ -79,6 +101,17 @@ export interface ActivityByCountryParams extends Record<string, any> {
   tags?: Array<string>;
 }
 
+export interface ActivityByCountryData {
+  date_from: number;
+  date_to: number;
+  stats: Array<{
+    count: number;
+    name: string;
+  }>;
+}
+
+export type ActivityByCountryResponse = BaseReponse<ActivityByCountryData>;
+
 /**
  * Get Activity By Country
  *
@@ -89,7 +122,7 @@ export interface ActivityByCountryParams extends Record<string, any> {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Activity by country options
  */
-export async function activityByCountry<TResponse = Record<string, any>>(
+export async function activityByCountry<TResponse = ActivityByCountryResponse>(
   apiKey: string,
   params: ActivityByCountryParams
 ): Promise<TResponse> {
@@ -126,6 +159,17 @@ export interface ActivityByUserAgentParams extends Record<string, any> {
   tags?: Array<string>;
 }
 
+export interface ActivityByUserAgentData {
+  date_from: number;
+  date_to: number;
+  stats: Array<{
+    count: number;
+    name: string;
+  }>;
+}
+
+export type ActivityByUserAgentResponse = BaseReponse<ActivityByUserAgentData>;
+
 /**
  * Get Activity By User Agent
  *
@@ -136,10 +180,9 @@ export interface ActivityByUserAgentParams extends Record<string, any> {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Activity by user agent options
  */
-export async function activityByUserAgent<TResponse = Record<string, any>>(
-  apiKey: string,
-  params: ActivityByUserAgentParams
-): Promise<TResponse> {
+export async function activityByUserAgent<
+  TResponse = ActivityByUserAgentResponse
+>(apiKey: string, params: ActivityByUserAgentParams): Promise<TResponse> {
   return fetch({
     apiKey,
     endpoint: "/analytics/ua-name",
@@ -174,6 +217,18 @@ export interface ActivityByReadingEnvironmentParams
   tags?: Array<string>;
 }
 
+export interface ActivityByReadingEnvironmentData {
+  date_from: number;
+  date_to: number;
+  stats: Array<{
+    count: number;
+    name: string;
+  }>;
+}
+
+export type ActivityByReadingEnvironmentResponse =
+  BaseReponse<ActivityByReadingEnvironmentData>;
+
 /**
  * Get Activity By Reading Environment
  *
@@ -185,7 +240,7 @@ export interface ActivityByReadingEnvironmentParams
  * @param {Object} options - Activity by reading environment options
  */
 export async function activityByReadingEnvironment<
-  TResponse = Record<string, any>
+  TResponse = ActivityByReadingEnvironmentResponse
 >(
   apiKey: string,
   params: ActivityByReadingEnvironmentParams
