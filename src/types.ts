@@ -546,7 +546,7 @@ export interface IClient {
   // ------------------------------------------------------------
 
   /**
-   * All Templates
+   * List Templates
    *
    * @description Retrieve the account templates
    *
@@ -554,9 +554,9 @@ export interface IClient {
    *
    * @param {Object} options - All templates options
    */
-  allTemplates(
-    options: modules.AllTemplatesParams
-  ): ReturnType<typeof modules.allTemplates>;
+  listTemplates(
+    options: modules.ListTemplatesParams
+  ): ReturnType<typeof modules.listTemplates>;
 
   /**
    * Delete Template

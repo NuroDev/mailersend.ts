@@ -103,10 +103,10 @@ export {
 } from "./recipients";
 
 export {
-  allTemplates,
+  listTemplates,
   deleteTemplate,
   templateById,
-  type AllTemplatesParams,
+  type ListTemplatesParams,
 } from "./templates";
 
 export {

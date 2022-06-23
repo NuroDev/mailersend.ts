@@ -1,6 +1,6 @@
 import { fetch } from "~/util";
 
-export interface AllTemplatesParams extends Record<string, any> {
+export interface ListTemplatesParams extends Record<string, any> {
   domain_id?: string;
   page?: number;
   /**
@@ -14,7 +14,7 @@ export interface AllTemplatesParams extends Record<string, any> {
 }
 
 /**
- * All Templates
+ * List Templates
  *
  * @description Retrieve the account templates
  *
@@ -23,9 +23,9 @@ export interface AllTemplatesParams extends Record<string, any> {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Additional request parameters
  */
-export async function allTemplates<TResponse = Response>(
+export async function listTemplates<TResponse = Response>(
   apiKey: string,
-  options: AllTemplatesParams
+  options: ListTemplatesParams
 ): Promise<TResponse> {
   return fetch({
     apiKey,
