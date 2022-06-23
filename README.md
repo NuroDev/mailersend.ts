@@ -1,4 +1,6 @@
 <div align="center">
+  ⚠️ WARNING: Package is still a work-in-progress & prone to changes ⚠️
+
   <h1>
     <br/>
     <br/>
