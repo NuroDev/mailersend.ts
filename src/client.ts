@@ -49,22 +49,22 @@ export class Client implements IClient {
   public async dnsRecords(options: modules.DnsRecordsParams) {
     return modules.dnsRecords(this._apiKey, options);
   }
-  public async recipientsForDomain(options: modules.RecipientsForDomainParams) {
-    return modules.recipientsForDomain(this._apiKey, options);
-  }
   public async domainById(domainId: string) {
     return modules.domainById(this._apiKey, domainId);
   }
-  public async verificationStatus(domainId: string) {
-    return modules.verificationStatus(this._apiKey, domainId);
-  }
   public async listDomains(options: modules.ListDomainsParams = {}) {
     return modules.listDomains(this._apiKey, options);
+  }
+  public async recipientsForDomain(options: modules.RecipientsForDomainParams) {
+    return modules.recipientsForDomain(this._apiKey, options);
   }
   public async updateDomainSettings(
     options: modules.UpdateDomainSettingsParams
   ) {
     return modules.updateDomainSettings(this._apiKey, options);
+  }
+  public async verificationStatus(domainId: string) {
+    return modules.verificationStatus(this._apiKey, domainId);
   }
 
   // ------------------------------------------------------------
