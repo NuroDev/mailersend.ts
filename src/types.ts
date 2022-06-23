@@ -436,17 +436,17 @@ export interface IClient {
   ): ReturnType<typeof modules.addToSuppressionList>;
 
   /**
-   * All Recipients
+   * List Recipients
    *
    * @description Retrieve the email addresses of recipients
    *
    * @see https://developers.mailersend.com/api/v1/recipients.html#get-recipients
    *
-   * @param {Object} options - All recipients options
+   * @param {Object} options - List recipients options
    */
-  allRecipients(
-    options: modules.AllRecipientsParams
-  ): ReturnType<typeof modules.allRecipients>;
+  listRecipients(
+    options: modules.ListRecipientsParams
+  ): ReturnType<typeof modules.listRecipients>;
 
   /**
    * Delete From Suppression List
@@ -552,7 +552,7 @@ export interface IClient {
    *
    * @see https://developers.mailersend.com/api/v1/templates.html#get-templates
    *
-   * @param {Object} options - All templates options
+   * @param {Object} options - List templates options
    */
   listTemplates(
     options: modules.ListTemplatesParams

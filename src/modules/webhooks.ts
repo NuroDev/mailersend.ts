@@ -120,7 +120,7 @@ export async function updateWebhook<TResponse = Response>(
  *
  * @description Delete a webhook
  *
- * @see https://developers.mailersend.com/api/v1/webhooks.html#update-a-webhook
+ * @see https://developers.mailersend.com/api/v1/webhooks.html#delete-a-webhook
  *
  * @param {String} apiKey - Unique API access token
  * @param {String} webhookId - Unique webhook identifier

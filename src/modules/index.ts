@@ -91,13 +91,13 @@ export {
 
 export {
   addToSuppressionList,
-  allRecipients,
+  listRecipients,
   deleteFromSuppressionList,
   deleteRecipient,
   recipientById,
   suppressionList,
   type AddToSuppressionListParams,
-  type AllRecipientsParams,
+  type ListRecipientsParams,
   type DeleteFromSuppressionListParams,
   type SuppressionListParams,
 } from "./recipients";

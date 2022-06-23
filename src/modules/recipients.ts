@@ -1,6 +1,6 @@
 import { fetch } from "~/util";
 
-export interface AllRecipientsParams extends Record<string, any> {
+export interface ListRecipientsParams extends Record<string, any> {
   domain_id?: number;
   page?: number;
   /**
@@ -14,7 +14,7 @@ export interface AllRecipientsParams extends Record<string, any> {
 }
 
 /**
- * All Recipients
+ * List Recipients
  *
  * @description Retrieve the email addresses of recipients
  *
@@ -23,9 +23,9 @@ export interface AllRecipientsParams extends Record<string, any> {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - All recipients options
  */
-export async function allRecipients<TResponse = Response>(
+export async function listRecipients<TResponse = Response>(
   apiKey: string,
-  options: AllRecipientsParams
+  options: ListRecipientsParams
 ): Promise<TResponse> {
   return fetch({
     apiKey,

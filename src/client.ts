@@ -121,8 +121,8 @@ export class Client implements IClient {
   ) {
     return modules.addToSuppressionList(this._apiKey, options);
   }
-  public async allRecipients(options: modules.AllRecipientsParams) {
-    return modules.allRecipients(this._apiKey, options);
+  public async listRecipients(options: modules.ListRecipientsParams) {
+    return modules.listRecipients(this._apiKey, options);
   }
   public async deleteFromSuppressionList(
     options: modules.DeleteFromSuppressionListParams
