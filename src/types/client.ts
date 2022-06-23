@@ -1,4 +1,5 @@
 import * as modules from "~/modules";
+import { modules as moduleTypes } from "~/types";
 
 export interface ClientConfig {
   /**
@@ -24,7 +25,7 @@ export interface IClient {
    * @param {Object} options - Activity list options
    */
   activityList(
-    options: modules.ActivityListParams
+    options: moduleTypes.ActivityListParams
   ): ReturnType<typeof modules.activityList>;
 
   // ------------------------------------------------------------
@@ -41,7 +42,7 @@ export interface IClient {
    * @param {Object} options - Activity by country options
    */
   activityByCountry(
-    options: modules.ActivityByCountryParams
+    options: moduleTypes.ActivityByCountryParams
   ): ReturnType<typeof modules.activityByCountry>;
 
   /**
@@ -54,7 +55,7 @@ export interface IClient {
    * @param {Object} options - Activity by date options
    */
   activityByDate(
-    options: modules.ActivityByDateParams
+    options: moduleTypes.ActivityByDateParams
   ): ReturnType<typeof modules.activityByDate>;
 
   /**
@@ -67,7 +68,7 @@ export interface IClient {
    * @param {Object} options - Activity by reading environment options
    */
   activityByReadingEnvironment(
-    options: modules.ActivityByReadingEnvironmentParams
+    options: moduleTypes.ActivityByReadingEnvironmentParams
   ): ReturnType<typeof modules.activityByReadingEnvironment>;
 
   /**
@@ -80,7 +81,7 @@ export interface IClient {
    * @param {Object} options - Activity by user agent options
    */
   activityByUserAgent(
-    options: modules.ActivityByUserAgentParams
+    options: moduleTypes.ActivityByUserAgentParams
   ): ReturnType<typeof modules.activityByUserAgent>;
 
   // ------------------------------------------------------------
@@ -97,7 +98,7 @@ export interface IClient {
    * @param {Object} options - Add domain options
    */
   addDomain(
-    options: modules.AddDomainParams
+    options: moduleTypes.AddDomainParams
   ): ReturnType<typeof modules.addDomain>;
 
   /**
@@ -132,7 +133,7 @@ export interface IClient {
    * @param {Object} options - Recipients for domain options
    */
   recipientsForDomain(
-    options: modules.RecipientsForDomainParams
+    options: moduleTypes.RecipientsForDomainParams
   ): ReturnType<typeof modules.recipientsForDomain>;
 
   /**
@@ -169,7 +170,7 @@ export interface IClient {
    * @param {Object} options - List domains options
    */
   listDomains(
-    options: modules.ListDomainsParams
+    options: moduleTypes.ListDomainsParams
   ): ReturnType<typeof modules.listDomains>;
 
   /**
@@ -182,7 +183,7 @@ export interface IClient {
    * @param {Object} options - Update domain settings options
    */
   updateDomainSettings(
-    options: modules.UpdateDomainSettingsParams
+    options: moduleTypes.UpdateDomainSettingsParams
   ): ReturnType<typeof modules.updateDomainSettings>;
 
   // ------------------------------------------------------------
@@ -214,7 +215,7 @@ export interface IClient {
    * @param {Object} options - Send email options
    */
   sendEmail(
-    options: modules.SendEmailParams
+    options: moduleTypes.SendEmailParams
   ): ReturnType<typeof modules.sendEmail>;
 
   /**
@@ -233,7 +234,7 @@ export interface IClient {
    * @param {Object} options - Send bulk emails options
    */
   sendBulkEmails(
-    options: Array<modules.SendBulkEmailsParams>
+    options: Array<moduleTypes.SendBulkEmailsParams>
   ): ReturnType<typeof modules.sendBulkEmails>;
 
   // ------------------------------------------------------------
@@ -250,7 +251,7 @@ export interface IClient {
    * @param {Object} options - Add inbound route options
    */
   addInboundRoute(
-    options: modules.AddInboundRouteParams
+    options: moduleTypes.AddInboundRouteParams
   ): ReturnType<typeof modules.addInboundRoute>;
 
   /**
@@ -276,7 +277,7 @@ export interface IClient {
    * @param {Object} options - List inbound routes options
    */
   listInboundRoutes(
-    options: modules.ListInboundRoutesParams
+    options: moduleTypes.ListInboundRoutesParams
   ): ReturnType<typeof modules.listInboundRoutes>;
 
   /**
@@ -302,7 +303,7 @@ export interface IClient {
    * @param {Object} options - Update inbound route options
    */
   updateInboundRoute(
-    options: modules.UpdateInboundRouteParams
+    options: moduleTypes.UpdateInboundRouteParams
   ): ReturnType<typeof modules.updateInboundRoute>;
 
   // ------------------------------------------------------------
@@ -319,7 +320,7 @@ export interface IClient {
    * @param {Object} options - List messages options
    */
   listMessages(
-    options: modules.ListMessagesParams
+    options: moduleTypes.ListMessagesParams
   ): ReturnType<typeof modules.listMessages>;
 
   /**
@@ -349,7 +350,7 @@ export interface IClient {
    * @param {Object} options - Add to suppression list options
    */
   addToSuppressionList(
-    options: modules.AddToSuppressionListParams
+    options: moduleTypes.AddToSuppressionListParams
   ): ReturnType<typeof modules.addToSuppressionList>;
 
   /**
@@ -362,7 +363,7 @@ export interface IClient {
    * @param {Object} options - List recipients options
    */
   listRecipients(
-    options: modules.ListRecipientsParams
+    options: moduleTypes.ListRecipientsParams
   ): ReturnType<typeof modules.listRecipients>;
 
   /**
@@ -375,7 +376,7 @@ export interface IClient {
    * @param {Object} options - Delete from suppression list options
    */
   deleteFromSuppressionList(
-    options: modules.DeleteFromSuppressionListParams
+    options: moduleTypes.DeleteFromSuppressionListParams
   ): ReturnType<typeof modules.deleteFromSuppressionList>;
 
   /**
@@ -412,7 +413,7 @@ export interface IClient {
    * @param {Object} options - Suppression list options
    */
   suppressionList(
-    options: modules.SuppressionListParams
+    options: moduleTypes.SuppressionListParams
   ): ReturnType<typeof modules.suppressionList>;
 
   // ------------------------------------------------------------
@@ -442,7 +443,7 @@ export interface IClient {
    * @param {Object} options - List scheduled messages options
    */
   listScheduledMessages(
-    options: modules.ListScheduledMessagesParams
+    options: moduleTypes.ListScheduledMessagesParams
   ): ReturnType<typeof modules.listScheduledMessages>;
 
   /**
@@ -472,7 +473,7 @@ export interface IClient {
    * @param {Object} options - List templates options
    */
   listTemplates(
-    options: modules.ListTemplatesParams
+    options: moduleTypes.ListTemplatesParams
   ): ReturnType<typeof modules.listTemplates>;
 
   /**
@@ -511,7 +512,7 @@ export interface IClient {
    * @param {Object} options - Create token options
    */
   createToken(
-    options: modules.CreateTokenParams
+    options: moduleTypes.CreateTokenParams
   ): ReturnType<typeof modules.createToken>;
 
   /**
@@ -535,7 +536,7 @@ export interface IClient {
    * @param {Object} options - Update token options
    */
   updateToken(
-    options: modules.UpdateTokenParams
+    options: moduleTypes.UpdateTokenParams
   ): ReturnType<typeof modules.updateToken>;
 
   // ------------------------------------------------------------
@@ -552,7 +553,7 @@ export interface IClient {
    * @param {Object} options - Create webhook options
    */
   createWebhook(
-    options: modules.CreateWebhookParams
+    options: moduleTypes.CreateWebhookParams
   ): ReturnType<typeof modules.createWebhook>;
 
   /**
@@ -576,7 +577,7 @@ export interface IClient {
    * @param {Object} options - List webhook options
    */
   listWebhooks(
-    options: modules.ListWebhooksParams
+    options: moduleTypes.ListWebhooksParams
   ): ReturnType<typeof modules.listWebhooks>;
 
   /**
@@ -589,7 +590,7 @@ export interface IClient {
    * @param {Object} options - Update webhook options
    */
   updateWebhook(
-    options: modules.UpdateWebhookParams
+    options: moduleTypes.UpdateWebhookParams
   ): ReturnType<typeof modules.updateWebhook>;
 
   /**

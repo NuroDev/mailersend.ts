@@ -1,17 +1,11 @@
 import { fetch } from "~/fetch";
 
-export interface ListRecipientsParams extends Record<string, any> {
-  domain_id?: number;
-  page?: number;
-  /**
-   * Min: 10
-   *
-   * Max: 100
-   *
-   * @default 25
-   */
-  limit?: number;
-}
+import type {
+  AddToSuppressionListParams,
+  DeleteFromSuppressionListParams,
+  ListRecipientsParams,
+  SuppressionListParams,
+} from "~/types/modules";
 
 /**
  * List Recipients
@@ -77,19 +71,6 @@ export async function deleteRecipient<TResponse = Response>(
   });
 }
 
-export interface SuppressionListParams extends Record<string, any> {
-  domain_id?: string;
-  /**
-   * Min: 10
-   *
-   * Max: 100
-   *
-   * @default 25
-   */
-  limit?: number;
-  page?: number;
-}
-
 /**
  * Suppression List
  *
@@ -110,12 +91,6 @@ export async function suppressionList<TResponse = Response>(
     method: "GET",
     params: options,
   });
-}
-
-export interface AddToSuppressionListParams {
-  domain_id: string;
-  patterns: Array<string>;
-  recipients: Array<string>;
 }
 
 /**
@@ -139,14 +114,6 @@ export async function addToSuppressionList<TResponse = Response>(
     method: "POST",
   });
 }
-
-export type DeleteFromSuppressionListParams =
-  | {
-      ids: Array<string>;
-    }
-  | {
-      all: boolean;
-    };
 
 /**
  * Delete From Suppression List

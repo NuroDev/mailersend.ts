@@ -1,10 +1,10 @@
 import { fetch } from "~/fetch";
 
-import type { Event } from "~/types";
-
-export interface ListWebhooksParams extends Record<string, any> {
-  domain_id: string;
-}
+import type {
+  CreateWebhookParams,
+  ListWebhooksParams,
+  UpdateWebhookParams,
+} from "~/types/modules";
 
 /**
  * List Webhooks
@@ -49,17 +49,6 @@ export async function webhookById<TResponse = Response>(
   });
 }
 
-export interface CreateWebhookParams extends Record<string, any> {
-  domain_id: string;
-  enabled?: boolean;
-  events: Array<Event>;
-  /**
-   * Max: 191
-   */
-  name: string;
-  url: string;
-}
-
 /**
  * Create Webhook
  *
@@ -80,17 +69,6 @@ export async function createWebhook<TResponse = Response>(
     method: "POST",
     params: options,
   });
-}
-
-export interface UpdateWebhookParams extends Record<string, any> {
-  enabled?: boolean;
-  events?: Array<Event>;
-  /**
-   * Max: 191
-   */
-  name?: string;
-  url?: string;
-  webhookId: string;
 }
 
 /**

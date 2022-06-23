@@ -1,16 +1,6 @@
 import { fetch } from "~/fetch";
 
-export interface ListMessagesParams extends Record<string, any> {
-  page?: number;
-  /**
-   * Min: 10
-   *
-   * Max: 100
-   *
-   * @default 25
-   */
-  limit?: number;
-}
+import type { ListMessagesParams } from "~/types/modules";
 
 /**
  * List Messages

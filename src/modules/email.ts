@@ -1,19 +1,12 @@
 import { fetch } from "~/fetch";
 
-import type { EmailParams } from "~/types";
-
-export interface BulkEmailStatusResponse {
-  created_at: string;
-  id: string;
-  messages_id: string;
-  state: string;
-  suppressed_recipients_count: number;
-  suppressed_recipients: unknown;
-  total_recipients_count: number;
-  updated_at: string;
-  validation_errors_count: number;
-  validation_errors: unknown;
-}
+import type {
+  BulkEmailStatusResponse,
+  SendBulkEmailsParams,
+  SendBulkEmailsResponse,
+  SendEmailParams,
+  SendEmailResponse,
+} from "~/types/modules";
 
 /**
  * Bulk Email Status
@@ -34,22 +27,6 @@ export async function bulkEmailStatus<TResponse = BulkEmailStatusResponse>(
     endpoint: `/bulk-email/${bulkEmailId}`,
     method: "GET",
   });
-}
-
-export type SendEmailParams = EmailParams & Record<string, any>;
-
-export interface SendEmailResponse {
-  errors?: Record<string, Array<string>>;
-  message?: string;
-  warnings?: Array<{
-    type: string;
-    warning: string;
-    recipients: Array<{
-      email: string;
-      name: string;
-      reasons: Array<string>;
-    }>;
-  }>;
 }
 
 /**
@@ -74,13 +51,6 @@ export async function sendEmail<TResponse = SendEmailResponse>(
     method: "POST",
     params: options,
   });
-}
-
-export type SendBulkEmailsParams = EmailParams & Record<string, any>;
-
-export interface SendBulkEmailsResponse {
-  bulk_email_id: string;
-  message: string;
 }
 
 /**
