@@ -9,6 +9,13 @@ declare global {
       MAILERSEND_API_KEY: string;
 
       /**
+       * @name MAILERSEND_DOMAIN_ID
+       *
+       * @description MailerSend domain unique identifier
+       */
+      MAILERSEND_DOMAIN_ID: string;
+
+      /**
        * @name NODE_ENV
        *
        * @description Node.js runtime environment
