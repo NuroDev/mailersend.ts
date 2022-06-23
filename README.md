@@ -46,11 +46,11 @@ There are 2 possible methods for using the `mailersend.ts` api, either via impor
 For example:
 
 ```typescript
-import { send } from "mailersend.ts";
+import { sendEmail } from "mailersend.ts";
 
 async function main() {
   try {
-    const response = await send({
+    const response = await sendEmail({
       apiKey: "...",
       // ...
     });
@@ -72,7 +72,7 @@ const client = new Client({
 
 async function main() {
   try {
-    const response = await client.send({
+    const response = await client.sendEmail({
       // ...
     });
   } catch (err) {
