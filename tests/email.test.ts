@@ -4,16 +4,26 @@ import "dotenv/config";
 
 import { Client } from "../dist";
 
+const { MAILERSEND_API_KEY, MAILERSEND_DOMAIN_ID } = process.env;
+
 describe("Email", () => {
   it.concurrent("Client", async () => {
-    const _client = new Client({
-      apiKey: process.env.MAILERSEND_API_KEY,
+    const client = new Client({
+      apiKey: MAILERSEND_API_KEY as string,
     });
 
-    expect(true).toEqual(true);
+    try {
+      expect(true).not.toBeNull();
+    } catch (error) {
+      console.error(error);
+    }
   });
 
-  it.concurrent("Function", () => {
-    expect(true).toEqual(true);
+  it.concurrent("Function", async () => {
+    try {
+      expect(true).toEqual(true);
+    } catch (error) {
+      console.error(error);
+    }
   });
 });
