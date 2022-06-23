@@ -1,4 +1,9 @@
-export { activityList, type ActivityListParams } from "./activity";
+export {
+  activityList,
+  type ActivityListData,
+  type ActivityListParams,
+  type ActivityListResponse,
+} from "./activity";
 
 export {
   activityByCountry,

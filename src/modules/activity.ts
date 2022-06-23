@@ -1,5 +1,7 @@
 import { fetch } from "~/util";
 
+import type { BaseReponse } from "~/types";
+
 export interface ActivityListParams extends Record<string, any> {
   /**
    * Timestamp is assumed to be UTC.
@@ -26,6 +28,48 @@ export interface ActivityListParams extends Record<string, any> {
   page?: number;
 }
 
+export interface ActivityListData {
+  id: string;
+  created_at: string;
+  updated_at: string;
+  type: string;
+  email: {
+    created_at: string;
+    from: string;
+    html: string;
+    id: string;
+    recipient: {
+      created_at: string;
+      deleted_at: string;
+      email: string;
+      id: string;
+      updated_at: string;
+    };
+    status: string;
+    subject: string;
+    tags: unknown;
+    text: string;
+    updated_at: string;
+  };
+}
+
+export interface ActivityListResponse
+  extends BaseReponse<Array<ActivityListData>> {
+  links?: {
+    first: string;
+    last: string;
+    prev: unknown;
+    next: unknown;
+  };
+  meta?: {
+    current_page: number;
+    from: number;
+    path: string;
+    per_page: number;
+    to: number;
+  };
+}
+
 /**
  * Activity List
  *
@@ -38,7 +82,7 @@ export interface ActivityListParams extends Record<string, any> {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Activity list options
  */
-export async function activityList<TResponse = Record<string, any>>(
+export async function activityList<TResponse = ActivityListResponse>(
   apiKey: string,
   { domainId, ...params }: ActivityListParams
 ): Promise<TResponse> {
