@@ -46,8 +46,8 @@ export class Client implements IClient {
   public async deleteDomain(domainId: string) {
     return modules.deleteDomain(this._apiKey, domainId);
   }
-  public async dnsRecords(options: modules.DnsRecordsParams) {
-    return modules.dnsRecords(this._apiKey, options);
+  public async dnsRecords(domainId: string) {
+    return modules.dnsRecords(this._apiKey, domainId);
   }
   public async domainById(domainId: string) {
     return modules.domainById(this._apiKey, domainId);

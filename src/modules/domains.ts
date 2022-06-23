@@ -373,10 +373,6 @@ export async function updateDomainSettings<
   });
 }
 
-export interface DnsRecordsParams extends Record<string, any> {
-  domainId: string;
-}
-
 export interface DnsRecordsData {
   custom_tracking: {
     hostname: string;
@@ -417,17 +413,16 @@ export type DnsRecordsResponse = BaseReponse<DnsRecordsData>;
  * @see https://developers.mailersend.com/api/v1/domains.html#get-dns-records
  *
  * @param {String} apiKey - Unique API access token
- * @param {Object} options - Dns records options
+ * @param {String} domainId - Unique domain identifier
  */
 export async function dnsRecords<TResponse = DnsRecordsResponse>(
   apiKey: string,
-  { domainId, ...params }: DnsRecordsParams
+  domainId: string
 ): Promise<TResponse> {
   return fetch({
     apiKey,
     endpoint: `/domains/${domainId}/dns-records`,
     method: "GET",
-    params,
   });
 }
 

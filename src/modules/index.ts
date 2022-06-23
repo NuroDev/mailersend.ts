@@ -38,7 +38,6 @@ export {
   type AddDomainResponse,
   type DeleteDomainResponse,
   type DnsRecordsData,
-  type DnsRecordsParams,
   type DnsRecordsResponse,
   type DomainByIdData,
   type DomainByIdResponse,

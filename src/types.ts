@@ -201,11 +201,9 @@ export interface IClient {
    *
    * @see https://developers.mailersend.com/api/v1/domains.html#get-dns-records
    *
-   * @param {Object} options - Dns records options
+   * @param {String} domainId - Unique domain identifier
    */
-  dnsRecords(
-    options: modules.DnsRecordsParams
-  ): ReturnType<typeof modules.dnsRecords>;
+  dnsRecords(domainId: string): ReturnType<typeof modules.dnsRecords>;
 
   /**
    * Recipients For Domain
