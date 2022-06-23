@@ -217,10 +217,6 @@ export async function dnsRecords<TResponse = Response>(
   });
 }
 
-export interface VerificationStatusParams extends Record<string, any> {
-  domainId: string;
-}
-
 /**
  * Verification Status
  *
@@ -229,16 +225,15 @@ export interface VerificationStatusParams extends Record<string, any> {
  * @see https://developers.mailersend.com/api/v1/domains.html#get-verification-status
  *
  * @param {String} apiKey - Unique API access token
- * @param {Object} options - Verification status options
+ * @param {String} domainId - Unique domain identifier
  */
 export async function verificationStatus<TResponse = Response>(
   apiKey: string,
-  { domainId, ...params }: VerificationStatusParams
+  domainId: string
 ): Promise<TResponse> {
   return fetch({
     apiKey,
     endpoint: `/domains/${domainId}/verify`,
     method: "GET",
-    params,
   });
 }

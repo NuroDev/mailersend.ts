@@ -38,7 +38,6 @@ export {
   type ListDomainsParams,
   type RecipientsForDomainParams,
   type UpdateDomainSettingsParams,
-  type VerificationStatusParams,
 } from "./domains";
 
 export {

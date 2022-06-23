@@ -238,10 +238,10 @@ export interface IClient {
    *
    * @see https://developers.mailersend.com/api/v1/domains.html#get-verification-status
    *
-   * @param {Object} options - Verification status options
+   * @param {String} domainId - Unique domain identifier
    */
   verificationStatus(
-    options: modules.VerificationStatusParams
+    domainId: string
   ): ReturnType<typeof modules.verificationStatus>;
 
   /**
