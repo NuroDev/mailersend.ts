@@ -46,7 +46,7 @@ export interface Recipient {
 /**
  * @see https://developers.mailersend.com/api/v1/email.html#send-an-email
  */
-export interface EmailParams {
+export type EmailParams = {
   attachments?: Array<Attachment>;
   bcc?: Array<Recipient>;
   cc?: Array<Recipient>;
@@ -54,7 +54,6 @@ export interface EmailParams {
     email: string;
     name?: string;
   };
-  html: string;
   personalization?: Array<{
     email: string;
     data: Array<any>;
@@ -72,16 +71,22 @@ export interface EmailParams {
     email: string;
     name?: string;
   }>;
-  template_id: string;
-  text: string;
-  variables?: Array<{
-    email: string;
-    substitutions: Array<{
-      var: string;
-      value: string;
-    }>;
-  }>;
-}
+} & (
+  | {
+      html: string;
+      text: string;
+    }
+  | {
+      template_id: string;
+      variables: Array<{
+        email: string;
+        substitutions: Array<{
+          var: string;
+          value: string;
+        }>;
+      }>;
+    }
+);
 
 export interface ClientConfig {
   /**

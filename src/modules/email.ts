@@ -36,7 +36,7 @@ export async function bulkEmailStatus<TResponse = BulkEmailStatusResponse>(
   });
 }
 
-export interface SendEmailParams extends EmailParams, Record<string, any> {}
+export type SendEmailParams = EmailParams & Record<string, any>;
 
 export interface SendEmailResponse {
   errors?: Record<string, Array<string>>;
@@ -76,9 +76,7 @@ export async function sendEmail<TResponse = SendEmailResponse>(
   });
 }
 
-export interface SendBulkEmailsParams
-  extends EmailParams,
-    Record<string, any> {}
+export type SendBulkEmailsParams = EmailParams & Record<string, any>;
 
 export interface SendBulkEmailsResponse {
   bulk_email_id: string;
