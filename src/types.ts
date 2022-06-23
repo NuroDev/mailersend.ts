@@ -28,6 +28,10 @@ export type ScheduleStatus = "scheduled" | "sent" | "error";
 
 export type GroupBy = "ays" | "weeks" | "months" | "years";
 
+export interface BaseReponse<TData = Record<string, any>> {
+  data: TData;
+}
+
 export interface Attachment<T = string> {
   content: T;
   filename: string;
