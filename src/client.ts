@@ -74,11 +74,11 @@ export class Client implements IClient {
   public async bulkEmailStatus(bulkEmailId: string) {
     return modules.bulkEmailStatus(this._apiKey, bulkEmailId);
   }
-  public async send(options: modules.SendParams) {
-    return modules.send(this._apiKey, options);
+  public async sendEmail(options: modules.SendEmailParams) {
+    return modules.sendEmail(this._apiKey, options);
   }
-  public async sendBulk(options: Array<modules.SendBulkParams>) {
-    return modules.sendBulk(this._apiKey, options);
+  public async sendBulkEmails(options: Array<modules.SendBulkEmailsParams>) {
+    return modules.sendBulkEmails(this._apiKey, options);
   }
 
   // ------------------------------------------------------------

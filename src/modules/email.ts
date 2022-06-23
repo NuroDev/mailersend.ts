@@ -36,9 +36,9 @@ export async function bulkEmailStatus<TResponse = BulkEmailStatusResponse>(
   });
 }
 
-export interface SendParams extends EmailParams, Record<string, any> {}
+export interface SendEmailParams extends EmailParams, Record<string, any> {}
 
-export interface SendResponse {
+export interface SendEmailResponse {
   errors?: Record<string, Array<string>>;
   message?: string;
   warnings?: Array<{
@@ -53,7 +53,7 @@ export interface SendResponse {
 }
 
 /**
- * Send
+ * Send Email
  *
  * @description This endpoint allows you to send an asynchronous email.
  *
@@ -64,9 +64,9 @@ export interface SendResponse {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Send options
  */
-export async function send<TResponse = SendResponse>(
+export async function sendEmail<TResponse = SendEmailResponse>(
   apiKey: string,
-  options: SendParams
+  options: SendEmailParams
 ): Promise<TResponse> {
   return fetch({
     apiKey,
@@ -76,9 +76,11 @@ export async function send<TResponse = SendResponse>(
   });
 }
 
-export interface SendBulkParams extends EmailParams, Record<string, any> {}
+export interface SendBulkEmailsParams
+  extends EmailParams,
+    Record<string, any> {}
 
-export interface SendBulkResponse {
+export interface SendBulkEmailsResponse {
   bulk_email_id: string;
   message: string;
 }
@@ -99,9 +101,9 @@ export interface SendBulkResponse {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Send bulk options
  */
-export async function sendBulk<TResponse = SendBulkResponse>(
+export async function sendBulkEmails<TResponse = SendBulkEmailsResponse>(
   apiKey: string,
-  options: Array<SendBulkParams>
+  options: Array<SendBulkEmailsParams>
 ): Promise<TResponse> {
   return fetch({
     apiKey,

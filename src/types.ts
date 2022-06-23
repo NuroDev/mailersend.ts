@@ -298,7 +298,9 @@ export interface IClient {
    *
    * @param {Object} options - Send email options
    */
-  send(options: modules.SendParams): ReturnType<typeof modules.send>;
+  sendEmail(
+    options: modules.SendEmailParams
+  ): ReturnType<typeof modules.sendEmail>;
 
   /**
    * Send Bulk Emails
@@ -315,9 +317,9 @@ export interface IClient {
    *
    * @param {Object} options - Send bulk emails options
    */
-  sendBulk(
-    options: Array<modules.SendBulkParams>
-  ): ReturnType<typeof modules.sendBulk>;
+  sendBulkEmails(
+    options: Array<modules.SendBulkEmailsParams>
+  ): ReturnType<typeof modules.sendBulkEmails>;
 
   // ------------------------------------------------------------
   // Inbound Routing

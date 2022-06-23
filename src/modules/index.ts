@@ -57,13 +57,13 @@ export {
 
 export {
   bulkEmailStatus,
-  send,
-  sendBulk,
+  sendEmail,
+  sendBulkEmails,
   type BulkEmailStatusResponse,
-  type SendBulkParams,
-  type SendBulkResponse,
-  type SendParams,
-  type SendResponse,
+  type SendBulkEmailsParams,
+  type SendBulkEmailsResponse,
+  type SendEmailParams,
+  type SendEmailResponse,
 } from "./email";
 
 export {
