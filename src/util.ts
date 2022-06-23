@@ -3,6 +3,7 @@ import nodeFetch from "node-fetch";
 import type { HttpMethod } from "~/types";
 
 interface RequestOptions {
+  apiVersion?: string;
   apiKey: string;
   basePath?: string;
   body?: string | Record<string, any>;
@@ -13,15 +14,16 @@ interface RequestOptions {
 }
 
 export async function fetch<TResponse = Record<string, any>>({
+  apiVersion = "v1",
   apiKey,
-  basePath = "https://api.mailersend.com/v1",
+  basePath = "https://api.mailersend.com",
   body = undefined,
   endpoint,
   headers = {},
   method = "GET",
   params = {},
 }: RequestOptions) {
-  const url = new URL(endpoint, basePath);
+  const url = new URL(`${apiVersion}${endpoint}`, basePath);
   Object.entries(params).forEach(([key, value]) =>
     url.searchParams.append(key, value)
   );
