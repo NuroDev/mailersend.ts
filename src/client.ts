@@ -1,35 +1,5 @@
 import * as modules from "~/modules";
 
-import type {
-  ActivityByCountryParams,
-  ActivityByDateParams,
-  ActivityByReadingEnvironmentParams,
-  ActivityByUserAgentParams,
-  ActivityListParams,
-  AddDomainParams,
-  AddInboundRouteParams,
-  AddToSuppressionListParams,
-  AllRecipientsParams,
-  AllTemplatesParams,
-  CreateTokenParams,
-  CreateWebhookParams,
-  DeleteFromSuppressionListParams,
-  DnsRecordsParams,
-  ListDomainsParams,
-  ListInboundRoutesParams,
-  ListMessagesParams,
-  ListScheduledMessagesParams,
-  ListWebhooksParams,
-  RecipientsForDomainParams,
-  SendBulkParams,
-  SendParams,
-  SuppressionListParams,
-  UpdateDomainSettingsParams,
-  UpdateInboundRouteParams,
-  UpdateTokenParams,
-  UpdateWebhookParams,
-  VerificationStatusParams,
-} from "~/modules";
 import type { ClientConfig, IClient } from "~/types";
 
 export class Client implements IClient {
@@ -43,7 +13,7 @@ export class Client implements IClient {
   // Activity
   // ------------------------------------------------------------
 
-  public async activityList(options: ActivityListParams) {
+  public async activityList(options: modules.ActivityListParams) {
     return modules.activityList(this._apiKey, options);
   }
 
@@ -51,18 +21,18 @@ export class Client implements IClient {
   // Analytics
   // ------------------------------------------------------------
 
-  public async activityByCountry(options: ActivityByCountryParams) {
+  public async activityByCountry(options: modules.ActivityByCountryParams) {
     return modules.activityByCountry(this._apiKey, options);
   }
-  public async activityByDate(options: ActivityByDateParams) {
+  public async activityByDate(options: modules.ActivityByDateParams) {
     return modules.activityByDate(this._apiKey, options);
   }
   public async activityByReadingEnvironment(
-    options: ActivityByReadingEnvironmentParams
+    options: modules.ActivityByReadingEnvironmentParams
   ) {
     return modules.activityByReadingEnvironment(this._apiKey, options);
   }
-  public async activityByUserAgent(options: ActivityByUserAgentParams) {
+  public async activityByUserAgent(options: modules.ActivityByUserAgentParams) {
     return modules.activityByUserAgent(this._apiKey, options);
   }
 
@@ -70,28 +40,30 @@ export class Client implements IClient {
   // Domains
   // ------------------------------------------------------------
 
-  public async addDomain(options: AddDomainParams) {
+  public async addDomain(options: modules.AddDomainParams) {
     return modules.addDomain(this._apiKey, options);
   }
   public async deleteDomain(domainId: string) {
     return modules.deleteDomain(this._apiKey, domainId);
   }
-  public async dnsRecords(options: DnsRecordsParams) {
+  public async dnsRecords(options: modules.DnsRecordsParams) {
     return modules.dnsRecords(this._apiKey, options);
   }
-  public async recipientsForDomain(options: RecipientsForDomainParams) {
+  public async recipientsForDomain(options: modules.RecipientsForDomainParams) {
     return modules.recipientsForDomain(this._apiKey, options);
   }
   public async domainById(domainId: string) {
     return modules.domainById(this._apiKey, domainId);
   }
-  public async verificationStatus(options: VerificationStatusParams) {
+  public async verificationStatus(options: modules.VerificationStatusParams) {
     return modules.verificationStatus(this._apiKey, options);
   }
-  public async listDomains(options: ListDomainsParams) {
+  public async listDomains(options: modules.ListDomainsParams) {
     return modules.listDomains(this._apiKey, options);
   }
-  public async updateDomainSettings(options: UpdateDomainSettingsParams) {
+  public async updateDomainSettings(
+    options: modules.UpdateDomainSettingsParams
+  ) {
     return modules.updateDomainSettings(this._apiKey, options);
   }
 
@@ -102,10 +74,10 @@ export class Client implements IClient {
   public async bulkEmailStatus(bulkEmailId: string) {
     return modules.bulkEmailStatus(this._apiKey, bulkEmailId);
   }
-  public async send(options: SendParams) {
+  public async send(options: modules.SendParams) {
     return modules.send(this._apiKey, options);
   }
-  public async sendBulk(options: Array<SendBulkParams>) {
+  public async sendBulk(options: Array<modules.SendBulkParams>) {
     return modules.sendBulk(this._apiKey, options);
   }
 
@@ -113,19 +85,19 @@ export class Client implements IClient {
   // Inbound Routing
   // ------------------------------------------------------------
 
-  public async addInboundRoute(options: AddInboundRouteParams) {
+  public async addInboundRoute(options: modules.AddInboundRouteParams) {
     return modules.addInboundRoute(this._apiKey, options);
   }
   public async deleteInboundRoute(inboundId: string) {
     return modules.deleteInboundRoute(this._apiKey, inboundId);
   }
-  public async listInboundRoutes(options: ListInboundRoutesParams) {
+  public async listInboundRoutes(options: modules.ListInboundRoutesParams) {
     return modules.listInboundRoutes(this._apiKey, options);
   }
   public async inboundRouteById(inboundId: string) {
     return modules.inboundRouteById(this._apiKey, inboundId);
   }
-  public async updateInboundRoute(options: UpdateInboundRouteParams) {
+  public async updateInboundRoute(options: modules.UpdateInboundRouteParams) {
     return modules.updateInboundRoute(this._apiKey, options);
   }
 
@@ -133,7 +105,7 @@ export class Client implements IClient {
   // Messages
   // ------------------------------------------------------------
 
-  public async listMessages(params: ListMessagesParams) {
+  public async listMessages(params: modules.ListMessagesParams) {
     return modules.listMessages(this._apiKey, params);
   }
   public async messageInfoById(messageId: string) {
@@ -144,14 +116,16 @@ export class Client implements IClient {
   // Recipients
   // ------------------------------------------------------------
 
-  public async addToSuppressionList(options: AddToSuppressionListParams) {
+  public async addToSuppressionList(
+    options: modules.AddToSuppressionListParams
+  ) {
     return modules.addToSuppressionList(this._apiKey, options);
   }
-  public async allRecipients(options: AllRecipientsParams) {
+  public async allRecipients(options: modules.AllRecipientsParams) {
     return modules.allRecipients(this._apiKey, options);
   }
   public async deleteFromSuppressionList(
-    options: DeleteFromSuppressionListParams
+    options: modules.DeleteFromSuppressionListParams
   ) {
     return modules.deleteFromSuppressionList(this._apiKey, options);
   }
@@ -161,7 +135,7 @@ export class Client implements IClient {
   public async recipientById(recipientId: string) {
     return modules.recipientById(this._apiKey, recipientId);
   }
-  public async suppressionList(options: SuppressionListParams) {
+  public async suppressionList(options: modules.SuppressionListParams) {
     return modules.suppressionList(this._apiKey, options);
   }
 
@@ -172,7 +146,9 @@ export class Client implements IClient {
   public async deleteScheduledMessage(messageId: string) {
     return modules.deleteScheduledMessage(this._apiKey, messageId);
   }
-  public async listScheduledMessages(options: ListScheduledMessagesParams) {
+  public async listScheduledMessages(
+    options: modules.ListScheduledMessagesParams
+  ) {
     return modules.listScheduledMessages(this._apiKey, options);
   }
   public async singleScheduledMessage(messageId: string) {
@@ -183,7 +159,7 @@ export class Client implements IClient {
   // Templates
   // ------------------------------------------------------------
 
-  public async allTemplates(options: AllTemplatesParams) {
+  public async allTemplates(options: modules.AllTemplatesParams) {
     return modules.allTemplates(this._apiKey, options);
   }
   public async deleteTemplate(templateId: string) {
@@ -197,13 +173,13 @@ export class Client implements IClient {
   // Tokens
   // ------------------------------------------------------------
 
-  public async createToken(options: CreateTokenParams) {
+  public async createToken(options: modules.CreateTokenParams) {
     return modules.createToken(this._apiKey, options);
   }
   public async deleteToken(tokenId: string) {
     return modules.deleteToken(this._apiKey, tokenId);
   }
-  public async updateToken(options: UpdateTokenParams) {
+  public async updateToken(options: modules.UpdateTokenParams) {
     return modules.updateToken(this._apiKey, options);
   }
 
@@ -211,16 +187,16 @@ export class Client implements IClient {
   // Webhooks
   // ------------------------------------------------------------
 
-  public async createWebhook(options: CreateWebhookParams) {
+  public async createWebhook(options: modules.CreateWebhookParams) {
     return modules.createWebhook(this._apiKey, options);
   }
   public async deleteWebhook(webhookId: string) {
     return modules.deleteWebhook(this._apiKey, webhookId);
   }
-  public async listWebhooks(options: ListWebhooksParams) {
+  public async listWebhooks(options: modules.ListWebhooksParams) {
     return modules.listWebhooks(this._apiKey, options);
   }
-  public async updateWebhook(options: UpdateWebhookParams) {
+  public async updateWebhook(options: modules.UpdateWebhookParams) {
     return modules.updateWebhook(this._apiKey, options);
   }
   public async webhookById(webhookId: string) {

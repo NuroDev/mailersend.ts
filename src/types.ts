@@ -1,33 +1,4 @@
-import type {
-  ActivityByCountryParams,
-  ActivityByDateParams,
-  ActivityByReadingEnvironmentParams,
-  ActivityByUserAgentParams,
-  ActivityListParams,
-  AddDomainParams,
-  AddInboundRouteParams,
-  AddToSuppressionListParams,
-  AllRecipientsParams,
-  AllTemplatesParams,
-  CreateTokenParams,
-  CreateWebhookParams,
-  DeleteFromSuppressionListParams,
-  DnsRecordsParams,
-  ListDomainsParams,
-  ListInboundRoutesParams,
-  ListMessagesParams,
-  ListScheduledMessagesParams,
-  ListWebhooksParams,
-  RecipientsForDomainParams,
-  SendBulkParams,
-  SendParams,
-  SuppressionListParams,
-  UpdateDomainSettingsParams,
-  UpdateInboundRouteParams,
-  UpdateTokenParams,
-  UpdateWebhookParams,
-  VerificationStatusParams,
-} from "~/modules";
+import * as modules from "~/modules";
 
 export type HttpMethod =
   | "CONNECT"
@@ -131,7 +102,9 @@ export interface IClient {
    *
    * @param {Object} options - Activity list options
    */
-  activityList(options: ActivityListParams): Promise<Record<string, any>>;
+  activityList(
+    options: modules.ActivityListParams
+  ): ReturnType<typeof modules.activityList>;
 
   // ------------------------------------------------------------
   // Analytics
@@ -147,8 +120,8 @@ export interface IClient {
    * @param {Object} options - Activity by country options
    */
   activityByCountry(
-    options: ActivityByCountryParams
-  ): Promise<Record<string, any>>;
+    options: modules.ActivityByCountryParams
+  ): ReturnType<typeof modules.activityByCountry>;
 
   /**
    * Activity By Date
@@ -159,7 +132,9 @@ export interface IClient {
    *
    * @param {Object} options - Activity by date options
    */
-  activityByDate(options: ActivityByDateParams): Promise<Record<string, any>>;
+  activityByDate(
+    options: modules.ActivityByDateParams
+  ): ReturnType<typeof modules.activityByDate>;
 
   /**
    * Activity By Reading Environment
@@ -171,8 +146,8 @@ export interface IClient {
    * @param {Object} options - Activity by reading environment options
    */
   activityByReadingEnvironment(
-    options: ActivityByReadingEnvironmentParams
-  ): Promise<Record<string, any>>;
+    options: modules.ActivityByReadingEnvironmentParams
+  ): ReturnType<typeof modules.activityByReadingEnvironment>;
 
   /**
    * Activity By User Agent
@@ -184,8 +159,8 @@ export interface IClient {
    * @param {Object} options - Activity by user agent options
    */
   activityByUserAgent(
-    options: ActivityByUserAgentParams
-  ): Promise<Record<string, any>>;
+    options: modules.ActivityByUserAgentParams
+  ): ReturnType<typeof modules.activityByUserAgent>;
 
   // ------------------------------------------------------------
   // Domains
@@ -200,7 +175,9 @@ export interface IClient {
    *
    * @param {Object} options - Add domain options
    */
-  addDomain(options: AddDomainParams): Promise<Record<string, any>>;
+  addDomain(
+    options: modules.AddDomainParams
+  ): ReturnType<typeof modules.addDomain>;
 
   /**
    * Delete Domain
@@ -211,7 +188,7 @@ export interface IClient {
    *
    * @param {String} domainId - Unique domain identifier
    */
-  deleteDomain(domainId: string): Promise<Record<string, any>>;
+  deleteDomain(domainId: string): ReturnType<typeof modules.deleteDomain>;
 
   /**
    * DNS Records
@@ -222,7 +199,9 @@ export interface IClient {
    *
    * @param {Object} options - Dns records options
    */
-  dnsRecords(options: DnsRecordsParams): Promise<Record<string, any>>;
+  dnsRecords(
+    options: modules.DnsRecordsParams
+  ): ReturnType<typeof modules.dnsRecords>;
 
   /**
    * Recipients For Domain
@@ -234,8 +213,8 @@ export interface IClient {
    * @param {Object} options - Recipients for domain options
    */
   recipientsForDomain(
-    options: RecipientsForDomainParams
-  ): Promise<Record<string, any>>;
+    options: modules.RecipientsForDomainParams
+  ): ReturnType<typeof modules.recipientsForDomain>;
 
   /**
    * Domain by ID
@@ -246,7 +225,7 @@ export interface IClient {
    *
    * @param {String} domainId - Unique domain identifier
    */
-  domainById(domainId: string): Promise<Record<string, any>>;
+  domainById(domainId: string): ReturnType<typeof modules.domainById>;
 
   /**
    * Verification Status
@@ -258,8 +237,8 @@ export interface IClient {
    * @param {Object} options - Verification status options
    */
   verificationStatus(
-    options: VerificationStatusParams
-  ): Promise<Record<string, any>>;
+    options: modules.VerificationStatusParams
+  ): ReturnType<typeof modules.verificationStatus>;
 
   /**
    * List Domains
@@ -270,7 +249,9 @@ export interface IClient {
    *
    * @param {Object} options - List domains options
    */
-  listDomains(options: ListDomainsParams): Promise<Record<string, any>>;
+  listDomains(
+    options: modules.ListDomainsParams
+  ): ReturnType<typeof modules.listDomains>;
 
   /**
    * Update Domain Settings
@@ -282,8 +263,8 @@ export interface IClient {
    * @param {Object} options - Update domain settings options
    */
   updateDomainSettings(
-    options: UpdateDomainSettingsParams
-  ): Promise<Record<string, any>>;
+    options: modules.UpdateDomainSettingsParams
+  ): ReturnType<typeof modules.updateDomainSettings>;
 
   // ------------------------------------------------------------
   // Email
@@ -298,7 +279,9 @@ export interface IClient {
    *
    * @param {Object} bulkEmailId - Unique bulk email identifier
    */
-  bulkEmailStatus(bulkEmailId: string): Promise<Record<string, any>>;
+  bulkEmailStatus(
+    bulkEmailId: string
+  ): ReturnType<typeof modules.bulkEmailStatus>;
 
   /**
    * Send Email
@@ -311,7 +294,7 @@ export interface IClient {
    *
    * @param {Object} options - Send email options
    */
-  send(options: SendParams): Promise<Record<string, any>>;
+  send(options: modules.SendParams): ReturnType<typeof modules.send>;
 
   /**
    * Send Bulk Emails
@@ -328,7 +311,9 @@ export interface IClient {
    *
    * @param {Object} options - Send bulk emails options
    */
-  sendBulk(options: Array<SendBulkParams>): Promise<Record<string, any>>;
+  sendBulk(
+    options: Array<modules.SendBulkParams>
+  ): ReturnType<typeof modules.sendBulk>;
 
   // ------------------------------------------------------------
   // Inbound Routing
@@ -343,7 +328,9 @@ export interface IClient {
    *
    * @param {Object} options - Add inbound route options
    */
-  addInboundRoute(options: AddInboundRouteParams): Promise<Record<string, any>>;
+  addInboundRoute(
+    options: modules.AddInboundRouteParams
+  ): ReturnType<typeof modules.addInboundRoute>;
 
   /**
    * Delete Inbound Route
@@ -354,7 +341,9 @@ export interface IClient {
    *
    * @param {String} inboundId - Unique inbound identifier
    */
-  deleteInboundRoute(inboundId: string): Promise<Record<string, any>>;
+  deleteInboundRoute(
+    inboundId: string
+  ): ReturnType<typeof modules.deleteInboundRoute>;
 
   /**
    * List Inbound Routes
@@ -366,8 +355,8 @@ export interface IClient {
    * @param {Object} options - List inbound routes options
    */
   listInboundRoutes(
-    options: ListInboundRoutesParams
-  ): Promise<Record<string, any>>;
+    options: modules.ListInboundRoutesParams
+  ): ReturnType<typeof modules.listInboundRoutes>;
 
   /**
    * Inbound Route by ID
@@ -378,7 +367,9 @@ export interface IClient {
    *
    * @param {String} inboundId - Unique inbound identifier
    */
-  inboundRouteById(inboundId: string): Promise<Record<string, any>>;
+  inboundRouteById(
+    inboundId: string
+  ): ReturnType<typeof modules.inboundRouteById>;
 
   /**
    * Update Inbound Route
@@ -390,8 +381,8 @@ export interface IClient {
    * @param {Object} options - Update inbound route options
    */
   updateInboundRoute(
-    options: UpdateInboundRouteParams
-  ): Promise<Record<string, any>>;
+    options: modules.UpdateInboundRouteParams
+  ): ReturnType<typeof modules.updateInboundRoute>;
 
   // ------------------------------------------------------------
   // Messages
@@ -406,7 +397,9 @@ export interface IClient {
    *
    * @param {Object} options - List messages options
    */
-  listMessages(options: ListMessagesParams): Promise<Record<string, any>>;
+  listMessages(
+    options: modules.ListMessagesParams
+  ): ReturnType<typeof modules.listMessages>;
 
   /**
    * Message Info by ID
@@ -417,7 +410,9 @@ export interface IClient {
    *
    * @param {String} messageId - Unique message identifier
    */
-  messageInfoById(messageId: string): Promise<Record<string, any>>;
+  messageInfoById(
+    messageId: string
+  ): ReturnType<typeof modules.messageInfoById>;
 
   // ------------------------------------------------------------
   // Recipients
@@ -433,8 +428,8 @@ export interface IClient {
    * @param {Object} options - Add to suppression list options
    */
   addToSuppressionList(
-    options: AddToSuppressionListParams
-  ): Promise<Record<string, any>>;
+    options: modules.AddToSuppressionListParams
+  ): ReturnType<typeof modules.addToSuppressionList>;
 
   /**
    * All Recipients
@@ -445,7 +440,9 @@ export interface IClient {
    *
    * @param {Object} options - All recipients options
    */
-  allRecipients(options: AllRecipientsParams): Promise<Record<string, any>>;
+  allRecipients(
+    options: modules.AllRecipientsParams
+  ): ReturnType<typeof modules.allRecipients>;
 
   /**
    * Delete From Suppression List
@@ -457,8 +454,8 @@ export interface IClient {
    * @param {Object} options - Delete from suppression list options
    */
   deleteFromSuppressionList(
-    options: DeleteFromSuppressionListParams
-  ): Promise<Record<string, any>>;
+    options: modules.DeleteFromSuppressionListParams
+  ): ReturnType<typeof modules.deleteFromSuppressionList>;
 
   /**
    * Delete Recipient
@@ -469,7 +466,9 @@ export interface IClient {
    *
    * @param {String} recipientId - Unique recipient identifier
    */
-  deleteRecipient(recipientId: string): Promise<Record<string, any>>;
+  deleteRecipient(
+    recipientId: string
+  ): ReturnType<typeof modules.deleteRecipient>;
 
   /**
    * Recipient by ID
@@ -480,7 +479,7 @@ export interface IClient {
    *
    * @param {String} recipientId - Unique recipient identifier
    */
-  recipientById(recipientId: string): Promise<Record<string, any>>;
+  recipientById(recipientId: string): ReturnType<typeof modules.recipientById>;
 
   /**
    * Suppression List
@@ -491,7 +490,9 @@ export interface IClient {
    *
    * @param {Object} options - Suppression list options
    */
-  suppressionList(options: SuppressionListParams): Promise<Record<string, any>>;
+  suppressionList(
+    options: modules.SuppressionListParams
+  ): ReturnType<typeof modules.suppressionList>;
 
   // ------------------------------------------------------------
   // Scheduled Messages
@@ -506,7 +507,9 @@ export interface IClient {
    *
    * @param {String} messageId - Message ID from the Send an email's response headers or Get scheduled messages response.
    */
-  deleteScheduledMessage(messageId: string): Promise<Record<string, any>>;
+  deleteScheduledMessage(
+    messageId: string
+  ): ReturnType<typeof modules.deleteScheduledMessage>;
 
   /**
    * List Scheduled Messages
@@ -518,8 +521,8 @@ export interface IClient {
    * @param {Object} options - List scheduled messages options
    */
   listScheduledMessages(
-    options: ListScheduledMessagesParams
-  ): Promise<Record<string, any>>;
+    options: modules.ListScheduledMessagesParams
+  ): ReturnType<typeof modules.listScheduledMessages>;
 
   /**
    * Single Scheduled Message
@@ -530,7 +533,9 @@ export interface IClient {
    *
    * @param {String} messageId - Message ID from the Send an email's response headers or Get scheduled messages response.
    */
-  singleScheduledMessage(messageId: string): Promise<Record<string, any>>;
+  singleScheduledMessage(
+    messageId: string
+  ): ReturnType<typeof modules.singleScheduledMessage>;
 
   // ------------------------------------------------------------
   // Templates
@@ -545,7 +550,9 @@ export interface IClient {
    *
    * @param {Object} options - All templates options
    */
-  allTemplates(options: AllTemplatesParams): Promise<Record<string, any>>;
+  allTemplates(
+    options: modules.AllTemplatesParams
+  ): ReturnType<typeof modules.allTemplates>;
 
   /**
    * Delete Template
@@ -556,7 +563,7 @@ export interface IClient {
    *
    * @param {String} templateId - Unique template identifier
    */
-  deleteTemplate(templateId: string): Promise<Record<string, any>>;
+  deleteTemplate(templateId: string): ReturnType<typeof modules.deleteTemplate>;
 
   /**
    * Template by ID
@@ -567,7 +574,7 @@ export interface IClient {
    *
    * @param {String} templateId - Unique template identifier
    */
-  templateById(templateId: string): Promise<Record<string, any>>;
+  templateById(templateId: string): ReturnType<typeof modules.templateById>;
 
   // ------------------------------------------------------------
   // Templates
@@ -582,7 +589,9 @@ export interface IClient {
    *
    * @param {Object} options - Create token options
    */
-  createToken(options: CreateTokenParams): Promise<Record<string, any>>;
+  createToken(
+    options: modules.CreateTokenParams
+  ): ReturnType<typeof modules.createToken>;
 
   /**
    * Delete Token
@@ -593,7 +602,7 @@ export interface IClient {
    *
    * @param {String} tokenId - Unique token identifier
    */
-  deleteToken(tokenId: string): Promise<Record<string, any>>;
+  deleteToken(tokenId: string): ReturnType<typeof modules.deleteToken>;
 
   /**
    * Update Token
@@ -604,7 +613,9 @@ export interface IClient {
    *
    * @param {Object} options - Update token options
    */
-  updateToken(options: UpdateTokenParams): Promise<Record<string, any>>;
+  updateToken(
+    options: modules.UpdateTokenParams
+  ): ReturnType<typeof modules.updateToken>;
 
   // ------------------------------------------------------------
   // Webhooks
@@ -619,7 +630,9 @@ export interface IClient {
    *
    * @param {Object} options - Create webhook options
    */
-  createWebhook(options: CreateWebhookParams): Promise<Record<string, any>>;
+  createWebhook(
+    options: modules.CreateWebhookParams
+  ): ReturnType<typeof modules.createWebhook>;
 
   /**
    * Delete Webhook
@@ -630,7 +643,7 @@ export interface IClient {
    *
    * @param {String} webhookId - Unique webhook identifier
    */
-  deleteWebhook(webhookId: string): Promise<Record<string, any>>;
+  deleteWebhook(webhookId: string): ReturnType<typeof modules.deleteWebhook>;
 
   /**
    * List Webhooks
@@ -641,7 +654,9 @@ export interface IClient {
    *
    * @param {Object} options - List webhook options
    */
-  listWebhooks(options: ListWebhooksParams): Promise<Record<string, any>>;
+  listWebhooks(
+    options: modules.ListWebhooksParams
+  ): ReturnType<typeof modules.listWebhooks>;
 
   /**
    * Update Webhook
@@ -652,7 +667,9 @@ export interface IClient {
    *
    * @param {Object} options - Update webhook options
    */
-  updateWebhook(options: UpdateWebhookParams): Promise<Record<string, any>>;
+  updateWebhook(
+    options: modules.UpdateWebhookParams
+  ): ReturnType<typeof modules.updateWebhook>;
 
   /**
    * Webhook by ID
@@ -663,5 +680,5 @@ export interface IClient {
    *
    * @param {String} webhookId - Unique webhook identifier
    */
-  webhookById(webhookId: string): Promise<Record<string, any>>;
+  webhookById(webhookId: string): ReturnType<typeof modules.webhookById>;
 }
