@@ -52,6 +52,8 @@ describe("Tokens", () => {
         scopes: [],
       });
 
+      if (!newToken?.id) throw "No new token ID found.";
+
       const deleteTokenResponse = await client.deleteToken(newToken.id);
 
       expect(deleteTokenResponse).not.toBeNull();
@@ -71,6 +73,8 @@ describe("Tokens", () => {
           scopes: [],
         }
       );
+
+      if (!newToken?.id) throw "No new token ID found.";
 
       const deleteTokenResponse = await deleteToken(
         MAILERSEND_API_KEY as string,
