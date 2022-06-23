@@ -11,5 +11,8 @@ export default defineConfig({
   },
   test: {
     environment: "node",
+    deps: {
+      inline: ["minifaker"],
+    },
   },
 });
