@@ -537,9 +537,9 @@ export interface IClient {
    *
    * @param {String} messageId - Message ID from the Send an email's response headers or Get scheduled messages response.
    */
-  singleScheduledMessage(
+  scheduledMessageById(
     messageId: string
-  ): ReturnType<typeof modules.singleScheduledMessage>;
+  ): ReturnType<typeof modules.scheduledMessageById>;
 
   // ------------------------------------------------------------
   // Templates

@@ -151,8 +151,8 @@ export class Client implements IClient {
   ) {
     return modules.listScheduledMessages(this._apiKey, options);
   }
-  public async singleScheduledMessage(messageId: string) {
-    return modules.singleScheduledMessage(this._apiKey, messageId);
+  public async scheduledMessageById(messageId: string) {
+    return modules.scheduledMessageById(this._apiKey, messageId);
   }
 
   // ------------------------------------------------------------

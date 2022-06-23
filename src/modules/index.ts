@@ -85,7 +85,7 @@ export {
 export {
   deleteScheduledMessage,
   listScheduledMessages,
-  singleScheduledMessage,
+  scheduledMessageById,
   type ListScheduledMessagesParams,
 } from "./scheduledMessages";
 

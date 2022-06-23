@@ -39,7 +39,7 @@ export async function listScheduledMessages<TResponse = Response>(
 }
 
 /**
- * Single Scheduled Message
+ * Scheduled Message by ID
  *
  * @description Get information about a specific scheduled message, like its subject, creation date, sending date and domain
  *
@@ -48,7 +48,7 @@ export async function listScheduledMessages<TResponse = Response>(
  * @param {String} apiKey - Unique API access token
  * @param {String} messageId - Message ID from the Send an email's response headers or Get scheduled messages response.
  */
-export async function singleScheduledMessage<TResponse = Response>(
+export async function scheduledMessageById<TResponse = Response>(
   apiKey: string,
   messageId: string
 ): Promise<TResponse> {
