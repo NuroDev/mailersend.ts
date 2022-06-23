@@ -74,7 +74,7 @@ export interface ListDomainsResponse extends BaseReponse<ListDomainsData> {
  */
 export async function listDomains<TResponse = ListDomainsResponse>(
   apiKey: string,
-  params: ListDomainsParams
+  params: ListDomainsParams = {}
 ): Promise<TResponse> {
   return fetch({
     apiKey,
