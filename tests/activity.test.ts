@@ -7,11 +7,11 @@ import { Client, activityList } from "../dist";
 const { MAILERSEND_API_KEY, MAILERSEND_DOMAIN_ID } = process.env;
 
 describe("Activity", () => {
-  it.concurrent("Client", async () => {
-    const client = new Client({
-      apiKey: MAILERSEND_API_KEY as string,
-    });
+  const client = new Client({
+    apiKey: MAILERSEND_API_KEY as string,
+  });
 
+  it.concurrent("Client", async () => {
     try {
       const activityListResponse = await client.activityList({
         domainId: MAILERSEND_DOMAIN_ID as string,

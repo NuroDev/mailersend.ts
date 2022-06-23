@@ -15,11 +15,11 @@ const { MAILERSEND_API_KEY } = process.env;
 const getCurrentUTC = (): number => Math.floor(new Date().getTime() / 1000);
 
 describe("Analytics", () => {
-  it.concurrent("Client - Activity By Country", async () => {
-    const client = new Client({
-      apiKey: MAILERSEND_API_KEY as string,
-    });
+  const client = new Client({
+    apiKey: MAILERSEND_API_KEY as string,
+  });
 
+  it.concurrent("Client - Activity By Country", async () => {
     try {
       const activityByCountryResponse = await client.activityByCountry({
         date_from: 0,
@@ -51,10 +51,6 @@ describe("Analytics", () => {
   });
 
   it.concurrent("Client - Activity By Date", async () => {
-    const client = new Client({
-      apiKey: MAILERSEND_API_KEY as string,
-    });
-
     try {
       const activityByDateResponse = await client.activityByDate({
         date_from: 0,
@@ -88,10 +84,6 @@ describe("Analytics", () => {
   });
 
   it.concurrent("Client - Activity By Reading Environment", async () => {
-    const client = new Client({
-      apiKey: MAILERSEND_API_KEY as string,
-    });
-
     try {
       const activityByReadingEnvironmentResponse =
         await client.activityByReadingEnvironment({
@@ -122,10 +114,6 @@ describe("Analytics", () => {
   });
 
   it.concurrent("Client - Activity By User-Agent", async () => {
-    const client = new Client({
-      apiKey: MAILERSEND_API_KEY as string,
-    });
-
     try {
       const activityUserAgentResponse = await client.activityByUserAgent({
         date_from: 0,

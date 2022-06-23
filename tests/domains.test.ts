@@ -17,11 +17,11 @@ import {
 const { MAILERSEND_API_KEY, MAILERSEND_DOMAIN_ID } = process.env;
 
 describe("Domains", () => {
-  it.concurrent("Client - Add Domain", async () => {
-    const client = new Client({
-      apiKey: MAILERSEND_API_KEY as string,
-    });
+  const client = new Client({
+    apiKey: MAILERSEND_API_KEY as string,
+  });
 
+  it.concurrent("Client - Add Domain", async () => {
     try {
       const addDomainResponse = await client.addDomain({
         name: "nuro.gg",
@@ -48,10 +48,6 @@ describe("Domains", () => {
   });
 
   it.concurrent("Client - Delete Domain", async () => {
-    const client = new Client({
-      apiKey: MAILERSEND_API_KEY as string,
-    });
-
     try {
       const deleteDomainResponse = await client.deleteDomain(
         MAILERSEND_DOMAIN_ID as string
@@ -81,10 +77,6 @@ describe("Domains", () => {
   });
 
   it.concurrent("Client - DNS Records", async () => {
-    const client = new Client({
-      apiKey: MAILERSEND_API_KEY as string,
-    });
-
     try {
       const dnsRecordsResponse = await client.dnsRecords({
         domainId: MAILERSEND_DOMAIN_ID as string,
@@ -114,10 +106,6 @@ describe("Domains", () => {
   });
 
   it.concurrent("Client - Get Domain by ID", async () => {
-    const client = new Client({
-      apiKey: MAILERSEND_API_KEY as string,
-    });
-
     try {
       const domainByIdResponse = await client.domainById(
         MAILERSEND_DOMAIN_ID as string
@@ -145,10 +133,6 @@ describe("Domains", () => {
   });
 
   it.concurrent("Client - List Domains", async () => {
-    const client = new Client({
-      apiKey: MAILERSEND_API_KEY as string,
-    });
-
     try {
       const listDomainsResponse = await client.listDomains();
 
@@ -173,10 +157,6 @@ describe("Domains", () => {
   });
 
   it.concurrent("Client - Recipients for Domain", async () => {
-    const client = new Client({
-      apiKey: MAILERSEND_API_KEY as string,
-    });
-
     try {
       const recipientsForDomainResponse = await client.recipientsForDomain({
         domainId: MAILERSEND_DOMAIN_ID as string,
@@ -206,10 +186,6 @@ describe("Domains", () => {
   });
 
   it.concurrent("Client - Update Domain Settings", async () => {
-    const client = new Client({
-      apiKey: MAILERSEND_API_KEY as string,
-    });
-
     try {
       const updateDomainSettingsResponse = await client.updateDomainSettings({
         domainId: MAILERSEND_DOMAIN_ID as string,
@@ -239,10 +215,6 @@ describe("Domains", () => {
   });
 
   it.concurrent("Client - Verification Status", async () => {
-    const client = new Client({
-      apiKey: MAILERSEND_API_KEY as string,
-    });
-
     try {
       const verificationStatusResponse = await client.verificationStatus(
         MAILERSEND_DOMAIN_ID as string
