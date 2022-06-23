@@ -20,6 +20,7 @@
   
 [![Package Version](https://img.shields.io/npm/v/mailersend.ts?label=%20&style=for-the-badge)](https://www.npmjs.com/package/mailersend.ts)
 [![Package Monthly Downloads](https://img.shields.io/npm/dm/mailersend.ts?color=blue&label=%20&style=for-the-badge)](https://www.npmjs.com/package/mailersend.ts)
+[![CI Build](https://img.shields.io/github/workflow/status/nurodev/mailersend.ts/CI?label=%20&logo=github&logoColor=white&style=for-the-badge)](https://github.com/NuroDev/mailersend.ts/actions/workflows/ci.yml)
 [![Docs](https://img.shields.io/badge/-Docs-blue.svg?style=for-the-badge)](https://paka.dev/npm/mailersend.ts)
 
   </sup>
