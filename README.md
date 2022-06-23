@@ -110,7 +110,9 @@ const result = await client.activityList({
 ```typescript
 import { activityList } from "mailersend.ts";
 
-const result = await activityList("API_KEY", "DOMAIN_ID");
+const result = await activityList("API_KEY", {
+  domainId: "...",
+});
 ```
 
 ### Analytics
@@ -544,13 +546,13 @@ const result = await sendBulkEmails("API_KEY", [
 ]);
 ```
 
-### Activity
+### Inbound Routing
 
 ---
 
-#### Get Activity List
+#### Add Inbound Route
 
-[Official Documentation](https://developers.mailersend.com/api/v1/activity.html#get-a-list-of-activities)
+[Official Documentation](https://developers.mailersend.com/api/v1/inbound.html#add-an-inbound-route)
 
 ---
 
@@ -561,13 +563,693 @@ const client = new Client({
   apiKey: "...",
 });
 
-const result = await client.activityList({
+const result = await client.addInboundRoute({
   domainId: "...",
 });
 ```
 
 ```typescript
-import { activityList } from "mailersend.ts";
+import { addInboundRoute } from "mailersend.ts";
 
-const result = await activityList("API_KEY", "DOMAIN_ID");
+const result = await addInboundRoute("API_KEY", {
+  // ...
+});
+```
+
+#### Delete Inbound Rate
+
+[Official Documentation](https://developers.mailersend.com/api/v1/inbound.html#delete-an-inbound-route)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.deleteInboundRoute("INBOUND_ID");
+```
+
+```typescript
+import { deleteInboundRoute } from "mailersend.ts";
+
+const result = await deleteInboundRoute("API_KEY", "INBOUND_ID");
+```
+
+#### List Inbound Routes
+
+[Official Documentation](https://developers.mailersend.com/api/v1/inbound.html#get-a-list-of-inbound-routes)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.listInboundRoutes({
+  // ...
+});
+```
+
+```typescript
+import { listInboundRoutes } from "mailersend.ts";
+
+const result = await listInboundRoutes("API_KEY", {
+  // ...
+});
+```
+
+#### Inbound Route by ID
+
+[Official Documentation](https://developers.mailersend.com/api/v1/inbound.html#get-a-single-inbound-route)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.inboundRouteById("INBOUND_ID");
+```
+
+```typescript
+import { inboundRouteById } from "mailersend.ts";
+
+const result = await inboundRouteById("API_KEY", "INBOUND_ID");
+```
+
+#### Updated Inbound Route
+
+[Official Documentation](https://developers.mailersend.com/api/v1/inbound.html#update-an-inbound-route)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.updateInboundRoute({
+  inboundId: "...",
+  // ...
+});
+```
+
+```typescript
+import { updateInboundRoute } from "mailersend.ts";
+
+const result = await updateInboundRoute("API_KEY", {
+  inboundId: "...",
+  // ...
+});
+```
+
+### Messages
+
+---
+
+#### List Messages
+
+[Official Documentation](https://developers.mailersend.com/api/v1/messages.html#get-a-list-of-messages)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.listMessages({
+  // ...
+});
+```
+
+```typescript
+import { listMessages } from "mailersend.ts";
+
+const result = await listMessages("API_KEY", {
+  // ...
+});
+```
+
+#### Message Info by ID
+
+[Official Documentation](https://developers.mailersend.com/api/v1/messages.html#get-information-for-a-single-message)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.messageInfoById("MESSAGE_ID");
+```
+
+```typescript
+import { messageInfoById } from "mailersend.ts";
+
+const result = await messageInfoById("API_KEY", "MESSAGE_ID");
+```
+
+### Scheduled Messages
+
+---
+
+#### Delete Scheduled Message
+
+[Official Documentation](https://developers.mailersend.com/api/v1/message-schedules.html#delete-a-scheduled-message)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.deleteScheduledMessage("MESSAGE_ID");
+```
+
+```typescript
+import { deleteScheduledMessage } from "mailersend.ts";
+
+const result = await deleteScheduledMessage("API_KEY", "MESSAGE_ID");
+```
+
+#### List Scheduled Messages
+
+[Official Documentation](https://developers.mailersend.com/api/v1/message-schedules.html#get-list-of-scheduled-messages)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.listScheduledMessages({
+  // ...
+});
+```
+
+```typescript
+import { listScheduledMessages } from "mailersend.ts";
+
+const result = await listScheduledMessages("API_KEY", {
+  // ...
+});
+```
+
+#### Get Scheduled Message by ID
+
+[Official Documentation](https://developers.mailersend.com/api/v1/message-schedules.html#get-a-single-scheduled-message)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.scheduledMessageById("MESSAGE_ID");
+```
+
+```typescript
+import { scheduledMessageById } from "mailersend.ts";
+
+const result = await scheduledMessageById("API_KEY", "MESSAGE_ID");
+```
+
+### Recipients
+
+---
+
+#### Add to Suppression List
+
+[Official Documentation](https://developers.mailersend.com/api/v1/recipients.html#add-recipients-to-a-suppression-list)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.addToSuppressionList({
+  domain_id: "...",
+  patterns: [],: "...",
+  recipients: [],
+});
+```
+
+```typescript
+import { addToSuppressionList } from "mailersend.ts";
+
+const result = await addToSuppressionList("API_KEY", {
+  domain_id: "...",
+  patterns: [],: "...",
+  recipients: [],
+});
+```
+
+#### List Recipients
+
+[Official Documentation](https://developers.mailersend.com/api/v1/recipients.html#get-recipients)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.listRecipients({
+  // ...
+});
+```
+
+```typescript
+import { listRecipients } from "mailersend.ts";
+
+const result = await listRecipients("API_KEY", {
+  // ...
+});
+```
+
+#### Delete From Suppression List
+
+[Official Documentation](https://developers.mailersend.com/api/v1/recipients.html#delete-recipients-from-a-suppression-list)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.deleteFromSuppressionList({
+  all: true,
+  // OR
+  ids: ["..."],
+});
+```
+
+```typescript
+import { deleteFromSuppressionList } from "mailersend.ts";
+
+const result = await deleteFromSuppressionList("API_KEY", {
+  all: true,
+  // OR
+  ids: ["..."],
+});
+```
+
+#### Delete Recipient
+
+[Official Documentation](https://developers.mailersend.com/api/v1/recipients.html#delete-a-recipient)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.deleteRecipient("RECIPIENT_ID");
+```
+
+```typescript
+import { deleteRecipient } from "mailersend.ts";
+
+const result = await deleteRecipient("API_KEY", "RECIPIENT_ID");
+```
+
+#### Get Recipient by ID
+
+[Official Documentation](https://developers.mailersend.com/api/v1/recipients.html#get-a-single-recipient)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.recipientById("RECIPIENT_ID");
+```
+
+```typescript
+import { recipientById } from "mailersend.ts";
+
+const result = await recipientById("API_KEY", "RECIPIENT_ID");
+```
+
+#### Get Suppression List
+
+[Official Documentation](https://developers.mailersend.com/api/v1/recipients.html#get-recipients-from-a-suppression-list)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.suppressionList({
+  // ...
+});
+```
+
+```typescript
+import { suppressionList } from "mailersend.ts";
+
+const result = await suppressionList("API_KEY", {
+  // ...
+});
+```
+
+### Templates
+
+---
+
+#### List Templates
+
+[Official Documentation](https://developers.mailersend.com/api/v1/templates.html#get-templates)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.listTemplates({
+  // ...
+});
+```
+
+```typescript
+import { listTemplates } from "mailersend.ts";
+
+const result = await listTemplates("API_KEY", {
+  // ...
+});
+```
+
+#### Delete Template
+
+[Official Documentation](https://developers.mailersend.com/api/v1/templates.html#delete-a-template)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.deleteTemplate("TEMPLATE_ID");
+```
+
+```typescript
+import { deleteTemplate } from "mailersend.ts";
+
+const result = await deleteTemplate("API_KEY", "TEMPLATE_ID");
+```
+
+#### Get Template by ID
+
+[Official Documentation](https://developers.mailersend.com/api/v1/templates.html#get-a-single-template)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.templateById("TEMPLATE_ID");
+```
+
+```typescript
+import { templateById } from "mailersend.ts";
+
+const result = await templateById("API_KEY", "TEMPLATE_ID");
+```
+
+### Tokens
+
+---
+
+#### Create Token
+
+[Official Documentation](https://developers.mailersend.com/api/v1/tokens.html#create-a-token)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.createToken({
+  domain_id: "...",
+  name: "...",
+  scopes: ["..."],
+});
+```
+
+```typescript
+import { createToken } from "mailersend.ts";
+
+const result = await createToken("API_KEY", {
+  domain_id: "...",
+  name: "...",
+  scopes: ["..."],
+});
+```
+
+#### Delete Token
+
+[Official Documentation](https://developers.mailersend.com/api/v1/tokens.html#delete-a-token)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.deleteToken("TOKEN_ID");
+```
+
+```typescript
+import { deleteToken } from "mailersend.ts";
+
+const result = await deleteToken("API_KEY", "TOKEN_ID");
+```
+
+#### Update Token
+
+[Official Documentation](https://developers.mailersend.com/api/v1/tokens.html#update-a-token)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.updateToken({
+  status: "...",
+  tokenId: "...",
+});
+```
+
+```typescript
+import { updateToken } from "mailersend.ts";
+
+const result = await updateToken("API_KEY", {
+  status: "...",
+  tokenId: "...",
+});
+```
+
+### Webhooks
+
+---
+
+#### Create Webhook
+
+[Official Documentation](https://developers.mailersend.com/api/v1/webhooks.html#create-a-webhook)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.createWebhook({
+  domain_id: "...",
+  events: ["..."],
+  name: "...",
+  url: "...",
+  // ...
+});
+```
+
+```typescript
+import { createWebhook } from "mailersend.ts";
+
+const result = await createWebhook("API_KEY", {
+  domain_id: "...",
+  events: ["..."],
+  name: "...",
+  url: "...",
+  // ...
+});
+```
+
+#### Delete Webhook
+
+[Official Documentation](https://developers.mailersend.com/api/v1/webhooks.html#delete-a-webhook)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.deleteWebhook("WEBHOOK_ID");
+```
+
+```typescript
+import { deleteWebhook } from "mailersend.ts";
+
+const result = await deleteWebhook("API_KEY", "WEBHOOK_ID");
+```
+
+#### List Webhooks
+
+[Official Documentation](https://developers.mailersend.com/api/v1/webhooks.html#list-webhooks)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.listWebhooks({
+  domain_id: "...",
+});
+```
+
+```typescript
+import { listWebhooks } from "mailersend.ts";
+
+const result = await listWebhooks("API_KEY", {
+  domain_id: "...",
+});
+```
+
+#### Update Webhook
+
+[Official Documentation](https://developers.mailersend.com/api/v1/webhooks.html#update-a-webhook)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.updateWebhook({
+  webhookId: "...",
+  // ...
+});
+```
+
+```typescript
+import { updateWebhook } from "mailersend.ts";
+
+const result = await updateWebhook("API_KEY", {
+  webhookId: "...",
+  // ...
+});
+```
+
+#### Get Webhook by ID
+
+[Official Documentation](https://developers.mailersend.com/api/v1/webhooks.html#get-a-webhook)
+
+---
+
+```typescript
+import { Client } from "mailersend.ts";
+
+const client = new Client({
+  apiKey: "...",
+});
+
+const result = await client.webhookById("WEBHOOK_ID");
+```
+
+```typescript
+import { webhookById } from "mailersend.ts";
+
+const result = await webhookById("API_KEY", "WEBHOOK_ID");
 ```
