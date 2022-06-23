@@ -3,8 +3,8 @@ import nodeFetch from "node-fetch";
 import type { HttpMethod } from "~/types";
 
 interface RequestOptions {
-  apiVersion?: string;
   apiKey: string;
+  apiVersion?: string;
   basePath?: string;
   body?: string | Record<string, any>;
   endpoint: string;
@@ -22,7 +22,7 @@ export async function fetch<TResponse = Record<string, any>>({
   headers = {},
   method = "GET",
   params = {},
-}: RequestOptions) {
+}: RequestOptions): Promise<TResponse> {
   const url = new URL(`${apiVersion}${endpoint}`, basePath);
   Object.entries(params).forEach(([key, value]) =>
     url.searchParams.append(key, value)
