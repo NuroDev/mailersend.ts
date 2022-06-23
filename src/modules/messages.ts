@@ -1,4 +1,4 @@
-import { fetch } from "~/util";
+import { fetch } from "~/fetch";
 
 export interface ListMessagesParams extends Record<string, any> {
   page?: number;

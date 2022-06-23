@@ -1,4 +1,4 @@
-import { fetch } from "~/util";
+import { fetch } from "~/fetch";
 
 import type { BaseReponse, GroupBy } from "~/types";
 

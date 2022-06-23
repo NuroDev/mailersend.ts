@@ -1,4 +1,4 @@
-import { fetch } from "~/util";
+import { fetch } from "~/fetch";
 
 import type { EmailParams } from "~/types";
 

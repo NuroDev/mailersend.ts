@@ -1,17 +1,6 @@
 import nodeFetch from "node-fetch";
 
-import type { HttpMethod } from "~/types";
-
-interface RequestOptions {
-  apiKey: string;
-  apiVersion?: string;
-  basePath?: string;
-  body?: string | Record<string, any>;
-  endpoint: string;
-  headers?: Record<string, string>;
-  method?: HttpMethod;
-  params?: Record<string, string>;
-}
+import type { RequestOptions } from "~/types";
 
 export async function fetch<TResponse = Record<string, any>>({
   apiVersion = "v1",

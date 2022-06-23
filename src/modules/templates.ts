@@ -1,4 +1,4 @@
-import { fetch } from "~/util";
+import { fetch } from "~/fetch";
 
 export interface ListTemplatesParams extends Record<string, any> {
   domain_id?: string;
