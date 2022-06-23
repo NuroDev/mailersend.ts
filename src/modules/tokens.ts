@@ -1,5 +1,7 @@
 import { fetch } from "~/util";
 
+import type { BaseReponse } from "~/types";
+
 export interface CreateTokenParams extends Record<string, any> {
   domain_id: string;
   name: string;
@@ -17,6 +19,15 @@ export interface CreateTokenParams extends Record<string, any> {
   >;
 }
 
+export interface CreateTokenData {
+  accessToken: string;
+  created_at: string;
+  id: string;
+  name: string;
+}
+
+export type CreateTokenResponse = BaseReponse<CreateTokenData>;
+
 /**
  * Create Token
  *
@@ -27,7 +38,7 @@ export interface CreateTokenParams extends Record<string, any> {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Create token options
  */
-export async function createToken<TResponse = Response>(
+export async function createToken<TResponse = CreateTokenResponse>(
   apiKey: string,
   options: CreateTokenParams
 ): Promise<TResponse> {
@@ -44,6 +55,15 @@ export interface UpdateTokenParams extends Record<string, any> {
   tokenId: string;
 }
 
+export interface UpdateTokenData {
+  created_at: string;
+  id: string;
+  name: string;
+  status: string;
+}
+
+export type UpdateTokenResponse = BaseReponse<UpdateTokenData>;
+
 /**
  * Update Token
  *
@@ -54,7 +74,7 @@ export interface UpdateTokenParams extends Record<string, any> {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Update token options
  */
-export async function updateToken<TResponse = Response>(
+export async function updateToken<TResponse = UpdateTokenResponse>(
   apiKey: string,
   { tokenId, ...options }: UpdateTokenParams
 ): Promise<TResponse> {
@@ -64,6 +84,10 @@ export async function updateToken<TResponse = Response>(
     method: "PUT",
     params: options,
   });
+}
+
+export interface DeleteTokenResponse {
+  success: boolean;
 }
 
 /**
@@ -76,7 +100,7 @@ export async function updateToken<TResponse = Response>(
  * @param {String} apiKey - Unique API access token
  * @param {String} tokenId - Unique token identifier
  */
-export async function deleteToken<TResponse = Response>(
+export async function deleteToken<TResponse = DeleteTokenResponse>(
   apiKey: string,
   tokenId: string
 ): Promise<TResponse> {

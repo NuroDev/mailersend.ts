@@ -114,8 +114,13 @@ export {
   createToken,
   deleteToken,
   updateToken,
+  type CreateTokenData,
   type CreateTokenParams,
+  type CreateTokenResponse,
+  type DeleteTokenResponse,
+  type UpdateTokenData,
   type UpdateTokenParams,
+  type UpdateTokenResponse,
 } from "./tokens";
 
 export {
