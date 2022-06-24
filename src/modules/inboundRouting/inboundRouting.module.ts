@@ -2,8 +2,13 @@ import { fetch } from "~/fetch";
 
 import type {
   AddInboundRouteParams,
+  AddInboundRouteResponse,
+  DeleteInboundRouteResponse,
+  InboundRouteByIdResponse,
+  ListInboundRouteResponse,
   ListInboundRoutesParams,
   UpdateInboundRouteParams,
+  UpdateInboundRouteResponse,
 } from ".";
 
 /**
@@ -16,9 +21,9 @@ import type {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Additional request options
  */
-export async function listInboundRoutes<TResponse = Response>(
+export async function listInboundRoutes<TResponse = ListInboundRouteResponse>(
   apiKey: string,
-  options: ListInboundRoutesParams
+  options: ListInboundRoutesParams = {}
 ): Promise<TResponse> {
   return fetch({
     apiKey,
@@ -38,7 +43,7 @@ export async function listInboundRoutes<TResponse = Response>(
  * @param {String} apiKey - Unique API access token
  * @param {String} inboundId - Unique inbound identifier
  */
-export async function inboundRouteById<TResponse = Response>(
+export async function inboundRouteById<TResponse = InboundRouteByIdResponse>(
   apiKey: string,
   inboundId: string
 ): Promise<TResponse> {
@@ -59,7 +64,7 @@ export async function inboundRouteById<TResponse = Response>(
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Additional request options
  */
-export async function addInboundRoute<TResponse = Response>(
+export async function addInboundRoute<TResponse = AddInboundRouteResponse>(
   apiKey: string,
   options: AddInboundRouteParams
 ): Promise<TResponse> {
@@ -81,7 +86,9 @@ export async function addInboundRoute<TResponse = Response>(
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Additional request options
  */
-export async function updateInboundRoute<TResponse = Response>(
+export async function updateInboundRoute<
+  TResponse = UpdateInboundRouteResponse
+>(
   apiKey: string,
   { inboundId, ...options }: UpdateInboundRouteParams
 ): Promise<TResponse> {
@@ -103,13 +110,17 @@ export async function updateInboundRoute<TResponse = Response>(
  * @param {String} apiKey - Unique API access token
  * @param {String} inboundId - Unique inbound identifier
  */
-export async function deleteInboundRoute<TResponse = Response>(
-  apiKey: string,
-  inboundId: string
-): Promise<TResponse> {
-  return fetch({
+export async function deleteInboundRoute<
+  TResponse = DeleteInboundRouteResponse
+>(apiKey: string, inboundId: string): Promise<TResponse> {
+  const response = await fetch({
     apiKey,
     endpoint: `/inbound/${inboundId}`,
     method: "DELETE",
+    unwrap: false,
   });
+
+  return {
+    success: response.status.toString().startsWith("20"),
+  };
 }
