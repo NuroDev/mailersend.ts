@@ -1,8 +1,6 @@
-### Analytics
+# Analytics
 
----
-
-#### Get Activity by Country
+## Get Activity by Country
 
 [Official Documentation](https://developers.mailersend.com/api/v1/analytics.html#opens-by-country)
 
@@ -30,7 +28,7 @@ const result = await activityByCountry("API_KEY", {
 });
 ```
 
-#### Get Activity by Date
+## Get Activity by Date
 
 [Official Documentation](https://developers.mailersend.com/api/v1/analytics.html#activity-data-by-date)
 
@@ -58,7 +56,7 @@ const result = await activityByDate("API_KEY", {
 });
 ```
 
-#### Get Activity by Reading Environment
+## Get Activity by Reading Environment
 
 [Official Documentation](https://developers.mailersend.com/api/v1/analytics.html#opens-by-reading-environment)
 
@@ -86,7 +84,7 @@ const result = await activityByReadingEnvironment("API_KEY", {
 });
 ```
 
-#### Get Activity by User-Agent
+## Get Activity by User-Agent
 
 [Official Documentation](https://developers.mailersend.com/api/v1/analytics.html#opens-by-user-agent-name)
 

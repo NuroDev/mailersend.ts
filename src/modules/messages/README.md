@@ -1,8 +1,6 @@
-### Messages
+# Messages
 
----
-
-#### List Messages
+## List Messages
 
 [Official Documentation](https://developers.mailersend.com/api/v1/messages.html#get-a-list-of-messages)
 
@@ -28,7 +26,7 @@ const result = await listMessages("API_KEY", {
 });
 ```
 
-#### Message Info by ID
+## Message Info by ID
 
 [Official Documentation](https://developers.mailersend.com/api/v1/messages.html#get-information-for-a-single-message)
 

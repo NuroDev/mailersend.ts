@@ -1,8 +1,6 @@
-### Scheduled Messages
+# Scheduled Messages
 
----
-
-#### Delete Scheduled Message
+## Delete Scheduled Message
 
 [Official Documentation](https://developers.mailersend.com/api/v1/message-schedules.html#delete-a-scheduled-message)
 
@@ -24,7 +22,7 @@ import { deleteScheduledMessage } from "mailersend.ts";
 const result = await deleteScheduledMessage("API_KEY", "MESSAGE_ID");
 ```
 
-#### List Scheduled Messages
+## List Scheduled Messages
 
 [Official Documentation](https://developers.mailersend.com/api/v1/message-schedules.html#get-list-of-scheduled-messages)
 
@@ -50,7 +48,7 @@ const result = await listScheduledMessages("API_KEY", {
 });
 ```
 
-#### Get Scheduled Message by ID
+## Get Scheduled Message by ID
 
 [Official Documentation](https://developers.mailersend.com/api/v1/message-schedules.html#get-a-single-scheduled-message)
 

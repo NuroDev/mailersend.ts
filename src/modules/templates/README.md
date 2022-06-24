@@ -1,8 +1,6 @@
-### Templates
+# Templates
 
----
-
-#### List Templates
+## List Templates
 
 [Official Documentation](https://developers.mailersend.com/api/v1/templates.html#get-templates)
 
@@ -28,7 +26,7 @@ const result = await listTemplates("API_KEY", {
 });
 ```
 
-#### Delete Template
+## Delete Template
 
 [Official Documentation](https://developers.mailersend.com/api/v1/templates.html#delete-a-template)
 
@@ -50,7 +48,7 @@ import { deleteTemplate } from "mailersend.ts";
 const result = await deleteTemplate("API_KEY", "TEMPLATE_ID");
 ```
 
-#### Get Template by ID
+## Get Template by ID
 
 [Official Documentation](https://developers.mailersend.com/api/v1/templates.html#get-a-single-template)
 

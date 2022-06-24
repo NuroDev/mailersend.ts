@@ -1,8 +1,6 @@
-### Recipients
+# Recipients
 
----
-
-#### Add to Suppression List
+## Add to Suppression List
 
 [Official Documentation](https://developers.mailersend.com/api/v1/recipients.html#add-recipients-to-a-suppression-list)
 
@@ -32,7 +30,7 @@ const result = await addToSuppressionList("API_KEY", {
 });
 ```
 
-#### List Recipients
+## List Recipients
 
 [Official Documentation](https://developers.mailersend.com/api/v1/recipients.html#get-recipients)
 
@@ -58,7 +56,7 @@ const result = await listRecipients("API_KEY", {
 });
 ```
 
-#### Delete From Suppression List
+## Delete From Suppression List
 
 [Official Documentation](https://developers.mailersend.com/api/v1/recipients.html#delete-recipients-from-a-suppression-list)
 
@@ -88,7 +86,7 @@ const result = await deleteFromSuppressionList("API_KEY", {
 });
 ```
 
-#### Delete Recipient
+## Delete Recipient
 
 [Official Documentation](https://developers.mailersend.com/api/v1/recipients.html#delete-a-recipient)
 
@@ -110,7 +108,7 @@ import { deleteRecipient } from "mailersend.ts";
 const result = await deleteRecipient("API_KEY", "RECIPIENT_ID");
 ```
 
-#### Get Recipient by ID
+## Get Recipient by ID
 
 [Official Documentation](https://developers.mailersend.com/api/v1/recipients.html#get-a-single-recipient)
 
@@ -132,7 +130,7 @@ import { recipientById } from "mailersend.ts";
 const result = await recipientById("API_KEY", "RECIPIENT_ID");
 ```
 
-#### Get Suppression List
+## Get Suppression List
 
 [Official Documentation](https://developers.mailersend.com/api/v1/recipients.html#get-recipients-from-a-suppression-list)
 

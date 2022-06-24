@@ -1,8 +1,6 @@
-### Domains
+# Domains
 
----
-
-#### Add Domain
+## Add Domain
 
 [Official Documentation](https://developers.mailersend.com/api/v1/domains.html#add-a-domain)
 
@@ -29,7 +27,7 @@ const result = await addDomain({
 });
 ```
 
-#### Delete Domain
+## Delete Domain
 
 [Official Documentation](https://developers.mailersend.com/api/v1/domains.html#delete-a-domain)
 
@@ -51,7 +49,7 @@ import { deleteDomain } from "mailersend.ts";
 const result = await deleteDomain("API_KEY", "DOMAIN_ID");
 ```
 
-#### DNS Records
+## DNS Records
 
 [Official Documentation](https://developers.mailersend.com/api/v1/domains.html#get-dns-records)
 
@@ -73,7 +71,7 @@ import { dnsRecords } from "mailersend.ts";
 const result = await dnsRecords("API_KEY", "DOMAIN_ID");
 ```
 
-#### Domain by ID
+## Domain by ID
 
 [Official Documentation](https://developers.mailersend.com/api/v1/domains.html#get-a-single-domain)
 
@@ -95,7 +93,7 @@ import { domainById } from "mailersend.ts";
 const result = await domainById("API_KEY", "DOMAIN_ID");
 ```
 
-#### List Domains
+## List Domains
 
 [Official Documentation](https://developers.mailersend.com/api/v1/domains.html#get-a-list-of-domains)
 
@@ -121,7 +119,7 @@ const result = await listDomains("API_KEY", {
 });
 ```
 
-#### Recipients For Domain
+## Recipients For Domain
 
 [Official Documentation](https://developers.mailersend.com/api/v1/domains.html#get-recipients-for-a-domain)
 
@@ -147,7 +145,7 @@ const result = await recipientsForDomain("API_KEY", {
 });
 ```
 
-#### Update Domain Settings
+## Update Domain Settings
 
 [Official Documentation](https://developers.mailersend.com/api/v1/domains.html#update-domain-settings)
 
@@ -173,7 +171,7 @@ const result = await updateDomainSettings("API_KEY", {
 });
 ```
 
-#### Verification Status
+## Verification Status
 
 [Official Documentation](https://developers.mailersend.com/api/v1/domains.html#get-verification-status)
 

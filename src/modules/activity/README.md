@@ -1,8 +1,6 @@
-### Activity
+# Activity
 
----
-
-#### Get Activity List
+## Get Activity List
 
 [Official Documentation](https://developers.mailersend.com/api/v1/activity.html#get-a-list-of-activities)
 

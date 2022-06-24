@@ -1,8 +1,6 @@
-### Email
+# Email
 
----
-
-#### Bulk Email Status
+## Bulk Email Status
 
 [Official Documentation](https://developers.mailersend.com/api/v1/email.html#get-bulk-email-status)
 
@@ -24,7 +22,7 @@ import { bulkEmailStatus } from "mailersend.ts";
 const result = await bulkEmailStatus("API_KEY", "BULK_EMAIL_ID");
 ```
 
-#### Send Email
+## Send Email
 
 [Official Documentation](https://developers.mailersend.com/api/v1/email.html#send-an-email)
 
@@ -68,7 +66,7 @@ const result = await sendEmail("API_KEY", {
 });
 ```
 
-#### Send Bulk Emails
+## Send Bulk Emails
 
 [Official Documentation](https://developers.mailersend.com/api/v1/email.html#send-bulk-emails)
 

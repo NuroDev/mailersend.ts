@@ -1,8 +1,6 @@
-### Tokens
+# Tokens
 
----
-
-#### Create Token
+## Create Token
 
 [Official Documentation](https://developers.mailersend.com/api/v1/tokens.html#create-a-token)
 
@@ -32,7 +30,7 @@ const result = await createToken("API_KEY", {
 });
 ```
 
-#### Delete Token
+## Delete Token
 
 [Official Documentation](https://developers.mailersend.com/api/v1/tokens.html#delete-a-token)
 
@@ -54,7 +52,7 @@ import { deleteToken } from "mailersend.ts";
 const result = await deleteToken("API_KEY", "TOKEN_ID");
 ```
 
-#### Update Token
+## Update Token
 
 [Official Documentation](https://developers.mailersend.com/api/v1/tokens.html#update-a-token)
 

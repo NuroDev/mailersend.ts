@@ -1,8 +1,6 @@
-### Inbound Routing
+# Inbound Routing
 
----
-
-#### Add Inbound Route
+## Add Inbound Route
 
 [Official Documentation](https://developers.mailersend.com/api/v1/inbound.html#add-an-inbound-route)
 
@@ -28,7 +26,7 @@ const result = await addInboundRoute("API_KEY", {
 });
 ```
 
-#### Delete Inbound Rate
+## Delete Inbound Rate
 
 [Official Documentation](https://developers.mailersend.com/api/v1/inbound.html#delete-an-inbound-route)
 
@@ -50,7 +48,7 @@ import { deleteInboundRoute } from "mailersend.ts";
 const result = await deleteInboundRoute("API_KEY", "INBOUND_ID");
 ```
 
-#### List Inbound Routes
+## List Inbound Routes
 
 [Official Documentation](https://developers.mailersend.com/api/v1/inbound.html#get-a-list-of-inbound-routes)
 
@@ -76,7 +74,7 @@ const result = await listInboundRoutes("API_KEY", {
 });
 ```
 
-#### Inbound Route by ID
+## Inbound Route by ID
 
 [Official Documentation](https://developers.mailersend.com/api/v1/inbound.html#get-a-single-inbound-route)
 
@@ -98,7 +96,7 @@ import { inboundRouteById } from "mailersend.ts";
 const result = await inboundRouteById("API_KEY", "INBOUND_ID");
 ```
 
-#### Updated Inbound Route
+## Updated Inbound Route
 
 [Official Documentation](https://developers.mailersend.com/api/v1/inbound.html#update-an-inbound-route)
 

@@ -1,8 +1,6 @@
-### Webhooks
+# Webhooks
 
----
-
-#### Create Webhook
+## Create Webhook
 
 [Official Documentation](https://developers.mailersend.com/api/v1/webhooks.html#create-a-webhook)
 
@@ -36,7 +34,7 @@ const result = await createWebhook("API_KEY", {
 });
 ```
 
-#### Delete Webhook
+## Delete Webhook
 
 [Official Documentation](https://developers.mailersend.com/api/v1/webhooks.html#delete-a-webhook)
 
@@ -58,7 +56,7 @@ import { deleteWebhook } from "mailersend.ts";
 const result = await deleteWebhook("API_KEY", "WEBHOOK_ID");
 ```
 
-#### List Webhooks
+## List Webhooks
 
 [Official Documentation](https://developers.mailersend.com/api/v1/webhooks.html#list-webhooks)
 
@@ -84,7 +82,7 @@ const result = await listWebhooks("API_KEY", {
 });
 ```
 
-#### Update Webhook
+## Update Webhook
 
 [Official Documentation](https://developers.mailersend.com/api/v1/webhooks.html#update-a-webhook)
 
@@ -112,7 +110,7 @@ const result = await updateWebhook("API_KEY", {
 });
 ```
 
-#### Get Webhook by ID
+## Get Webhook by ID
 
 [Official Documentation](https://developers.mailersend.com/api/v1/webhooks.html#get-a-webhook)
 
