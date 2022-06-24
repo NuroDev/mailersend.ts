@@ -37,7 +37,7 @@ const client = new Client({
 
 const result = await client.sendEmail({
   from: {
-    email: "elon@tesla.com",
+    email: "elon@spacex.com",
     name: "Elon Musk",
   },
   to: [
@@ -46,6 +46,9 @@ const result = await client.sendEmail({
       name: "Tim Apple",
     },
   ],
+  subject: "The future of humanity...",
+  html: "<h1>Hello World</h1>",
+  text: "Hello World",
 });
 ```
 
@@ -54,7 +57,7 @@ import { sendEmail } from "mailersend.ts";
 
 const result = await sendEmail("API_KEY", {
   from: {
-    email: "elon@tesla.com",
+    email: "elon@spacex.com",
     name: "Elon Musk",
   },
   to: [
@@ -63,6 +66,9 @@ const result = await sendEmail("API_KEY", {
       name: "Tim Apple",
     },
   ],
+  subject: "The future of humanity...",
+  html: "<h1>Hello World</h1>",
+  text: "Hello World",
 });
 ```
 
@@ -82,7 +88,7 @@ const client = new Client({
 const result = await client.sendBulkEmails([
   {
     from: {
-      email: "elon@tesla.com",
+      email: "elon@spacex.com",
       name: "Elon Musk",
     },
     to: [
@@ -91,6 +97,9 @@ const result = await client.sendBulkEmails([
         name: "Tim Apple",
       },
     ],
+    subject: "The future of humanity...",
+    html: "<h1>Hello World</h1>",
+    text: "Hello World",
   },
 ]);
 ```
@@ -101,7 +110,7 @@ import { sendBulkEmails } from "mailersend.ts";
 const result = await sendBulkEmails("API_KEY", [
   {
     from: {
-      email: "elon@tesla.com",
+      email: "elon@spacex.com",
       name: "Elon Musk",
     },
     to: [
@@ -110,6 +119,9 @@ const result = await sendBulkEmails("API_KEY", [
         name: "Tim Apple",
       },
     ],
+    subject: "The future of humanity...",
+    html: "<h1>Hello World</h1>",
+    text: "Hello World",
   },
 ]);
 ```
