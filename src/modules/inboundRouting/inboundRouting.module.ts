@@ -113,14 +113,9 @@ export async function updateInboundRoute<
 export async function deleteInboundRoute<
   TResponse = DeleteInboundRouteResponse
 >(apiKey: string, inboundId: string): Promise<TResponse> {
-  const response = await fetch({
+  return fetch({
     apiKey,
     endpoint: `/inbound/${inboundId}`,
     method: "DELETE",
-    unwrap: false,
   });
-
-  return {
-    success: response.status.toString().startsWith("20"),
-  };
 }
