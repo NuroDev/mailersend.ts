@@ -9,9 +9,7 @@
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.deleteScheduledMessage("MESSAGE_ID");
 ```
@@ -31,9 +29,7 @@ const result = await deleteScheduledMessage("API_KEY", "MESSAGE_ID");
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.listScheduledMessages({
   // ...
@@ -57,9 +53,7 @@ const result = await listScheduledMessages("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.scheduledMessageById("MESSAGE_ID");
 ```

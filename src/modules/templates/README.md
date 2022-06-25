@@ -9,9 +9,7 @@
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.listTemplates({
   // ...
@@ -35,9 +33,7 @@ const result = await listTemplates("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.deleteTemplate("TEMPLATE_ID");
 ```
@@ -57,9 +53,7 @@ const result = await deleteTemplate("API_KEY", "TEMPLATE_ID");
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.templateById("TEMPLATE_ID");
 ```

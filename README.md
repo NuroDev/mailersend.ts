@@ -67,9 +67,7 @@ const result = await sendEmail("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.sendEmail({
   from: {

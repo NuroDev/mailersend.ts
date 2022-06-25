@@ -9,9 +9,7 @@
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.addToSuppressionList({
   domain_id: "...",
@@ -39,9 +37,7 @@ const result = await addToSuppressionList("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.listRecipients({
   // ...
@@ -65,9 +61,7 @@ const result = await listRecipients("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.deleteFromSuppressionList({
   all: true,
@@ -95,9 +89,7 @@ const result = await deleteFromSuppressionList("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.deleteRecipient("RECIPIENT_ID");
 ```
@@ -117,9 +109,7 @@ const result = await deleteRecipient("API_KEY", "RECIPIENT_ID");
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.recipientById("RECIPIENT_ID");
 ```
@@ -139,9 +129,7 @@ const result = await recipientById("API_KEY", "RECIPIENT_ID");
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.suppressionList({
   // ...

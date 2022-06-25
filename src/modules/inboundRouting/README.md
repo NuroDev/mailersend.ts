@@ -9,9 +9,7 @@
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.addInboundRoute({
   domainId: "...",
@@ -35,9 +33,7 @@ const result = await addInboundRoute("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.deleteInboundRoute("INBOUND_ID");
 ```
@@ -57,9 +53,7 @@ const result = await deleteInboundRoute("API_KEY", "INBOUND_ID");
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.listInboundRoutes({
   // ...
@@ -83,9 +77,7 @@ const result = await listInboundRoutes("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.inboundRouteById("INBOUND_ID");
 ```
@@ -105,9 +97,7 @@ const result = await inboundRouteById("API_KEY", "INBOUND_ID");
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.updateInboundRoute({
   inboundId: "...",

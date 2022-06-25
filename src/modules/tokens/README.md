@@ -9,9 +9,7 @@
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.createToken({
   domain_id: "...",
@@ -39,9 +37,7 @@ const result = await createToken("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.deleteToken("TOKEN_ID");
 ```
@@ -61,9 +57,7 @@ const result = await deleteToken("API_KEY", "TOKEN_ID");
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.updateToken({
   status: "...",

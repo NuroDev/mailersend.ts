@@ -9,9 +9,7 @@
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.activityByCountry({
   date_to: 0,
@@ -37,9 +35,7 @@ const result = await activityByCountry("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.activityByDate({
   date_to: 0,
@@ -65,9 +61,7 @@ const result = await activityByDate("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.activityByReadingEnvironment({
   date_to: 0,
@@ -93,9 +87,7 @@ const result = await activityByReadingEnvironment("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.activityByUserAgent({
   date_to: 0,

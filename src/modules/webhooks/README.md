@@ -9,9 +9,7 @@
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.createWebhook({
   domain_id: "...",
@@ -43,9 +41,7 @@ const result = await createWebhook("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.deleteWebhook("WEBHOOK_ID");
 ```
@@ -65,9 +61,7 @@ const result = await deleteWebhook("API_KEY", "WEBHOOK_ID");
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.listWebhooks({
   domain_id: "...",
@@ -91,9 +85,7 @@ const result = await listWebhooks("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.updateWebhook({
   webhookId: "...",
@@ -119,9 +111,7 @@ const result = await updateWebhook("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.webhookById("WEBHOOK_ID");
 ```

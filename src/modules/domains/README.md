@@ -9,9 +9,7 @@
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.addDomain({
   name: "google.com",
@@ -36,9 +34,7 @@ const result = await addDomain({
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.deleteDomain("DOMAIN_ID");
 ```
@@ -58,9 +54,7 @@ const result = await deleteDomain("API_KEY", "DOMAIN_ID");
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.dnsRecords("DOMAIN_ID");
 ```
@@ -80,9 +74,7 @@ const result = await dnsRecords("API_KEY", "DOMAIN_ID");
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.domainById("DOMAIN_ID");
 ```
@@ -102,9 +94,7 @@ const result = await domainById("API_KEY", "DOMAIN_ID");
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.listDomains({
   // ...
@@ -128,9 +118,7 @@ const result = await listDomains("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.recipientsForDomain({
   domainId: "...",
@@ -154,9 +142,7 @@ const result = await recipientsForDomain("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.updateDomainSettings({
   domainId: "...",
@@ -180,9 +166,7 @@ const result = await updateDomainSettings("API_KEY", {
 ```typescript
 import { Client } from "mailersend.ts";
 
-const client = new Client({
-  apiKey: "...",
-});
+const client = new Client("...");
 
 const result = await client.verificationStatus("DOMAIN_ID");
 ```
