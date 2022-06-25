@@ -1,12 +1,5 @@
 import * as modules from "~/modules";
 
-export interface ClientConfig {
-  /**
-   * @see https://www.mailersend.com/help/managing-api-tokens
-   */
-  apiKey: string;
-}
-
 export interface IClient {
   // ------------------------------------------------------------
   // Activity

@@ -1,12 +1,17 @@
 import * as modules from "~/modules";
 
-import type { ClientConfig, IClient } from "~/types";
+import type { IClient } from "~/types";
 
 export class Client implements IClient {
   private _apiKey: string;
 
-  constructor(config: ClientConfig) {
-    this._apiKey = config.apiKey;
+  /**
+   * @see https://www.mailersend.com/help/managing-api-tokens
+   *
+   * @param {String} apiKey - API Access token
+   */
+  constructor(apiKey: string) {
+    this._apiKey = apiKey;
   }
 
   // ------------------------------------------------------------

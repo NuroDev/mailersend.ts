@@ -1,4 +1,4 @@
-export { type ClientConfig, type IClient } from "./client";
+export { type IClient } from "./client";
 
 export { type Attachment, type EmailParams, type Recipient } from "./email";
 
