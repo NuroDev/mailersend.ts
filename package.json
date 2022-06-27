@@ -13,6 +13,9 @@
     "email": "me@nuro.dev",
     "url": "https://nuro.dev"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "typescript"
   ],
