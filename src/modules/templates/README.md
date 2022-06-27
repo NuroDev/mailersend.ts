@@ -7,7 +7,7 @@
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -17,7 +17,7 @@ const result = await client.listTemplates({
 ```
 
 ```typescript
-import { listTemplates } from "mailersend.ts";
+import { listTemplates } from "@nuro.dev/mailersend.ts";
 
 const result = await listTemplates("API_KEY", {
   // ...
@@ -31,7 +31,7 @@ const result = await listTemplates("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -39,7 +39,7 @@ const result = await client.deleteTemplate("TEMPLATE_ID");
 ```
 
 ```typescript
-import { deleteTemplate } from "mailersend.ts";
+import { deleteTemplate } from "@nuro.dev/mailersend.ts";
 
 const result = await deleteTemplate("API_KEY", "TEMPLATE_ID");
 ```
@@ -51,7 +51,7 @@ const result = await deleteTemplate("API_KEY", "TEMPLATE_ID");
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -59,7 +59,7 @@ const result = await client.templateById("TEMPLATE_ID");
 ```
 
 ```typescript
-import { templateById } from "mailersend.ts";
+import { templateById } from "@nuro.dev/mailersend.ts";
 
 const result = await templateById("API_KEY", "TEMPLATE_ID");
 ```

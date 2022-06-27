@@ -7,7 +7,7 @@
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -15,7 +15,7 @@ const result = await client.bulkEmailStatus("BULK_EMAIL_ID");
 ```
 
 ```typescript
-import { bulkEmailStatus } from "mailersend.ts";
+import { bulkEmailStatus } from "@nuro.dev/mailersend.ts";
 
 const result = await bulkEmailStatus("API_KEY", "BULK_EMAIL_ID");
 ```
@@ -27,7 +27,7 @@ const result = await bulkEmailStatus("API_KEY", "BULK_EMAIL_ID");
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -49,7 +49,7 @@ const result = await client.sendEmail({
 ```
 
 ```typescript
-import { sendEmail } from "mailersend.ts";
+import { sendEmail } from "@nuro.dev/mailersend.ts";
 
 const result = await sendEmail("API_KEY", {
   from: {
@@ -75,7 +75,7 @@ const result = await sendEmail("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -99,7 +99,7 @@ const result = await client.sendBulkEmails([
 ```
 
 ```typescript
-import { sendBulkEmails } from "mailersend.ts";
+import { sendBulkEmails } from "@nuro.dev/mailersend.ts";
 
 const result = await sendBulkEmails("API_KEY", [
   {

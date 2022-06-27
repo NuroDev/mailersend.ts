@@ -7,7 +7,7 @@
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -17,7 +17,7 @@ const result = await client.listMessages({
 ```
 
 ```typescript
-import { listMessages } from "mailersend.ts";
+import { listMessages } from "@nuro.dev/mailersend.ts";
 
 const result = await listMessages("API_KEY", {
   // ...
@@ -31,7 +31,7 @@ const result = await listMessages("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -39,7 +39,7 @@ const result = await client.messageInfoById("MESSAGE_ID");
 ```
 
 ```typescript
-import { messageInfoById } from "mailersend.ts";
+import { messageInfoById } from "@nuro.dev/mailersend.ts";
 
 const result = await messageInfoById("API_KEY", "MESSAGE_ID");
 ```

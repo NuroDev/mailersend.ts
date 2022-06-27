@@ -7,7 +7,7 @@
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -15,7 +15,7 @@ const result = await client.deleteScheduledMessage("MESSAGE_ID");
 ```
 
 ```typescript
-import { deleteScheduledMessage } from "mailersend.ts";
+import { deleteScheduledMessage } from "@nuro.dev/mailersend.ts";
 
 const result = await deleteScheduledMessage("API_KEY", "MESSAGE_ID");
 ```
@@ -27,7 +27,7 @@ const result = await deleteScheduledMessage("API_KEY", "MESSAGE_ID");
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -37,7 +37,7 @@ const result = await client.listScheduledMessages({
 ```
 
 ```typescript
-import { listScheduledMessages } from "mailersend.ts";
+import { listScheduledMessages } from "@nuro.dev/mailersend.ts";
 
 const result = await listScheduledMessages("API_KEY", {
   // ...
@@ -51,7 +51,7 @@ const result = await listScheduledMessages("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -59,7 +59,7 @@ const result = await client.scheduledMessageById("MESSAGE_ID");
 ```
 
 ```typescript
-import { scheduledMessageById } from "mailersend.ts";
+import { scheduledMessageById } from "@nuro.dev/mailersend.ts";
 
 const result = await scheduledMessageById("API_KEY", "MESSAGE_ID");
 ```

@@ -7,7 +7,7 @@
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -17,7 +17,7 @@ const result = await client.activityList({
 ```
 
 ```typescript
-import { activityList } from "mailersend.ts";
+import { activityList } from "@nuro.dev/mailersend.ts";
 
 const result = await activityList("API_KEY", {
   domainId: "...",

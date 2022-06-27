@@ -18,10 +18,10 @@
     <br />
     <br />
   
-[![Package Version](https://img.shields.io/npm/v/mailersend.ts?label=%20&style=for-the-badge)](https://www.npmjs.com/package/mailersend.ts)
-[![Package Monthly Downloads](https://img.shields.io/npm/dm/mailersend.ts?color=blue&label=%20&style=for-the-badge)](https://www.npmjs.com/package/mailersend.ts)
-[![CI Build](https://img.shields.io/github/workflow/status/nurodev/mailersend.ts/CI?label=%20&logo=github&logoColor=white&style=for-the-badge)](https://github.com/NuroDev/mailersend.ts/actions/workflows/ci.yml)
-[![Docs](https://img.shields.io/badge/-Docs-blue.svg?style=for-the-badge)](https://paka.dev/npm/mailersend.ts)
+[![Package Version](https://img.shields.io/npm/v/@nurodev.mailersend.ts?label=%20&style=for-the-badge)](https://www.npmjs.com/package/@nurodev.mailersend.ts)
+[![Package Monthly Downloads](https://img.shields.io/npm/dm/@nurodev.mailersend.ts?color=blue&label=%20&style=for-the-badge)](https://www.npmjs.com/package/@nurodev.mailersend.ts)
+[![CI Build](https://img.shields.io/github/workflow/status/nurodev/mailersend.ts/CI?label=%20&logo=github&logoColor=white&style=for-the-badge)](https://github.com/nurodev/mailersend.ts/actions/workflows/ci.yml)
+[![Docs](https://img.shields.io/badge/-Docs-blue.svg?style=for-the-badge)](https://paka.dev/npm/@nurodev.mailersend.ts)
 
   </sup>
   <br />
@@ -33,11 +33,11 @@
 Install it locally in your project
 
 ```bash
-npm i --save mailersend.ts
+npm i --save @nurodev/mailersend.ts
 
 # Or with Yarn
 
-yarn add mailersend.ts
+yarn add @nurodev/mailersend.ts
 ```
 
 ## 🦄 Usage
@@ -45,7 +45,7 @@ yarn add mailersend.ts
 Here are 2 basic examples of how to use the package using either the direct function handler or the client instance model:
 
 ```typescript
-import { sendEmail } from "mailersend.ts";
+import { sendEmail } from "@nurodev/mailersend.ts";
 
 const result = await sendEmail("API_KEY", {
   from: {
@@ -65,7 +65,7 @@ const result = await sendEmail("API_KEY", {
 ```
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nurodev/mailersend.ts";
 
 const client = new Client("...");
 

@@ -7,7 +7,7 @@
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -17,7 +17,7 @@ const result = await client.addInboundRoute({
 ```
 
 ```typescript
-import { addInboundRoute } from "mailersend.ts";
+import { addInboundRoute } from "@nuro.dev/mailersend.ts";
 
 const result = await addInboundRoute("API_KEY", {
   // ...
@@ -31,7 +31,7 @@ const result = await addInboundRoute("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -39,7 +39,7 @@ const result = await client.deleteInboundRoute("INBOUND_ID");
 ```
 
 ```typescript
-import { deleteInboundRoute } from "mailersend.ts";
+import { deleteInboundRoute } from "@nuro.dev/mailersend.ts";
 
 const result = await deleteInboundRoute("API_KEY", "INBOUND_ID");
 ```
@@ -51,7 +51,7 @@ const result = await deleteInboundRoute("API_KEY", "INBOUND_ID");
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -61,7 +61,7 @@ const result = await client.listInboundRoutes({
 ```
 
 ```typescript
-import { listInboundRoutes } from "mailersend.ts";
+import { listInboundRoutes } from "@nuro.dev/mailersend.ts";
 
 const result = await listInboundRoutes("API_KEY", {
   // ...
@@ -75,7 +75,7 @@ const result = await listInboundRoutes("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -83,7 +83,7 @@ const result = await client.inboundRouteById("INBOUND_ID");
 ```
 
 ```typescript
-import { inboundRouteById } from "mailersend.ts";
+import { inboundRouteById } from "@nuro.dev/mailersend.ts";
 
 const result = await inboundRouteById("API_KEY", "INBOUND_ID");
 ```
@@ -95,7 +95,7 @@ const result = await inboundRouteById("API_KEY", "INBOUND_ID");
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -106,7 +106,7 @@ const result = await client.updateInboundRoute({
 ```
 
 ```typescript
-import { updateInboundRoute } from "mailersend.ts";
+import { updateInboundRoute } from "@nuro.dev/mailersend.ts";
 
 const result = await updateInboundRoute("API_KEY", {
   inboundId: "...",

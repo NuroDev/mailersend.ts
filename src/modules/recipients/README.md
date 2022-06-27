@@ -7,7 +7,7 @@
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -19,7 +19,7 @@ const result = await client.addToSuppressionList({
 ```
 
 ```typescript
-import { addToSuppressionList } from "mailersend.ts";
+import { addToSuppressionList } from "@nuro.dev/mailersend.ts";
 
 const result = await addToSuppressionList("API_KEY", {
   domain_id: "...",
@@ -35,7 +35,7 @@ const result = await addToSuppressionList("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -45,7 +45,7 @@ const result = await client.listRecipients({
 ```
 
 ```typescript
-import { listRecipients } from "mailersend.ts";
+import { listRecipients } from "@nuro.dev/mailersend.ts";
 
 const result = await listRecipients("API_KEY", {
   // ...
@@ -59,7 +59,7 @@ const result = await listRecipients("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -71,7 +71,7 @@ const result = await client.deleteFromSuppressionList({
 ```
 
 ```typescript
-import { deleteFromSuppressionList } from "mailersend.ts";
+import { deleteFromSuppressionList } from "@nuro.dev/mailersend.ts";
 
 const result = await deleteFromSuppressionList("API_KEY", {
   all: true,
@@ -87,7 +87,7 @@ const result = await deleteFromSuppressionList("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -95,7 +95,7 @@ const result = await client.deleteRecipient("RECIPIENT_ID");
 ```
 
 ```typescript
-import { deleteRecipient } from "mailersend.ts";
+import { deleteRecipient } from "@nuro.dev/mailersend.ts";
 
 const result = await deleteRecipient("API_KEY", "RECIPIENT_ID");
 ```
@@ -107,7 +107,7 @@ const result = await deleteRecipient("API_KEY", "RECIPIENT_ID");
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -115,7 +115,7 @@ const result = await client.recipientById("RECIPIENT_ID");
 ```
 
 ```typescript
-import { recipientById } from "mailersend.ts";
+import { recipientById } from "@nuro.dev/mailersend.ts";
 
 const result = await recipientById("API_KEY", "RECIPIENT_ID");
 ```
@@ -127,7 +127,7 @@ const result = await recipientById("API_KEY", "RECIPIENT_ID");
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -137,7 +137,7 @@ const result = await client.suppressionList({
 ```
 
 ```typescript
-import { suppressionList } from "mailersend.ts";
+import { suppressionList } from "@nuro.dev/mailersend.ts";
 
 const result = await suppressionList("API_KEY", {
   // ...

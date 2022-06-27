@@ -7,7 +7,7 @@
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -21,7 +21,7 @@ const result = await client.createWebhook({
 ```
 
 ```typescript
-import { createWebhook } from "mailersend.ts";
+import { createWebhook } from "@nuro.dev/mailersend.ts";
 
 const result = await createWebhook("API_KEY", {
   domain_id: "...",
@@ -39,7 +39,7 @@ const result = await createWebhook("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -47,7 +47,7 @@ const result = await client.deleteWebhook("WEBHOOK_ID");
 ```
 
 ```typescript
-import { deleteWebhook } from "mailersend.ts";
+import { deleteWebhook } from "@nuro.dev/mailersend.ts";
 
 const result = await deleteWebhook("API_KEY", "WEBHOOK_ID");
 ```
@@ -59,7 +59,7 @@ const result = await deleteWebhook("API_KEY", "WEBHOOK_ID");
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -69,7 +69,7 @@ const result = await client.listWebhooks({
 ```
 
 ```typescript
-import { listWebhooks } from "mailersend.ts";
+import { listWebhooks } from "@nuro.dev/mailersend.ts";
 
 const result = await listWebhooks("API_KEY", {
   domain_id: "...",
@@ -83,7 +83,7 @@ const result = await listWebhooks("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -94,7 +94,7 @@ const result = await client.updateWebhook({
 ```
 
 ```typescript
-import { updateWebhook } from "mailersend.ts";
+import { updateWebhook } from "@nuro.dev/mailersend.ts";
 
 const result = await updateWebhook("API_KEY", {
   webhookId: "...",
@@ -109,7 +109,7 @@ const result = await updateWebhook("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -117,7 +117,7 @@ const result = await client.webhookById("WEBHOOK_ID");
 ```
 
 ```typescript
-import { webhookById } from "mailersend.ts";
+import { webhookById } from "@nuro.dev/mailersend.ts";
 
 const result = await webhookById("API_KEY", "WEBHOOK_ID");
 ```

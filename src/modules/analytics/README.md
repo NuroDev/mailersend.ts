@@ -7,7 +7,7 @@
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -18,7 +18,7 @@ const result = await client.activityByCountry({
 ```
 
 ```typescript
-import { activityByCountry } from "mailersend.ts";
+import { activityByCountry } from "@nuro.dev/mailersend.ts";
 
 const result = await activityByCountry("API_KEY", {
   date_to: 0,
@@ -33,7 +33,7 @@ const result = await activityByCountry("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -44,7 +44,7 @@ const result = await client.activityByDate({
 ```
 
 ```typescript
-import { activityByDate } from "mailersend.ts";
+import { activityByDate } from "@nuro.dev/mailersend.ts";
 
 const result = await activityByDate("API_KEY", {
   date_to: 0,
@@ -59,7 +59,7 @@ const result = await activityByDate("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -70,7 +70,7 @@ const result = await client.activityByReadingEnvironment({
 ```
 
 ```typescript
-import { activityByReadingEnvironment } from "mailersend.ts";
+import { activityByReadingEnvironment } from "@nuro.dev/mailersend.ts";
 
 const result = await activityByReadingEnvironment("API_KEY", {
   date_to: 0,
@@ -85,7 +85,7 @@ const result = await activityByReadingEnvironment("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -96,7 +96,7 @@ const result = await client.activityByUserAgent({
 ```
 
 ```typescript
-import { activityByUserAgent } from "mailersend.ts";
+import { activityByUserAgent } from "@nuro.dev/mailersend.ts";
 
 const result = await activityByUserAgent("API_KEY", {
   date_to: 0,

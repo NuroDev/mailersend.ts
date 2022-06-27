@@ -7,7 +7,7 @@
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -17,7 +17,7 @@ const result = await client.addDomain({
 ```
 
 ```typescript
-import { addDomain } from "mailersend.ts";
+import { addDomain } from "@nuro.dev/mailersend.ts";
 
 const result = await addDomain({
   apiKey: "...",
@@ -32,7 +32,7 @@ const result = await addDomain({
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -40,7 +40,7 @@ const result = await client.deleteDomain("DOMAIN_ID");
 ```
 
 ```typescript
-import { deleteDomain } from "mailersend.ts";
+import { deleteDomain } from "@nuro.dev/mailersend.ts";
 
 const result = await deleteDomain("API_KEY", "DOMAIN_ID");
 ```
@@ -52,7 +52,7 @@ const result = await deleteDomain("API_KEY", "DOMAIN_ID");
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -60,7 +60,7 @@ const result = await client.dnsRecords("DOMAIN_ID");
 ```
 
 ```typescript
-import { dnsRecords } from "mailersend.ts";
+import { dnsRecords } from "@nuro.dev/mailersend.ts";
 
 const result = await dnsRecords("API_KEY", "DOMAIN_ID");
 ```
@@ -72,7 +72,7 @@ const result = await dnsRecords("API_KEY", "DOMAIN_ID");
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -80,7 +80,7 @@ const result = await client.domainById("DOMAIN_ID");
 ```
 
 ```typescript
-import { domainById } from "mailersend.ts";
+import { domainById } from "@nuro.dev/mailersend.ts";
 
 const result = await domainById("API_KEY", "DOMAIN_ID");
 ```
@@ -92,7 +92,7 @@ const result = await domainById("API_KEY", "DOMAIN_ID");
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -102,7 +102,7 @@ const result = await client.listDomains({
 ```
 
 ```typescript
-import { listDomains } from "mailersend.ts";
+import { listDomains } from "@nuro.dev/mailersend.ts";
 
 const result = await listDomains("API_KEY", {
   // ...
@@ -116,7 +116,7 @@ const result = await listDomains("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -126,7 +126,7 @@ const result = await client.recipientsForDomain({
 ```
 
 ```typescript
-import { recipientsForDomain } from "mailersend.ts";
+import { recipientsForDomain } from "@nuro.dev/mailersend.ts";
 
 const result = await recipientsForDomain("API_KEY", {
   domainId: "...",
@@ -140,7 +140,7 @@ const result = await recipientsForDomain("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -150,7 +150,7 @@ const result = await client.updateDomainSettings({
 ```
 
 ```typescript
-import { updateDomainSettings } from "mailersend.ts";
+import { updateDomainSettings } from "@nuro.dev/mailersend.ts";
 
 const result = await updateDomainSettings("API_KEY", {
   domainId: "...",
@@ -164,7 +164,7 @@ const result = await updateDomainSettings("API_KEY", {
 ---
 
 ```typescript
-import { Client } from "mailersend.ts";
+import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("...");
 
@@ -172,7 +172,7 @@ const result = await client.verificationStatus("DOMAIN_ID");
 ```
 
 ```typescript
-import { verificationStatus } from "mailersend.ts";
+import { verificationStatus } from "@nuro.dev/mailersend.ts";
 
 const result = await verificationStatus("API_KEY", "DOMAIN_ID");
 ```
