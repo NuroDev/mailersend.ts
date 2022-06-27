@@ -18,8 +18,8 @@
     <br />
     <br />
   
-[![Package Version](https://img.shields.io/npm/v/@nurodev.mailersend.ts?label=%20&style=for-the-badge)](https://www.npmjs.com/package/@nurodev.mailersend.ts)
-[![Package Monthly Downloads](https://img.shields.io/npm/dm/@nurodev.mailersend.ts?color=blue&label=%20&style=for-the-badge)](https://www.npmjs.com/package/@nurodev.mailersend.ts)
+[![Package Version](https://img.shields.io/npm/v/@nurodev/mailersend.ts?label=%20&style=for-the-badge)](https://www.npmjs.com/package/@nurodev/mailersend.ts)
+[![Package Monthly Downloads](https://img.shields.io/npm/dm/@nurodev/mailersend.ts?color=blue&label=%20&style=for-the-badge)](https://www.npmjs.com/package/@nurodev/mailersend.ts)
 [![CI Build](https://img.shields.io/github/workflow/status/nurodev/mailersend.ts/CI?label=%20&logo=github&logoColor=white&style=for-the-badge)](https://github.com/nurodev/mailersend.ts/actions/workflows/ci.yml)
 [![Docs](https://img.shields.io/badge/-Docs-blue.svg?style=for-the-badge)](https://paka.dev/npm/@nurodev.mailersend.ts)
 
