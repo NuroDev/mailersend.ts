@@ -22,17 +22,17 @@ export type EmailParams = {
   };
   personalization?: Array<{
     email: string;
-    data: Array<any>;
+    data: Record<string, any>;
   }>;
   precedence_bulk?: boolean;
-  recipients: Array<Recipient>;
+  recipients?: Array<Recipient>;
   reply_to?: {
     email?: string;
     name?: string;
   };
   send_at?: number;
   subject: string;
-  tags: Array<string>;
+  tags?: Array<string>;
   to: Array<{
     email: string;
     name?: string;

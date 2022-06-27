@@ -13,7 +13,8 @@ export interface BulkEmailStatusResponse {
   validation_errors: unknown;
 }
 
-export type SendEmailParams = EmailParams & Record<string, any>;
+export type SendEmailParams = Omit<EmailParams, "recipients"> &
+  Record<string, any>;
 
 export interface SendEmailResponse {
   errors?: Record<string, Array<string>>;
