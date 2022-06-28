@@ -49,7 +49,7 @@ export async function sendEmail<TResponse = SendEmailResponse>(
     apiKey,
     endpoint: "/email",
     method: "POST",
-    params: options,
+    body: options,
   });
 }
 
