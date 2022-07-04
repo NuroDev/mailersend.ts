@@ -17,10 +17,10 @@ import type {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Additional request parameters
  */
-export async function listTemplates(
+export async function listTemplates<TResponse = ListTemplatesRespose>(
   apiKey: string,
   options: ListTemplatesParams = {}
-): Promise<ListTemplatesRespose> {
+): Promise<TResponse> {
   const response = await fetch2({
     apiKey,
     endpoint: "/templates",
@@ -28,7 +28,7 @@ export async function listTemplates(
     params: options,
   });
 
-  return (await response.json()) as ListTemplatesRespose;
+  return (await response.json()) as TResponse;
 }
 
 /**
@@ -66,15 +66,15 @@ export async function deleteTemplate(
  * @param {String} apiKey - Unique API access token
  * @param {String} templateId - Unique template identifier
  */
-export async function templateById(
+export async function templateById<TResponse = TemplateByIdResponse>(
   apiKey: string,
   templateId: string
-): Promise<TemplateByIdResponse> {
+): Promise<TResponse> {
   const response = await fetch2({
     apiKey,
     endpoint: `/templates/${templateId}`,
     method: "GET",
   });
 
-  return (await response.json()) as TemplateByIdResponse;
+  return (await response.json()) as TResponse;
 }
