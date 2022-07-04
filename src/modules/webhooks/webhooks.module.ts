@@ -1,8 +1,10 @@
-import { fetch } from "~/fetch";
+import { fetch2, fetchJson } from "~/fetch";
 
 import type {
   CreateWebhookParams,
+  DeleteWebhookResponse,
   ListWebhooksParams,
+  ListWebhooksResponse,
   UpdateWebhookParams,
 } from ".";
 
@@ -16,11 +18,11 @@ import type {
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - List webhook options
  */
-export async function listWebhooks<TResponse = Response>(
+export async function listWebhooks<TResponse = ListWebhooksResponse>(
   apiKey: string,
   options: ListWebhooksParams
 ): Promise<TResponse> {
-  return fetch({
+  return fetchJson({
     apiKey,
     endpoint: "/webhooks",
     method: "GET",
@@ -42,7 +44,7 @@ export async function webhookById<TResponse = Response>(
   apiKey: string,
   webhookId: string
 ): Promise<TResponse> {
-  return fetch({
+  return fetchJson({
     apiKey,
     endpoint: `/webhooks/${webhookId}`,
     method: "GET",
@@ -61,13 +63,13 @@ export async function webhookById<TResponse = Response>(
  */
 export async function createWebhook<TResponse = Response>(
   apiKey: string,
-  options: CreateWebhookParams
+  params: CreateWebhookParams
 ): Promise<TResponse> {
-  return fetch({
+  return fetchJson({
     apiKey,
     endpoint: "/webhooks/",
     method: "POST",
-    params: options,
+    params,
   });
 }
 
@@ -83,13 +85,13 @@ export async function createWebhook<TResponse = Response>(
  */
 export async function updateWebhook<TResponse = Response>(
   apiKey: string,
-  { webhookId, ...options }: UpdateWebhookParams
+  { webhookId, ...params }: UpdateWebhookParams
 ): Promise<TResponse> {
-  return fetch({
+  return fetchJson({
     apiKey,
     endpoint: `/webhooks/${webhookId}`,
     method: "PUT",
-    params: options,
+    params,
   });
 }
 
@@ -103,13 +105,17 @@ export async function updateWebhook<TResponse = Response>(
  * @param {String} apiKey - Unique API access token
  * @param {String} webhookId - Unique webhook identifier
  */
-export async function deleteWebhook<TResponse = Response>(
+export async function deleteWebhook(
   apiKey: string,
   webhookId: string
-): Promise<TResponse> {
-  return fetch({
+): Promise<DeleteWebhookResponse> {
+  const response = await fetch2({
     apiKey,
     endpoint: `/webhooks/${webhookId}`,
     method: "DELETE",
   });
+
+  return {
+    success: response.ok,
+  };
 }
