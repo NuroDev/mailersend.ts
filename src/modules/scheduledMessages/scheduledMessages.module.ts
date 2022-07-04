@@ -1,6 +1,11 @@
-import { fetch } from "~/fetch";
+import { fetch2, fetchJson } from "~/fetch";
 
-import type { ListScheduledMessagesParams } from ".";
+import type {
+  DeleteScheduledMessageResponse,
+  ListScheduledMessagesParams,
+  ListScheduledMessagesResponse,
+  ScheduledMessageByIdResponse,
+} from ".";
 
 /**
  * List Scheduled Messages
@@ -12,15 +17,17 @@ import type { ListScheduledMessagesParams } from ".";
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Additional request options
  */
-export async function listScheduledMessages<TResponse = Response>(
+export async function listScheduledMessages<
+  TResponse = ListScheduledMessagesResponse
+>(
   apiKey: string,
-  options: ListScheduledMessagesParams
+  params: ListScheduledMessagesParams = {}
 ): Promise<TResponse> {
-  return fetch({
+  return fetchJson({
     apiKey,
     endpoint: "/message-schedules",
     method: "GET",
-    params: options,
+    params,
   });
 }
 
@@ -34,11 +41,10 @@ export async function listScheduledMessages<TResponse = Response>(
  * @param {String} apiKey - Unique API access token
  * @param {String} messageId - Message ID from the Send an email's response headers or Get scheduled messages response.
  */
-export async function scheduledMessageById<TResponse = Response>(
-  apiKey: string,
-  messageId: string
-): Promise<TResponse> {
-  return fetch({
+export async function scheduledMessageById<
+  TResponse = ScheduledMessageByIdResponse
+>(apiKey: string, messageId: string): Promise<TResponse> {
+  return fetchJson({
     apiKey,
     endpoint: `/message-schedules/${messageId}`,
     method: "GET",
@@ -55,13 +61,17 @@ export async function scheduledMessageById<TResponse = Response>(
  * @param {String} apiKey - Unique API access token
  * @param {String} messageId - Message ID from the Send an email's response headers or Get scheduled messages response.
  */
-export async function deleteScheduledMessage<TResponse = Response>(
+export async function deleteScheduledMessage(
   apiKey: string,
   messageId: string
-): Promise<TResponse> {
-  return fetch({
+): Promise<DeleteScheduledMessageResponse> {
+  const response = await fetch2({
     apiKey,
     endpoint: `/message-schedules/${messageId}`,
     method: "DELETE",
   });
+
+  return {
+    success: response.ok,
+  };
 }

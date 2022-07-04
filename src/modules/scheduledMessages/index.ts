@@ -4,4 +4,9 @@ export {
   scheduledMessageById,
 } from "./scheduledMessages.module";
 
-export { type ListScheduledMessagesParams } from "./scheduledMessages.types";
+export {
+  type DeleteScheduledMessageResponse,
+  type ListScheduledMessagesParams,
+  type ListScheduledMessagesResponse,
+  type ScheduledMessageByIdResponse,
+} from "./scheduledMessages.types";
