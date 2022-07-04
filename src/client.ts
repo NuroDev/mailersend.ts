@@ -164,7 +164,7 @@ export class Client implements IClient {
   // Templates
   // ------------------------------------------------------------
 
-  public async listTemplates(options: modules.ListTemplatesParams) {
+  public async listTemplates(options: modules.ListTemplatesParams = {}) {
     return modules.listTemplates(this._apiKey, options);
   }
   public async deleteTemplate(templateId: string) {
