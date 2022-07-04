@@ -1,4 +1,4 @@
-import type { BaseReponse } from "~/types";
+import type { BaseReponse, ResponseLinks, ResponseMeta } from "~/types";
 
 export interface ListDomainsParams extends Record<string, any> {
   page?: number;
@@ -42,23 +42,9 @@ export interface ListDomainsData {
   updated_at: string;
 }
 
-export interface ListDomainsResponse extends BaseReponse<ListDomainsData> {
-  links: {
-    first: string;
-    last: string;
-    prev: unknown;
-    next: unknown;
-  };
-  meta: {
-    current_page: number;
-    from: number;
-    last_page: number;
-    path: string;
-    per_page: number;
-    to: number;
-    total: number;
-  };
-}
+export type ListDomainsResponse = BaseReponse<ListDomainsData> &
+  ResponseLinks &
+  ResponseMeta;
 
 export interface DomainByIdData {
   created_at: string;
@@ -172,24 +158,11 @@ export interface RecipientsForDomainData {
   updated_at: string;
 }
 
-export interface RecipientsForDomainResponse
-  extends BaseReponse<Array<RecipientsForDomainData>> {
-  links: {
-    first: string;
-    last: string;
-    next: unknown;
-    prev: unknown;
-  };
-  meta: {
-    current_page: number;
-    from: number;
-    last_page: number;
-    path: string;
-    per_page: number;
-    to: number;
-    total: number;
-  };
-}
+export type RecipientsForDomainResponse = BaseReponse<
+  Array<RecipientsForDomainData>
+> &
+  ResponseLinks &
+  ResponseMeta;
 
 export interface UpdateDomainSettingsParams extends Record<string, any> {
   custom_tracking_enabled?: boolean;

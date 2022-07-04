@@ -1,4 +1,4 @@
-import type { BaseReponse, Event } from "~/types";
+import type { BaseReponse, Event, ResponseLinks, ResponseMeta } from "~/types";
 
 export interface CreateWebhookParams extends Record<string, any> {
   domain_id: string;
@@ -20,24 +20,9 @@ export interface ListWebhooksParams extends Record<string, any> {
 }
 
 // TODO: Fix webhook array object type
-export interface ListWebhooksResponse
-  extends BaseReponse<Array<Record<string, any>>> {
-  links: {
-    first: string;
-    last: string;
-    prev: unknown;
-    next: unknown;
-  };
-  meta: {
-    current_page: number;
-    from: number;
-    last_page: number;
-    path: string;
-    per_page: number;
-    to: number;
-    total: number;
-  };
-}
+export type ListWebhooksResponse = BaseReponse<Array<Record<string, any>>> &
+  ResponseLinks &
+  ResponseMeta;
 
 export interface UpdateWebhookParams extends Record<string, any> {
   enabled?: boolean;

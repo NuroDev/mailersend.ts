@@ -1,4 +1,4 @@
-import { BaseReponse } from "~/types";
+import { BaseReponse, ResponseLinks, ResponseMeta } from "~/types";
 
 export interface DeleteTemplateResponse {
   success: boolean;
@@ -17,32 +17,17 @@ export interface ListTemplatesParams extends Record<string, any> {
   limit?: number;
 }
 
-export interface ListTemplatesRespose
-  extends BaseReponse<
-    Array<{
-      created_at: string;
-      id: string;
-      image_path: string;
-      name: string;
-      type: string;
-    }>
-  > {
-  links: {
-    first: string;
-    last: string;
-    prev: unknown;
-    next: unknown;
-  };
-  meta: {
-    current_page: number;
-    from: number;
-    last_page: number;
-    path: string;
-    per_page: number;
-    to: number;
-    total: number;
-  };
-}
+export type ListTemplatesRespose = BaseReponse<
+  Array<{
+    created_at: string;
+    id: string;
+    image_path: string;
+    name: string;
+    type: string;
+  }>
+> &
+  ResponseLinks &
+  ResponseMeta;
 
 export type TemplateByIdResponse = BaseReponse<{
   category: {

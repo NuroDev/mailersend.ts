@@ -1,4 +1,9 @@
-import type { BaseReponse, ScheduleStatus } from "~/types";
+import type {
+  BaseReponse,
+  ResponseLinks,
+  ResponseMeta,
+  ScheduleStatus,
+} from "~/types";
 
 export interface DeleteScheduledMessageResponse {
   success: boolean;
@@ -18,33 +23,18 @@ export interface ListScheduledMessagesParams extends Record<string, any> {
   status?: ScheduleStatus;
 }
 
-export interface ListScheduledMessagesResponse
-  extends BaseReponse<
-    Array<{
-      created_at: string;
-      message_id: string;
-      send_at: string;
-      status_message: unknown | null;
-      status: string;
-      subject: string;
-    }>
-  > {
-  links: {
-    first: string;
-    last: string;
-    prev: unknown;
-    next: unknown;
-  };
-  meta: {
-    current_page: number;
-    from: number;
-    last_page: number;
-    path: string;
-    per_page: number;
-    to: number;
-    total: number;
-  };
-}
+export type ListScheduledMessagesResponse = BaseReponse<
+  Array<{
+    created_at: string;
+    message_id: string;
+    send_at: string;
+    status_message: unknown | null;
+    status: string;
+    subject: string;
+  }>
+> &
+  ResponseLinks &
+  ResponseMeta;
 
 export interface ScheduledMessageByIdResponse
   extends BaseReponse<{
