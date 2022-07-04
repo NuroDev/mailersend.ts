@@ -1,4 +1,4 @@
-import { fetch } from "~/fetch";
+import { fetch2, fetchJson } from "~/fetch";
 
 import type {
   CreateTokenParams,
@@ -22,7 +22,7 @@ export async function createToken<TResponse = CreateTokenResponse>(
   apiKey: string,
   options: CreateTokenParams
 ): Promise<TResponse> {
-  return fetch({
+  return fetchJson({
     apiKey,
     endpoint: "/token",
     method: "POST",
@@ -44,7 +44,7 @@ export async function updateToken<TResponse = UpdateTokenResponse>(
   apiKey: string,
   { tokenId, ...options }: UpdateTokenParams
 ): Promise<TResponse> {
-  return fetch({
+  return fetchJson({
     apiKey,
     endpoint: `/token/${tokenId}/settings`,
     method: "PUT",
@@ -62,13 +62,17 @@ export async function updateToken<TResponse = UpdateTokenResponse>(
  * @param {String} apiKey - Unique API access token
  * @param {String} tokenId - Unique token identifier
  */
-export async function deleteToken<TResponse = DeleteTokenResponse>(
+export async function deleteToken(
   apiKey: string,
   tokenId: string
-): Promise<TResponse> {
-  return fetch({
+): Promise<DeleteTokenResponse> {
+  const response = await fetch2({
     apiKey,
     endpoint: `/token/${tokenId}`,
     method: "DELETE",
   });
+
+  return {
+    success: response.ok,
+  };
 }
