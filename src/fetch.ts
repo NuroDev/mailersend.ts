@@ -69,3 +69,9 @@ export async function fetch2({
 
   return response;
 }
+
+export async function fetchJson<TResponse>(options: RequestOptions) {
+  const response = await fetch2(options);
+
+  return (await response.json()) as TResponse;
+}

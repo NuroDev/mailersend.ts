@@ -1,4 +1,4 @@
-import { fetch2 } from "~/fetch";
+import { fetch2, fetchJson } from "~/fetch";
 
 import type {
   DeleteTemplateResponse,
@@ -21,14 +21,12 @@ export async function listTemplates<TResponse = ListTemplatesRespose>(
   apiKey: string,
   options: ListTemplatesParams = {}
 ): Promise<TResponse> {
-  const response = await fetch2({
+  return fetchJson({
     apiKey,
     endpoint: "/templates",
     method: "GET",
     params: options,
   });
-
-  return (await response.json()) as TResponse;
 }
 
 /**
@@ -70,11 +68,9 @@ export async function templateById<TResponse = TemplateByIdResponse>(
   apiKey: string,
   templateId: string
 ): Promise<TResponse> {
-  const response = await fetch2({
+  return fetchJson({
     apiKey,
     endpoint: `/templates/${templateId}`,
     method: "GET",
   });
-
-  return (await response.json()) as TResponse;
 }
