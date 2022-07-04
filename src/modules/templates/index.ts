@@ -4,4 +4,9 @@ export {
   templateById,
 } from "./templates.module";
 
-export { type ListTemplatesParams } from "./templates.types";
+export {
+  type DeleteTemplateResponse,
+  type ListTemplatesParams,
+  type ListTemplatesRespose,
+  type TemplateByIdResponse,
+} from "./templates.types";

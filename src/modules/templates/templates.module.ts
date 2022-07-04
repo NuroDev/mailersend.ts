@@ -1,6 +1,11 @@
-import { fetch } from "~/fetch";
+import { fetch2 } from "~/fetch";
 
-import type { ListTemplatesParams } from ".";
+import type {
+  DeleteTemplateResponse,
+  ListTemplatesParams,
+  ListTemplatesRespose,
+  TemplateByIdResponse,
+} from ".";
 
 /**
  * List Templates
@@ -12,16 +17,18 @@ import type { ListTemplatesParams } from ".";
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Additional request parameters
  */
-export async function listTemplates<TResponse = Response>(
+export async function listTemplates(
   apiKey: string,
-  options: ListTemplatesParams
-): Promise<TResponse> {
-  return fetch({
+  options: ListTemplatesParams = {}
+): Promise<ListTemplatesRespose> {
+  const response = await fetch2({
     apiKey,
     endpoint: "/templates",
     method: "GET",
     params: options,
   });
+
+  return (await response.json()) as ListTemplatesRespose;
 }
 
 /**
@@ -34,15 +41,19 @@ export async function listTemplates<TResponse = Response>(
  * @param {String} apiKey - Unique API access token
  * @param {String} templateId - Unique template identifier
  */
-export async function deleteTemplate<TResponse = Response>(
+export async function deleteTemplate(
   apiKey: string,
   templateId: string
-): Promise<TResponse> {
-  return fetch({
+): Promise<DeleteTemplateResponse> {
+  const response = await fetch2({
     apiKey,
     endpoint: `/templates/${templateId}`,
     method: "DELETE",
   });
+
+  return {
+    success: response.ok,
+  };
 }
 
 /**
@@ -55,13 +66,15 @@ export async function deleteTemplate<TResponse = Response>(
  * @param {String} apiKey - Unique API access token
  * @param {String} templateId - Unique template identifier
  */
-export async function templateById<TResponse = Response>(
+export async function templateById(
   apiKey: string,
   templateId: string
-): Promise<TResponse> {
-  return fetch({
+): Promise<TemplateByIdResponse> {
+  const response = await fetch2({
     apiKey,
     endpoint: `/templates/${templateId}`,
     method: "GET",
   });
+
+  return (await response.json()) as TemplateByIdResponse;
 }
