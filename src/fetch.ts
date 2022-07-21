@@ -40,6 +40,14 @@ export async function fetch<
       : {}),
   });
 
+  if (!response.status.toString().startsWith("20")) {
+    const json = (await response.json()) as Record<string, any>;
+    throw {
+      status: response.status,
+      ...json,
+    };
+  }
+
   if (!json) return response as any as T;
 
   return (await response.json()) as T;
