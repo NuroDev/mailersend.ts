@@ -2,7 +2,7 @@ import nodeFetch from "node-fetch";
 
 import type { Response } from "node-fetch";
 
-import type { RequestOptions } from "~/types";
+import type { RequestOptions } from "~/types/request";
 
 export async function fetch<TResponse>(
   options: RequestOptions<true>
