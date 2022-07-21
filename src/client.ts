@@ -1,6 +1,6 @@
 // import * as modules from "~/modules";
 
-import type { IClient } from "~/types";
+import type { IClient } from "~/types/client";
 
 export class Client implements IClient {
   // private _apiKey: string;
