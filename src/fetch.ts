@@ -31,6 +31,7 @@ export async function fetch<
     headers: {
       ...headers,
       Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
     },
     ...(body !== undefined
       ? {
