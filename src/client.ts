@@ -23,6 +23,25 @@ export class Client implements IClient {
   }
 
   // ------------------------------------------------------------
+  // Analytics
+  // ------------------------------------------------------------
+
+  public async activityByCountry(options: modules.ActivityByCountryParams) {
+    return modules.activityByCountry(this._apiKey, options);
+  }
+  public async activityByDate(options: modules.ActivityByDateParams) {
+    return modules.activityByDate(this._apiKey, options);
+  }
+  public async activityByReadingEnvironment(
+    options: modules.ActivityByReadingEnvironmentParams
+  ) {
+    return modules.activityByReadingEnvironment(this._apiKey, options);
+  }
+  public async activityByUserAgent(options: modules.ActivityByUserAgentParams) {
+    return modules.activityByUserAgent(this._apiKey, options);
+  }
+
+  // ------------------------------------------------------------
   // Email
   // ------------------------------------------------------------
 

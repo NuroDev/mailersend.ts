@@ -21,6 +21,62 @@ export interface IClient {
   ): ReturnType<typeof modules.activityList>;
 
   // ------------------------------------------------------------
+  // Analytics
+  // ------------------------------------------------------------
+
+  /**
+   * Activity By Country
+   *
+   * @description Retrieve data grouped by country, based on activity
+   *
+   * @see https://developers.mailersend.com/api/v1/analytics.html#opens-by-country
+   *
+   * @param {Object} options - Activity by country options
+   */
+  activityByCountry(
+    options: modules.ActivityByCountryParams
+  ): ReturnType<typeof modules.activityByCountry>;
+
+  /**
+   * Activity By Date
+   *
+   * @description Retrieve data grouped by date, based on activity
+   *
+   * @see https://developers.mailersend.com/api/v1/analytics.html#activity-data-by-date
+   *
+   * @param {Object} options - Activity by date options
+   */
+  activityByDate(
+    options: modules.ActivityByDateParams
+  ): ReturnType<typeof modules.activityByDate>;
+
+  /**
+   * Activity By Reading Environment
+   *
+   * @description Retrieve data grouped by the reading environment (webmail, mobile, desktop), based on activity
+   *
+   * @see https://developers.mailersend.com/api/v1/analytics.html#opens-by-reading-environment
+   *
+   * @param {Object} options - Activity by reading environment options
+   */
+  activityByReadingEnvironment(
+    options: modules.ActivityByReadingEnvironmentParams
+  ): ReturnType<typeof modules.activityByReadingEnvironment>;
+
+  /**
+   * Activity By User Agent
+   *
+   * @description Retrieve data grouped by user-agent name (browser and operating system), based on activity
+   *
+   * @see https://developers.mailersend.com/api/v1/analytics.html#opens-by-user-agent-name
+   *
+   * @param {Object} options - Activity by user agent options
+   */
+  activityByUserAgent(
+    options: modules.ActivityByUserAgentParams
+  ): ReturnType<typeof modules.activityByUserAgent>;
+
+  // ------------------------------------------------------------
   // Email
   // ------------------------------------------------------------
 
