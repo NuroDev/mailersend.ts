@@ -145,6 +145,19 @@ export interface IClient {
   ): ReturnType<typeof modules.listMessages>;
 
   /**
+   * List SMS Messages
+   *
+   * @description Retrieve a information about all messaged
+   *
+   * @see https://developers.mailersend.com/api/v1/messages.html#get-a-list-of-messages
+   *
+   * @param {Object} [options] - List SMS messages options
+   */
+  listSmsMessages(
+    options: modules.ListSmsMessagesParams
+  ): ReturnType<typeof modules.listSmsMessages>;
+
+  /**
    * Message by ID
    *
    * @description Retrieve information for a single message
