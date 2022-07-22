@@ -2,7 +2,7 @@ import { describe, it, expect, beforeAll } from "vitest";
 
 import "dotenv/config";
 
-import { activityList } from ".";
+import { listActivity } from ".";
 
 const { MAILERSEND_API_KEY, MAILERSEND_DOMAIN_ID } = process.env as Record<
   string,
@@ -15,18 +15,18 @@ describe("Activity", () => {
       throw "No MailerSend API key found in environment variables";
   });
 
-  it.concurrent("Activity List", async () => {
+  it.concurrent("List Activity", async () => {
     if (!MAILERSEND_DOMAIN_ID)
       throw "No MailerSend domain ID found in environment variables";
 
     try {
-      const activityListResponse = await activityList(MAILERSEND_API_KEY, {
+      const listActivityResponse = await listActivity(MAILERSEND_API_KEY, {
         domainId: MAILERSEND_DOMAIN_ID,
       });
 
-      expect(activityListResponse).not.toBeNull();
-      expect(activityListResponse.data).toBeDefined();
-      expect(Array.isArray(activityListResponse.data)).toBeTruthy();
+      expect(listActivityResponse).not.toBeNull();
+      expect(listActivityResponse.data).toBeDefined();
+      expect(Array.isArray(listActivityResponse.data)).toBeTruthy();
     } catch (error) {
       console.error(error);
       throw error;

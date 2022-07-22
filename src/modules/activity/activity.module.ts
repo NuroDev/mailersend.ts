@@ -1,9 +1,9 @@
 import { fetch } from "~/fetch";
 
-import type { ActivityListParams, ActivityListResponse } from ".";
+import type { ListActivityParams, ListActivityResponse } from ".";
 
 /**
- * Activity List
+ * List Activity
  *
  * @description Get information about your domain activity, including your sent emails and whether they were received by the recipient.
  *
@@ -14,10 +14,11 @@ import type { ActivityListParams, ActivityListResponse } from ".";
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Activity list options
  */
-export async function activityList<TResponse = ActivityListResponse>(
+export async function listActivity<TResponse = ListActivityResponse>(
   apiKey: string,
-  { domainId, ...params }: ActivityListParams
+  options: ListActivityParams
 ): Promise<TResponse> {
+  const { domainId, ...params } = options;
   return fetch({
     apiKey,
     endpoint: `/activity/${domainId}`,

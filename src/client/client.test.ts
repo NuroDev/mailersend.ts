@@ -26,18 +26,18 @@ describe("Client", () => {
   });
 
   describe("Activity", () => {
-    it.concurrent("Activity List", async () => {
+    it.concurrent("List Activity", async () => {
       if (!MAILERSEND_DOMAIN_ID)
         throw "No MailerSend domain ID found in environment variables";
 
       try {
-        const activityListResponse = await client.activityList({
+        const listActivityResponse = await client.listActivity({
           domainId: MAILERSEND_DOMAIN_ID,
         });
 
-        expect(activityListResponse).not.toBeNull();
-        expect(activityListResponse.data).toBeDefined();
-        expect(Array.isArray(activityListResponse.data)).toBeTruthy();
+        expect(listActivityResponse).not.toBeNull();
+        expect(listActivityResponse.data).toBeDefined();
+        expect(Array.isArray(listActivityResponse.data)).toBeTruthy();
       } catch (error) {
         console.error(error);
         throw error;

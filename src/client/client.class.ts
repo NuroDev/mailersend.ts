@@ -18,8 +18,8 @@ export class Client implements IClient {
   // Activity
   // ------------------------------------------------------------
 
-  public async activityList(options: modules.ActivityListParams) {
-    return modules.activityList(this._apiKey, options);
+  public async listActivity(options: modules.ListActivityParams) {
+    return modules.listActivity(this._apiKey, options);
   }
 
   // ------------------------------------------------------------

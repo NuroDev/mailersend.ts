@@ -1,7 +1,7 @@
-export { activityList } from "./activity.module";
+export { listActivity } from "./activity.module";
 
 export {
-  type ActivityListData,
-  type ActivityListParams,
-  type ActivityListResponse,
+  type ListActivityData,
+  type ListActivityParams,
+  type ListActivityResponse,
 } from "./activity.types";
