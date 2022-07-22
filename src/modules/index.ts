@@ -38,9 +38,13 @@ export {
 
 export {
   listMessages,
+  listSmsMessages,
   messageById,
   type ListMessagesParams,
   type ListMessagesResponse,
+  type ListSmsMessagesData,
+  type ListSmsMessagesParams,
+  type ListSmsMessagesResponse,
   type MessageInfoByIdResponse,
 } from "./messages";
 

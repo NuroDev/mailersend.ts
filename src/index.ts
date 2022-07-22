@@ -11,6 +11,7 @@ export {
   deleteToken,
   listMessages,
   listPhoneNumbers,
+  listSmsMessages,
   listTemplates,
   messageById,
   phoneNumberById,
