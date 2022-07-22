@@ -20,9 +20,7 @@ import type {
  */
 export async function listMessages<TResponse = ListMessagesResponse>(
   apiKey: string,
-  options: ListMessagesParams = {
-    limit: 25,
-  }
+  options: ListMessagesParams = {}
 ): Promise<TResponse> {
   return fetch({
     apiKey,
