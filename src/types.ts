@@ -14,6 +14,10 @@ export {
   type ActivityListData,
   type ActivityListParams,
   type ActivityListResponse,
+  type CreateTokenData,
+  type CreateTokenParams,
+  type CreateTokenResponse,
+  type DeleteTokenResponse,
   type ListMessagesParams,
   type ListMessagesResponse,
   type ListTemplatesParams,
@@ -24,4 +28,7 @@ export {
   type SendEmailParams,
   type SendEmailResponse,
   type TemplateByIdResponse,
+  type UpdateTokenData,
+  type UpdateTokenParams,
+  type UpdateTokenResponse,
 } from "./modules";

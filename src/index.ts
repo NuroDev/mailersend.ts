@@ -6,12 +6,15 @@ export {
   activityByReadingEnvironment,
   activityByUserAgent,
   activityList,
+  createToken,
+  deleteToken,
   listMessages,
   listTemplates,
   messageInfoById,
   sendBulkEmails,
   sendEmail,
   templateById,
+  updateToken,
 } from "./modules";
 
 export { Client };
