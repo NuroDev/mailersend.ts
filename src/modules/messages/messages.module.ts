@@ -3,7 +3,7 @@ import { fetch } from "~/fetch";
 import type {
   ListMessagesParams,
   ListMessagesResponse,
-  MessageInfoByIdResponse,
+  MessageByIdResponse,
 } from ".";
 
 /**
@@ -41,7 +41,7 @@ export async function listMessages<TResponse = ListMessagesResponse>(
  * @param {String} apiKey - Unique API access token
  * @param {String} messageId - Unique message identifier
  */
-export async function messageById<TResponse = MessageInfoByIdResponse>(
+export async function messageById<TResponse = MessageByIdResponse>(
   apiKey: string,
   messageId: string
 ): Promise<TResponse> {

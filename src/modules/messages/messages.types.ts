@@ -48,10 +48,10 @@ export interface Message {
   updated_at: string;
 }
 
-export type TrimmedMessage = Pick<Message, "created_at" | "id" | "updated_at">;
+export type ListMessage = Pick<Message, "created_at" | "id" | "updated_at">;
 
-export type ListMessagesResponse = BaseResponse<Array<TrimmedMessage>> &
+export type ListMessagesResponse = BaseResponse<Array<ListMessage>> &
   ResponseLinks &
   ResponseMeta;
 
-export type MessageInfoByIdResponse = BaseResponse<Message>;
+export type MessageByIdResponse = BaseResponse<Message>;
