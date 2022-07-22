@@ -9,7 +9,7 @@
 ```typescript
 import { Client } from "@nuro.dev/mailersend.ts";
 
-const client = new Client("...");
+const client = new Client("API_KEY");
 
 const result = await client.sendEmail({
   from: {
@@ -57,7 +57,7 @@ const result = await sendEmail("API_KEY", {
 ```typescript
 import { Client } from "@nuro.dev/mailersend.ts";
 
-const client = new Client("...");
+const client = new Client("API_KEY");
 
 const result = await client.sendBulkEmails([
   {

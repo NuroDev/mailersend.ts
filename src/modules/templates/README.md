@@ -9,7 +9,7 @@
 ```typescript
 import { Client } from "@nuro.dev/mailersend.ts";
 
-const client = new Client("...");
+const client = new Client("API_KEY");
 
 const result = await client.listTemplates({
   // ...
@@ -33,7 +33,7 @@ const result = await listTemplates("API_KEY", {
 ```typescript
 import { Client } from "@nuro.dev/mailersend.ts";
 
-const client = new Client("...");
+const client = new Client("API_KEY");
 
 const result = await client.templateById("TEMPLATE_ID");
 ```
