@@ -7,6 +7,7 @@ import { Client } from ".";
 const {
   MAILERSEND_API_KEY,
   MAILERSEND_DOMAIN_ID,
+  MAILERSEND_MESSAGE_ID,
   MAILERSEND_TEMPLATE_ID,
   MAILERSEND_TEST_RECIPIENT_EMAIL,
   MAILERSEND_TEST_SENDER_EMAIL,
@@ -178,6 +179,39 @@ describe("Client", () => {
         expect(sendEmailResponse).not.toBeNull();
         expect(sendEmailResponse.bulk_email_id).toBeDefined();
         expect(sendEmailResponse.message).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+  });
+
+  describe("Messages", () => {
+    it.concurrent("List Messages", async () => {
+      try {
+        const listMessagesResponse = await client.listMessages();
+
+        expect(listMessagesResponse).not.toBeNull();
+        expect(listMessagesResponse.data).toBeDefined();
+        expect(Array.isArray(listMessagesResponse.data)).toBeTruthy();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it.concurrent("Message Info by ID", async () => {
+      if (!MAILERSEND_MESSAGE_ID)
+        throw "No MailerSend message ID found in environment variables";
+
+      try {
+        const messageInfoByIdResponse = await client.messageInfoById(
+          MAILERSEND_MESSAGE_ID
+        );
+
+        expect(messageInfoByIdResponse).not.toBeNull();
+        expect(messageInfoByIdResponse.data).toBeDefined();
+        expect(Array.isArray(messageInfoByIdResponse.data)).toBeTruthy();
       } catch (error) {
         console.error(error);
         throw error;

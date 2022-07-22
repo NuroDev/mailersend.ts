@@ -115,6 +115,36 @@ export interface IClient {
   ): ReturnType<typeof modules.sendBulkEmails>;
 
   // ------------------------------------------------------------
+  // Messages
+  // ------------------------------------------------------------
+
+  /**
+   * List Messages
+   *
+   * @description Retrieve a information about all messaged
+   *
+   * @see https://developers.mailersend.com/api/v1/messages.html#get-a-list-of-messages
+   *
+   * @param {Object} options - List messages options
+   */
+  listMessages(
+    options: modules.ListMessagesParams
+  ): ReturnType<typeof modules.listMessages>;
+
+  /**
+   * Message Info by ID
+   *
+   * @description Retrieve information for a single message
+   *
+   * @see https://developers.mailersend.com/api/v1/messages.html#get-information-for-a-single-message
+   *
+   * @param {String} messageId - Unique message identifier
+   */
+  messageInfoById(
+    messageId: string
+  ): ReturnType<typeof modules.messageInfoById>;
+
+  // ------------------------------------------------------------
   // Templates
   // ------------------------------------------------------------
 
