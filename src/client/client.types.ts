@@ -156,6 +156,21 @@ export interface IClient {
   messageById(messageId: string): ReturnType<typeof modules.messageById>;
 
   // ------------------------------------------------------------
+  // SMS
+  // ------------------------------------------------------------
+
+  /**
+   * Send SMS
+   *
+   * @description Send an SMS text message to a provided user
+   *
+   * @see https://developers.mailersend.com/api/v1/sms.html#send-an-sms
+   *
+   * @param {Object} options - SMS options
+   */
+  sendSms(options: modules.SendSmsParams): ReturnType<typeof modules.sendSms>;
+
+  // ------------------------------------------------------------
   // Templates
   // ------------------------------------------------------------
 
