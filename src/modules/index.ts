@@ -1,6 +1,6 @@
 export {
   listActivity,
-  type ListActivityData,
+  type Activity,
   type ListActivityParams,
   type ListActivityResponse,
 } from "./activity";

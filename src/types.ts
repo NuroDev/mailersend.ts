@@ -1,4 +1,5 @@
 export {
+  type Activity,
   type ActivityByCountryData,
   type ActivityByCountryParams,
   type ActivityByCountryResponse,
@@ -17,7 +18,6 @@ export {
   type CreateTokenParams,
   type CreateTokenResponse,
   type DeleteTokenResponse,
-  type ListActivityData,
   type ListActivityParams,
   type ListActivityResponse,
   type ListMessage,
