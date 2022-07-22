@@ -13,6 +13,7 @@ export {
   listPhoneNumbers,
   listTemplates,
   messageById,
+  phoneNumberById,
   sendBulkEmails,
   sendEmail,
   sendSms,

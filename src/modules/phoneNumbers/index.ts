@@ -1,7 +1,8 @@
-export { listPhoneNumbers } from "./phoneNumbers.module";
+export { listPhoneNumbers, phoneNumberById } from "./phoneNumbers.module";
 
 export {
-  type ListPhoneNumbersData,
+  type GetPhoneNumberResponse,
   type ListPhoneNumbersParams,
   type ListPhoneNumbersResponse,
+  type PhoneNumber,
 } from "./phoneNumbers.types";

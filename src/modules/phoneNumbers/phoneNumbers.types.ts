@@ -14,15 +14,15 @@ export interface ListPhoneNumbersParams extends Record<string, any> {
   paused?: boolean;
 }
 
-export interface ListPhoneNumbersData {
+export interface PhoneNumber {
   created_at: string;
   id: string;
   paused: boolean;
   telephone_number: string;
 }
 
-export type ListPhoneNumbersResponse = BaseResponse<
-  Array<ListPhoneNumbersData>
-> &
+export type ListPhoneNumbersResponse = BaseResponse<Array<PhoneNumber>> &
   ResponseMeta &
   ResponseLinks;
+
+export type GetPhoneNumberResponse = BaseResponse<PhoneNumber>;
