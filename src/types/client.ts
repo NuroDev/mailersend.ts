@@ -2,6 +2,25 @@ import * as modules from "~/modules";
 
 export interface IClient {
   // ------------------------------------------------------------
+  // Activity
+  // ------------------------------------------------------------
+
+  /**
+   * Activity List
+   *
+   * @description Get information about your domain activity, including your sent emails and whether they were received by the recipient.
+   *
+   * You can also see whether they opened or clicked on any of the email content.
+   *
+   * @see https://developers.mailersend.com/api/v1/activity.html#get-a-list-of-activities
+   *
+   * @param {Object} options - Activity list options
+   */
+  activityList(
+    options: modules.ActivityListParams
+  ): ReturnType<typeof modules.activityList>;
+
+  // ------------------------------------------------------------
   // Email
   // ------------------------------------------------------------
 
