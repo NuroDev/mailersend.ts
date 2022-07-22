@@ -44,6 +44,8 @@ export {
   type MessageInfoByIdResponse,
 } from "./messages";
 
+export { sendSms, type SendSmsParams, type SendSmsResponse } from "./sms";
+
 export {
   listTemplates,
   templateById,

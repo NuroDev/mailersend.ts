@@ -29,6 +29,8 @@ export {
   type SendBulkEmailsResponse,
   type SendEmailParams,
   type SendEmailResponse,
+  type SendSmsParams,
+  type SendSmsResponse,
   type TemplateByIdResponse,
   type UpdateTokenData,
   type UpdateTokenParams,
