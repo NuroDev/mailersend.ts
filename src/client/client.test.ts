@@ -54,7 +54,6 @@ describe("Client", () => {
 
         expect(activityByCountryResponse).not.toBeNull();
         expect(activityByCountryResponse.data).toBeDefined();
-        expect(activityByCountryResponse.data.stats).toBeDefined();
       } catch (error) {
         console.error(error);
         throw error;
@@ -83,7 +82,6 @@ describe("Client", () => {
 
         expect(activityByDateResponse).not.toBeNull();
         expect(activityByDateResponse.data).toBeDefined();
-        expect(Array.isArray(activityByDateResponse.data)).toBeTruthy();
       } catch (error) {
         console.error(error);
         throw error;
@@ -100,10 +98,6 @@ describe("Client", () => {
 
         expect(activityByReadingEnvironmentResponse).not.toBeNull();
         expect(activityByReadingEnvironmentResponse.data).toBeDefined();
-        expect(activityByReadingEnvironmentResponse.data.stats).toBeDefined();
-        expect(
-          Array.isArray(activityByReadingEnvironmentResponse.data.stats)
-        ).toBeTruthy();
       } catch (error) {
         console.error(error);
         throw error;
@@ -119,7 +113,6 @@ describe("Client", () => {
 
         expect(activityUserAgentResponse).not.toBeNull();
         expect(activityUserAgentResponse.data).toBeDefined();
-        expect(activityUserAgentResponse.data.stats).toBeDefined();
       } catch (error) {
         console.error(error);
         throw error;

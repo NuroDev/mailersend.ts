@@ -31,7 +31,6 @@ describe("Analytics", () => {
 
       expect(activityByCountryResponse).not.toBeNull();
       expect(activityByCountryResponse.data).toBeDefined();
-      expect(activityByCountryResponse.data.stats).toBeDefined();
     } catch (error) {
       console.error(error);
       throw error;
@@ -76,10 +75,6 @@ describe("Analytics", () => {
 
       expect(activityByReadingEnvironmentResponse).not.toBeNull();
       expect(activityByReadingEnvironmentResponse.data).toBeDefined();
-      expect(activityByReadingEnvironmentResponse.data.stats).toBeDefined();
-      expect(
-        Array.isArray(activityByReadingEnvironmentResponse.data.stats)
-      ).toBeTruthy();
     } catch (error) {
       console.error(error);
       throw error;
@@ -98,7 +93,6 @@ describe("Analytics", () => {
 
       expect(activityUserAgentResponse).not.toBeNull();
       expect(activityUserAgentResponse.data).toBeDefined();
-      expect(activityUserAgentResponse.data.stats).toBeDefined();
     } catch (error) {
       console.error(error);
       throw error;
