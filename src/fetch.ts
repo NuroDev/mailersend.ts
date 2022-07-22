@@ -22,9 +22,15 @@ export async function fetch<
   params = {},
 }: T): Promise<T> {
   const url = new URL(`${apiVersion}${endpoint}`, basePath);
-  Object.entries(params).forEach(([key, value]) =>
-    url.searchParams.append(key, value.toString())
-  );
+  Object.entries(params).forEach(([key, value]) => {
+    // Note: MailerSend requires a weird / stupid format for passing an array of query params rather than comma separated values
+    if (Array.isArray(value))
+      return value.forEach((v) =>
+        url.searchParams.append(`${key}[]`, v.toString())
+      );
+
+    return url.searchParams.append(key, value.toString());
+  });
 
   const response = await nodeFetch(url.href, {
     method,
