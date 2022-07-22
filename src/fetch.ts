@@ -23,7 +23,7 @@ export async function fetch<
 }: T): Promise<T> {
   const url = new URL(`${apiVersion}${endpoint}`, basePath);
   Object.entries(params).forEach(([key, value]) =>
-    url.searchParams.append(key, value)
+    url.searchParams.append(key, value.toString())
   );
 
   const response = await nodeFetch(url.href, {

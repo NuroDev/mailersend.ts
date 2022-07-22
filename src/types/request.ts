@@ -22,5 +22,5 @@ export interface RequestOptions<TJson extends boolean = false> {
   headers?: Record<string, string>;
   json: TJson;
   method?: HttpMethod;
-  params?: Record<string, string>;
+  params?: Record<string, string | number>;
 }
