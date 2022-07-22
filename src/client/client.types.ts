@@ -171,4 +171,45 @@ export interface IClient {
    * @param {String} templateId - Unique template identifier
    */
   templateById(templateId: string): ReturnType<typeof modules.templateById>;
+
+  // ------------------------------------------------------------
+  // Tokens
+  // ------------------------------------------------------------
+
+  /**
+   * Create Token
+   *
+   * @description Create an API token
+   *
+   * @see https://developers.mailersend.com/api/v1/tokens.html#create-a-token
+   *
+   * @param {Object} options - Create token options
+   */
+  createToken(
+    options: modules.CreateTokenParams
+  ): ReturnType<typeof modules.createToken>;
+
+  /**
+   * Delete Token
+   *
+   * @description Delete an API token
+   *
+   * @see https://developers.mailersend.com/api/v1/tokens.html#delete-a-token
+   *
+   * @param {String} tokenId - Unique token identifier
+   */
+  deleteToken(tokenId: string): ReturnType<typeof modules.deleteToken>;
+
+  /**
+   * Update Token
+   *
+   * @description Update an API token
+   *
+   * @see https://developers.mailersend.com/api/v1/tokens.html#update-a-token
+   *
+   * @param {Object} options - Update token options
+   */
+  updateToken(
+    options: modules.UpdateTokenParams
+  ): ReturnType<typeof modules.updateToken>;
 }

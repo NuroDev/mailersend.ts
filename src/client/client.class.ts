@@ -73,4 +73,18 @@ export class Client implements IClient {
   public async templateById(templateId: string) {
     return modules.templateById(this._apiKey, templateId);
   }
+
+  // ------------------------------------------------------------
+  // Tokens
+  // ------------------------------------------------------------
+
+  public async createToken(options: modules.CreateTokenParams) {
+    return modules.createToken(this._apiKey, options);
+  }
+  public async deleteToken(tokenId: string) {
+    return modules.deleteToken(this._apiKey, tokenId);
+  }
+  public async updateToken(options: modules.UpdateTokenParams) {
+    return modules.updateToken(this._apiKey, options);
+  }
 }

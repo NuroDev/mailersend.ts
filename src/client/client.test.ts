@@ -252,4 +252,43 @@ describe("Client", () => {
       }
     });
   });
+
+  describe("Tokens", () => {
+    it.concurrent("Create Token", async () => {
+      try {
+        const createTokenResponse = await client.createToken({
+          domain_id: MAILERSEND_DOMAIN_ID,
+          name: "CLIENT_CREATE_TEST_API_TOKEN",
+          scopes: ["activity_read", "analytics_read", "domains_read"],
+        });
+
+        expect(createTokenResponse).toBeDefined();
+        expect(createTokenResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    // TODO: Add `updateToken` test
+
+    it.concurrent("Delete Token", async () => {
+      try {
+        const newToken = await client.createToken({
+          domain_id: MAILERSEND_DOMAIN_ID,
+          name: "CLIENT_DELETE_TEST_API_TOKEN",
+          scopes: ["activity_read", "analytics_read", "domains_read"],
+        });
+        if (!newToken.data.id) throw "No new token ID found.";
+
+        const deleteTokenResponse = await client.deleteToken(newToken.data.id);
+
+        expect(deleteTokenResponse).toBeDefined();
+        expect(deleteTokenResponse.success).toBeTruthy();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+  });
 });
