@@ -1,8 +1,15 @@
 export {
   listActivity,
+  listSmsActivity,
+  smsActivityById,
   type Activity,
   type ListActivityParams,
   type ListActivityResponse,
+  type ListSmsActivityParams,
+  type ListSmsActivityResponse,
+  type SmsActivity,
+  type SmsActivityByIdData,
+  type SmsActivityByIdResonse,
 } from "./activity";
 
 export {
@@ -38,13 +45,31 @@ export {
 
 export {
   listMessages,
+  listSmsMessages,
   messageById,
+  smsMessageById,
   type ListMessage,
   type ListMessagesParams,
   type ListMessagesResponse,
+  type ListSmsMessagesData,
+  type ListSmsMessagesParams,
+  type ListSmsMessagesResponse,
   type Message,
   type MessageByIdResponse,
+  type SmsMessage,
+  type SmsMessageByIdResponse,
 } from "./messages";
+
+export {
+  phoneNumberById,
+  listPhoneNumbers,
+  type GetPhoneNumberResponse,
+  type ListPhoneNumbersParams,
+  type ListPhoneNumbersResponse,
+  type PhoneNumber,
+} from "./phoneNumbers";
+
+export { sendSms, type SendSmsParams, type SendSmsResponse } from "./sms";
 
 export {
   listTemplates,

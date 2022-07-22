@@ -55,3 +55,43 @@ export type ListMessagesResponse = BaseResponse<Array<ListMessage>> &
   ResponseMeta;
 
 export type MessageByIdResponse = BaseResponse<Message>;
+
+export interface ListSmsMessagesParams extends Record<string, any> {
+  /**
+   * Min: 10
+   *
+   * Max: 100
+   *
+   * @default 25
+   */
+  limit?: number;
+  page?: number;
+}
+
+export interface SmsMessage {
+  id: string;
+  from: string;
+  to: Array<string>;
+  text: string;
+  paused: boolean;
+  created_at: string;
+  sms: Array<{
+    error_description: unknown | null;
+    error_type: unknown | null;
+    from: string;
+    id: string;
+    segment_count: number;
+    status: string;
+    text: string;
+    to: string;
+  }>;
+}
+
+export type ListSmsMessagesData = Pick<
+  SmsMessage,
+  "created_at" | "from" | "id" | "paused" | "text" | "to"
+>;
+
+export type ListSmsMessagesResponse = BaseResponse<Array<ListSmsMessagesData>>;
+
+export type SmsMessageByIdResponse = BaseResponse<SmsMessage>;

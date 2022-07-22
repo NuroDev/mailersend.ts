@@ -92,6 +92,7 @@ To view the documentation on how to use each module, view the README.md for each
 - [📈 Analytics](src/modules/analytics#analytics)
 - [💌 Email](src/modules/email#email)
 - [💬 Messages](src/modules/messages#messages)
+- [📱 SMS](src/modules/sms#sms)
 - [🏗️ Templates](src/modules/templates#templates)
 - [🎟️ Tokens](src/modules/tokens#tokens)
 
