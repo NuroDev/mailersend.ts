@@ -40,7 +40,6 @@ describe("Email", () => {
         html: `<h1>TEST EMAIL</h1>`,
         text: "TEST EMAIL",
       });
-
       expect(sendEmailResponse).not.toBeNull();
       expect(sendEmailResponse.success).toBeTruthy();
     } catch (error) {
@@ -71,7 +70,6 @@ describe("Email", () => {
           text: "BULK TEST EMAIL",
         },
       ]);
-
       expect(sendEmailResponse).not.toBeNull();
       expect(sendEmailResponse.bulk_email_id).toBeDefined();
       expect(sendEmailResponse.message).toBeDefined();

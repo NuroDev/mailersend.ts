@@ -57,7 +57,6 @@ describe("Analytics", () => {
           "unsubscribed",
         ],
       });
-      console.log(activityByDateResponse.data);
 
       expect(activityByDateResponse).not.toBeNull();
       expect(activityByDateResponse.data).toBeDefined();
