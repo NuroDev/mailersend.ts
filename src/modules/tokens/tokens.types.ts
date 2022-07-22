@@ -1,4 +1,4 @@
-import type { BaseReponse } from "~/types/request";
+import type { BaseResponse } from "~/types/request";
 
 export interface CreateTokenParams extends Record<string, any> {
   domain_id: string;
@@ -24,7 +24,7 @@ export interface CreateTokenData {
   name: string;
 }
 
-export type CreateTokenResponse = BaseReponse<CreateTokenData>;
+export type CreateTokenResponse = BaseResponse<CreateTokenData>;
 
 export interface UpdateTokenParams extends Record<string, any> {
   status: "pause" | "unpause";
@@ -38,7 +38,7 @@ export interface UpdateTokenData {
   status: string;
 }
 
-export type UpdateTokenResponse = BaseReponse<UpdateTokenData>;
+export type UpdateTokenResponse = BaseResponse<UpdateTokenData>;
 
 export interface DeleteTokenResponse {
   success: boolean;

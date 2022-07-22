@@ -1,4 +1,4 @@
-import type { BaseReponse } from "~/types/request";
+import type { BaseResponse } from "~/types/request";
 
 export interface ActivityListParams extends Record<string, any> {
   /**
@@ -52,7 +52,7 @@ export interface ActivityListData {
 }
 
 export interface ActivityListResponse
-  extends BaseReponse<Array<ActivityListData>> {
+  extends BaseResponse<Array<ActivityListData>> {
   links?: {
     first: string;
     last: string;

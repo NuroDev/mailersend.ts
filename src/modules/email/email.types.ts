@@ -1,4 +1,4 @@
-import type { BaseReponse } from "~/types/request";
+import type { BaseResponse } from "~/types/request";
 import type { EmailParams } from "~/types/email";
 
 export interface BulkEmailStatusData {
@@ -14,7 +14,7 @@ export interface BulkEmailStatusData {
   validation_errors: unknown | null;
 }
 
-export type BulkEmailStatusResponse = BaseReponse<BulkEmailStatusData>;
+export type BulkEmailStatusResponse = BaseResponse<BulkEmailStatusData>;
 
 export type SendEmailParams = Omit<EmailParams, "recipients"> &
   Record<string, any>;
