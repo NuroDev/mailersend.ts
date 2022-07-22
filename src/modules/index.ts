@@ -34,6 +34,14 @@ export {
 } from "./email";
 
 export {
+  listMessages,
+  messageInfoById,
+  type ListMessagesParams,
+  type ListMessagesResponse,
+  type MessageInfoByIdResponse,
+} from "./messages";
+
+export {
   listTemplates,
   templateById,
   type ListTemplatesParams,
