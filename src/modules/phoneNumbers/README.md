@@ -11,11 +11,11 @@ import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("API_KEY");
 
-const result = await client.listSmsPhoneNumbers();
+const result = await client.listPhoneNumbers();
 ```
 
 ```typescript
 import { sendEmail } from "@nuro.dev/mailersend.ts";
 
-const result = await listSmsPhoneNumbers("API_KEY");
+const result = await listPhoneNumbers("API_KEY");
 ```

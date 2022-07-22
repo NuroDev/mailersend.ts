@@ -10,7 +10,7 @@ export {
   createToken,
   deleteToken,
   listMessages,
-  listSmsPhoneNumbers,
+  listPhoneNumbers,
   listTemplates,
   messageById,
   sendBulkEmails,

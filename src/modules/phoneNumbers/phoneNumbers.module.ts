@@ -1,9 +1,9 @@
 import { fetch } from "~/fetch";
 
-import type { ListSmsPhoneNumbersParams, ListSmsPhoneNumbersResponse } from ".";
+import type { ListPhoneNumbersParams, ListPhoneNumbersResponse } from ".";
 
 /**
- * List SMS Phone Numbers
+ * List Phone Numbers
  *
  * @description Lists all SMS phone numbers associated with your account.
  *
@@ -12,9 +12,10 @@ import type { ListSmsPhoneNumbersParams, ListSmsPhoneNumbersResponse } from ".";
  * @param {String} apiKey - Unique API access token
  * @param {Object} [options] - List SMS phone number options
  */
-export async function listSmsPhoneNumbers<
-  TResponse = ListSmsPhoneNumbersResponse
->(apiKey: string, options: ListSmsPhoneNumbersParams = {}): Promise<TResponse> {
+export async function listPhoneNumbers<TResponse = ListPhoneNumbersResponse>(
+  apiKey: string,
+  options: ListPhoneNumbersParams = {}
+): Promise<TResponse> {
   return fetch({
     apiKey,
     endpoint: "/sms-numbers",

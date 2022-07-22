@@ -2,7 +2,7 @@ import { describe, it, expect, beforeAll } from "vitest";
 
 import "dotenv/config";
 
-import { listSmsPhoneNumbers } from ".";
+import { listPhoneNumbers } from ".";
 
 const { MAILERSEND_API_KEY } = process.env as Record<string, string>;
 
@@ -14,12 +14,12 @@ describe("Phone Numbers", () => {
 
   it.concurrent("Send SMS", async () => {
     try {
-      const listSmsPhoneNumbersResponse = await listSmsPhoneNumbers(
+      const listPhoneNumbersResponse = await listPhoneNumbers(
         MAILERSEND_API_KEY
       );
 
-      expect(listSmsPhoneNumbersResponse).toBeDefined();
-      expect(listSmsPhoneNumbersResponse.data).toBeDefined();
+      expect(listPhoneNumbersResponse).toBeDefined();
+      expect(listPhoneNumbersResponse.data).toBeDefined();
     } catch (error) {
       console.error(error);
       throw error;

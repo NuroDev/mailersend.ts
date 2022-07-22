@@ -1,7 +1,7 @@
-export { listSmsPhoneNumbers } from "./phoneNumbers.module";
+export { listPhoneNumbers } from "./phoneNumbers.module";
 
 export {
-  type ListSmsPhoneNumbersData,
-  type ListSmsPhoneNumbersParams,
-  type ListSmsPhoneNumbersResponse,
+  type ListPhoneNumbersData,
+  type ListPhoneNumbersParams,
+  type ListPhoneNumbersResponse,
 } from "./phoneNumbers.types";

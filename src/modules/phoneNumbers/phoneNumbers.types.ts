@@ -1,7 +1,7 @@
 import type { BaseReponse } from "~/types/request";
 import type { ResponseLinks, ResponseMeta } from "~/types/meta";
 
-export interface ListSmsPhoneNumbersParams extends Record<string, any> {
+export interface ListPhoneNumbersParams extends Record<string, any> {
   /**
    * Min: 10
    *
@@ -14,15 +14,15 @@ export interface ListSmsPhoneNumbersParams extends Record<string, any> {
   paused?: boolean;
 }
 
-export interface ListSmsPhoneNumbersData {
+export interface ListPhoneNumbersData {
   created_at: string;
   id: string;
   paused: boolean;
   telephone_number: string;
 }
 
-export type ListSmsPhoneNumbersResponse = BaseReponse<
-  Array<ListSmsPhoneNumbersData>
+export type ListPhoneNumbersResponse = BaseReponse<
+  Array<ListPhoneNumbersData>
 > &
   ResponseMeta &
   ResponseLinks;

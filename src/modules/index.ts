@@ -45,10 +45,10 @@ export {
 } from "./messages";
 
 export {
-  listSmsPhoneNumbers,
-  type ListSmsPhoneNumbersData,
-  type ListSmsPhoneNumbersParams,
-  type ListSmsPhoneNumbersResponse,
+  listPhoneNumbers,
+  type ListPhoneNumbersData,
+  type ListPhoneNumbersParams,
+  type ListPhoneNumbersResponse,
 } from "./phoneNumbers";
 
 export { sendSms, type SendSmsParams, type SendSmsResponse } from "./sms";
