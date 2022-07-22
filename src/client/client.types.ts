@@ -81,6 +81,19 @@ export interface IClient {
   // ------------------------------------------------------------
 
   /**
+   * Bulk Email Status
+   *
+   * @description Get the bulk email information like validation errors, failed emails and more.
+   *
+   * @see https://developers.mailersend.com/api/v1/email.html#get-bulk-email-status
+   *
+   * @param {Object} bulkEmailId - Unique bulk email identifier
+   */
+  bulkEmailStatus(
+    bulkEmailId: string
+  ): ReturnType<typeof modules.bulkEmailStatus>;
+
+  /**
    * Send Email
    *
    * @description This endpoint allows you to send an asynchronous email.

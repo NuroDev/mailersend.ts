@@ -122,6 +122,40 @@ describe("Client", () => {
   });
 
   describe("Email", () => {
+    it.concurrent("Bulk Email Status", async () => {
+      try {
+        const bulkEmailsResponse = await client.sendBulkEmails([
+          {
+            from: {
+              email: MAILERSEND_TEST_SENDER_EMAIL,
+              name: "TEST SENDER",
+            },
+            to: [
+              {
+                email: MAILERSEND_TEST_RECIPIENT_EMAIL,
+                name: "TEST RECIPIENT",
+              },
+            ],
+            subject: `BULK TEST EMAIL - ${Date.now()}`,
+            html: `<h1>BULK TEST EMAIL</h1>`,
+            text: "BULK TEST EMAIL",
+          },
+        ]);
+        if (!bulkEmailsResponse.bulk_email_id)
+          throw "No bulk emails id found in response";
+
+        const bulkEmailStatusResponse = await client.bulkEmailStatus(
+          bulkEmailsResponse.bulk_email_id
+        );
+
+        expect(bulkEmailStatusResponse).toBeDefined();
+        expect(bulkEmailStatusResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
     it.concurrent("Send Email", async () => {
       if (!MAILERSEND_TEST_SENDER_EMAIL || !MAILERSEND_TEST_RECIPIENT_EMAIL)
         throw "No or invalid test email addresses found in environment variables";
@@ -159,7 +193,7 @@ describe("Client", () => {
         throw "No or invalid test email addresses found in environment variables";
 
       try {
-        const sendEmailResponse = await client.sendBulkEmails([
+        const bulkEmailsResponse = await client.sendBulkEmails([
           {
             from: {
               email: MAILERSEND_TEST_SENDER_EMAIL,
@@ -176,9 +210,9 @@ describe("Client", () => {
             text: "CLIENT BULK TEST EMAIL",
           },
         ]);
-        expect(sendEmailResponse).not.toBeNull();
-        expect(sendEmailResponse.bulk_email_id).toBeDefined();
-        expect(sendEmailResponse.message).toBeDefined();
+        expect(bulkEmailsResponse).not.toBeNull();
+        expect(bulkEmailsResponse.bulk_email_id).toBeDefined();
+        expect(bulkEmailsResponse.message).toBeDefined();
       } catch (error) {
         console.error(error);
         throw error;

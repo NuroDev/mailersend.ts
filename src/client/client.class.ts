@@ -45,6 +45,9 @@ export class Client implements IClient {
   // Email
   // ------------------------------------------------------------
 
+  public async bulkEmailStatus(bulkEmailId: string) {
+    return modules.bulkEmailStatus(this._apiKey, bulkEmailId);
+  }
   public async sendEmail(options: modules.SendEmailParams) {
     return modules.sendEmail(this._apiKey, options);
   }
