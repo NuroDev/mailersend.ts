@@ -60,7 +60,6 @@ describe("Analytics", () => {
 
       expect(activityByDateResponse).not.toBeNull();
       expect(activityByDateResponse.data).toBeDefined();
-      expect(Array.isArray(activityByDateResponse.data)).toBeTruthy();
     } catch (error) {
       console.error(error);
       throw error;
