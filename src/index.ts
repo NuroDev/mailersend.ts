@@ -1,6 +1,14 @@
 import { Client } from "./client";
 
-export { sendBulkEmails, sendEmail, activityList } from "./modules";
+export {
+  activityByCountry,
+  activityByDate,
+  activityByReadingEnvironment,
+  activityByUserAgent,
+  activityList,
+  sendBulkEmails,
+  sendEmail,
+} from "./modules";
 
 export { Client };
 

@@ -6,6 +6,25 @@ export {
 } from "./activity";
 
 export {
+  activityByCountry,
+  activityByDate,
+  activityByReadingEnvironment,
+  activityByUserAgent,
+  type ActivityByCountryData,
+  type ActivityByCountryParams,
+  type ActivityByCountryResponse,
+  type ActivityByDateData,
+  type ActivityByDateParams,
+  type ActivityByDateResponse,
+  type ActivityByReadingEnvironmentData,
+  type ActivityByReadingEnvironmentParams,
+  type ActivityByReadingEnvironmentResponse,
+  type ActivityByUserAgentData,
+  type ActivityByUserAgentParams,
+  type ActivityByUserAgentResponse,
+} from "./analytics";
+
+export {
   sendBulkEmails,
   sendEmail,
   type SendBulkEmailsParams,
