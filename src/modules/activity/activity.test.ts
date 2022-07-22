@@ -24,8 +24,6 @@ describe("Activity", () => {
         domainId: MAILERSEND_DOMAIN_ID,
       });
 
-      console.log(activityListResponse);
-
       expect(activityListResponse).not.toBeNull();
       expect(activityListResponse.data).toBeDefined();
       expect(Array.isArray(activityListResponse.data)).toBeTruthy();
