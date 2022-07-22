@@ -28,9 +28,22 @@ export type ListTemplatesResponse = BaseReponse<
 
 export type TemplateByIdResponse = BaseReponse<{
   categories: Array<unknown>;
-  category: unknown;
+  category: {
+    id: string;
+    name: string;
+  } | null;
   created_at: string;
-  domain: null;
+  domain: {
+    domain_settings: Record<string, any>;
+    id: string;
+    name: string;
+    totals: {
+      delivered: number;
+      hard_bounced: number;
+      sent: number;
+      soft_bounced: number;
+    };
+  } | null;
   id: string;
   image_path: string;
   name: string;
