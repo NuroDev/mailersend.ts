@@ -1,4 +1,20 @@
+import type { BaseReponse } from "~/types/request";
 import type { EmailParams } from "~/types/email";
+
+export interface BulkEmailStatusData {
+  created_at: string;
+  id: string;
+  messages_id: string | null;
+  state: "queued" | "completed";
+  suppressed_recipients_count: number;
+  suppressed_recipients: unknown | null;
+  total_recipients_count: number;
+  updated_at: string;
+  validation_errors_count: number;
+  validation_errors: unknown | null;
+}
+
+export type BulkEmailStatusResponse = BaseReponse<BulkEmailStatusData>;
 
 export type SendEmailParams = Omit<EmailParams, "recipients"> &
   Record<string, any>;

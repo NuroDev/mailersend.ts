@@ -1,11 +1,34 @@
 import { fetch } from "~/fetch";
 
 import type {
+  BulkEmailStatusResponse,
   SendBulkEmailsParams,
   SendBulkEmailsResponse,
   SendEmailParams,
   SendEmailResponse,
 } from ".";
+
+/**
+ * Bulk Email Status
+ *
+ * @description Get the bulk email information like validation errors, failed emails and more.
+ *
+ * @see https://developers.mailersend.com/api/v1/email.html#get-bulk-email-status
+ *
+ * @param {String} apiKey - Unique API access token
+ * @param {Object} bulkEmailId - Unique bulk email identifier
+ */
+export async function bulkEmailStatus<TResponse = BulkEmailStatusResponse>(
+  apiKey: string,
+  bulkEmailId: string
+): Promise<TResponse> {
+  return fetch({
+    apiKey,
+    endpoint: `/bulk-email/${bulkEmailId}`,
+    json: true,
+    method: "GET",
+  });
+}
 
 /**
  * Send Email

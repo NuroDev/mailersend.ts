@@ -6,6 +6,7 @@ export {
   activityByReadingEnvironment,
   activityByUserAgent,
   activityList,
+  bulkEmailStatus,
   createToken,
   deleteToken,
   listMessages,

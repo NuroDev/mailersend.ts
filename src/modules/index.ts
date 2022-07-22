@@ -25,8 +25,11 @@ export {
 } from "./analytics";
 
 export {
+  bulkEmailStatus,
   sendBulkEmails,
   sendEmail,
+  type BulkEmailStatusData,
+  type BulkEmailStatusResponse,
   type SendBulkEmailsParams,
   type SendBulkEmailsResponse,
   type SendEmailParams,

@@ -14,6 +14,8 @@ export {
   type ActivityListData,
   type ActivityListParams,
   type ActivityListResponse,
+  type BulkEmailStatusData,
+  type BulkEmailStatusResponse,
   type CreateTokenData,
   type CreateTokenParams,
   type CreateTokenResponse,
