@@ -39,7 +39,7 @@
     "test:ui": "vitest watch --ui"
   },
   "dependencies": {
-    "node-fetch": "^3.2.6"
+    "node-fetch": "^3.2.9"
   },
   "devDependencies": {
     "@types/node": "^18.0.6",
