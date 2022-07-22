@@ -35,11 +35,11 @@ import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("API_KEY");
 
-const result = await client.messageInfoById("MESSAGE_ID");
+const result = await client.messageById("MESSAGE_ID");
 ```
 
 ```typescript
-import { messageInfoById } from "@nuro.dev/mailersend.ts";
+import { messageById } from "@nuro.dev/mailersend.ts";
 
-const result = await messageInfoById("API_KEY", "MESSAGE_ID");
+const result = await messageById("API_KEY", "MESSAGE_ID");
 ```

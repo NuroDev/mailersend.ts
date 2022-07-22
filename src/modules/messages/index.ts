@@ -1,4 +1,4 @@
-export { listMessages, messageInfoById } from "./messages.module";
+export { listMessages, messageById } from "./messages.module";
 
 export {
   type ListMessagesParams,

@@ -38,7 +38,7 @@ export {
 
 export {
   listMessages,
-  messageInfoById,
+  messageById,
   type ListMessagesParams,
   type ListMessagesResponse,
   type MessageInfoByIdResponse,

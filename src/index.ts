@@ -11,7 +11,7 @@ export {
   deleteToken,
   listMessages,
   listTemplates,
-  messageInfoById,
+  messageById,
   sendBulkEmails,
   sendEmail,
   templateById,

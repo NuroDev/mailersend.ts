@@ -145,7 +145,7 @@ export interface IClient {
   ): ReturnType<typeof modules.listMessages>;
 
   /**
-   * Message Info by ID
+   * Message by ID
    *
    * @description Retrieve information for a single message
    *
@@ -153,9 +153,7 @@ export interface IClient {
    *
    * @param {String} messageId - Unique message identifier
    */
-  messageInfoById(
-    messageId: string
-  ): ReturnType<typeof modules.messageInfoById>;
+  messageById(messageId: string): ReturnType<typeof modules.messageById>;
 
   // ------------------------------------------------------------
   // Templates

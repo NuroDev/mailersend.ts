@@ -62,8 +62,8 @@ export class Client implements IClient {
   public async listMessages(params: modules.ListMessagesParams = {}) {
     return modules.listMessages(this._apiKey, params);
   }
-  public async messageInfoById(messageId: string) {
-    return modules.messageInfoById(this._apiKey, messageId);
+  public async messageById(messageId: string) {
+    return modules.messageById(this._apiKey, messageId);
   }
 
   // ------------------------------------------------------------

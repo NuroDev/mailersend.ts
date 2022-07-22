@@ -2,7 +2,7 @@ import { beforeAll, describe, it, expect } from "vitest";
 
 import "dotenv/config";
 
-import { listMessages, messageInfoById } from ".";
+import { listMessages, messageById } from ".";
 
 const { MAILERSEND_API_KEY, MAILERSEND_MESSAGE_ID } = process.env as Record<
   string,
@@ -33,14 +33,14 @@ describe("Messages", () => {
       throw "No MailerSend message ID found in environment variables";
 
     try {
-      const messageInfoByIdResponse = await messageInfoById(
+      const messageByIdResponse = await messageById(
         MAILERSEND_API_KEY,
         MAILERSEND_MESSAGE_ID
       );
 
-      expect(messageInfoByIdResponse).not.toBeNull();
-      expect(messageInfoByIdResponse.data).toBeDefined();
-      expect(Array.isArray(messageInfoByIdResponse.data)).toBeTruthy();
+      expect(messageByIdResponse).not.toBeNull();
+      expect(messageByIdResponse.data).toBeDefined();
+      expect(Array.isArray(messageByIdResponse.data)).toBeTruthy();
     } catch (error) {
       console.error(error);
       throw error;

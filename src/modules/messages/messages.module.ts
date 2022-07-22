@@ -32,7 +32,7 @@ export async function listMessages<TResponse = ListMessagesResponse>(
 }
 
 /**
- * Message Info by ID
+ * Message by ID
  *
  * @description Retrieve information for a single message
  *
@@ -41,7 +41,7 @@ export async function listMessages<TResponse = ListMessagesResponse>(
  * @param {String} apiKey - Unique API access token
  * @param {String} messageId - Unique message identifier
  */
-export async function messageInfoById<TResponse = MessageInfoByIdResponse>(
+export async function messageById<TResponse = MessageInfoByIdResponse>(
   apiKey: string,
   messageId: string
 ): Promise<TResponse> {
