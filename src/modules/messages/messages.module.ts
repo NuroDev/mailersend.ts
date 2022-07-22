@@ -14,7 +14,7 @@ import type {
  * @see https://developers.mailersend.com/api/v1/messages.html#get-a-list-of-messages
  *
  * @param {String} apiKey - Unique API access token
- * @param {Object} options - List messages options
+ * @param {Object} [options] - List messages options
  */
 export async function listMessages<TResponse = ListMessagesResponse>(
   apiKey: string,
