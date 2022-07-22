@@ -32,3 +32,11 @@ export {
   type SendEmailParams,
   type SendEmailResponse,
 } from "./email";
+
+export {
+  listTemplates,
+  templateById,
+  type ListTemplatesParams,
+  type ListTemplatesResponse,
+  type TemplateByIdResponse,
+} from "./templates";
