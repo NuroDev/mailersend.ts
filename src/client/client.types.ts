@@ -33,6 +33,19 @@ export interface IClient {
     options: modules.ListSmsActivityParams
   ): ReturnType<typeof modules.listSmsActivity>;
 
+  /**
+   * SMS Activity by ID
+   *
+   * @description Get activity information for a single SMS message.
+   *
+   * @see https://developers.mailersend.com/api/v1/sms-activity.html#get-activity-of-a-single-message
+   *
+   * @param {Object} smsMessageId - SMS message ID
+   */
+  smsActivityById(
+    smsMessageId: string
+  ): ReturnType<typeof modules.smsActivityById>;
+
   // ------------------------------------------------------------
   // Analytics
   // ------------------------------------------------------------
