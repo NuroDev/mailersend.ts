@@ -156,6 +156,23 @@ export interface IClient {
   messageById(messageId: string): ReturnType<typeof modules.messageById>;
 
   // ------------------------------------------------------------
+  // Phone Numbers
+  // ------------------------------------------------------------
+
+  /**
+   * List Phone Numbers
+   *
+   * @description Lists all SMS phone numbers associated with your account.
+   *
+   * @see https://developers.mailersend.com/api/v1/sms-numbers.html#get-a-list-of-sms-phone-numbers
+   *
+   * @param {Object} [options] - List phone numbers options
+   */
+  listPhoneNumbers(
+    options: modules.ListPhoneNumbersParams
+  ): ReturnType<typeof modules.listPhoneNumbers>;
+
+  // ------------------------------------------------------------
   // SMS
   // ------------------------------------------------------------
 

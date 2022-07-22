@@ -67,6 +67,14 @@ export class Client implements IClient {
   }
 
   // ------------------------------------------------------------
+  // Phone Numbers
+  // ------------------------------------------------------------
+
+  public listPhoneNumbers(options: modules.ListPhoneNumbersParams) {
+    return modules.listPhoneNumbers(this._apiKey, options);
+  }
+
+  // ------------------------------------------------------------
   // SMS
   // ------------------------------------------------------------
 

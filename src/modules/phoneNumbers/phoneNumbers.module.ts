@@ -10,7 +10,7 @@ import type { ListPhoneNumbersParams, ListPhoneNumbersResponse } from ".";
  * @see https://developers.mailersend.com/api/v1/sms-numbers.html#get-a-list-of-sms-phone-numbers
  *
  * @param {String} apiKey - Unique API access token
- * @param {Object} [options] - List SMS phone number options
+ * @param {Object} [options] - List phone numbers options
  */
 export async function listPhoneNumbers<TResponse = ListPhoneNumbersResponse>(
   apiKey: string,
