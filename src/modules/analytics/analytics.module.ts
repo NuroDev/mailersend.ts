@@ -23,8 +23,9 @@ import type {
  */
 export async function activityByDate<TResponse = ActivityByDateResponse>(
   apiKey: string,
-  { domainId, ...params }: ActivityByDateParams
+  options: ActivityByDateParams
 ): Promise<TResponse> {
+  const { domainId, ...params } = options;
   return fetch({
     apiKey,
     endpoint: "/analytics/date",
