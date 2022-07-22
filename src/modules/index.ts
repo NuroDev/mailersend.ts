@@ -44,6 +44,13 @@ export {
   type MessageInfoByIdResponse,
 } from "./messages";
 
+export {
+  listSmsPhoneNumbers,
+  type ListSmsPhoneNumbersData,
+  type ListSmsPhoneNumbersParams,
+  type ListSmsPhoneNumbersResponse,
+} from "./phoneNumbers";
+
 export { sendSms, type SendSmsParams, type SendSmsResponse } from "./sms";
 
 export {
