@@ -29,9 +29,9 @@ export async function fetch<
   const response = await nodeFetch(url.href, {
     method,
     headers: {
-      ...headers,
-      Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+      ...headers,
     },
     ...(body !== undefined
       ? {
