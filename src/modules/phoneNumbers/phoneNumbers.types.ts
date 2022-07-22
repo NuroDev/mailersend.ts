@@ -1,4 +1,4 @@
-import type { BaseReponse } from "~/types/request";
+import type { BaseResponse } from "~/types/request";
 import type { ResponseLinks, ResponseMeta } from "~/types/meta";
 
 export interface ListPhoneNumbersParams extends Record<string, any> {
@@ -21,7 +21,7 @@ export interface ListPhoneNumbersData {
   telephone_number: string;
 }
 
-export type ListPhoneNumbersResponse = BaseReponse<
+export type ListPhoneNumbersResponse = BaseResponse<
   Array<ListPhoneNumbersData>
 > &
   ResponseMeta &
