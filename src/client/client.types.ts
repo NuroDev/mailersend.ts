@@ -113,4 +113,32 @@ export interface IClient {
   sendBulkEmails(
     options: Array<modules.SendBulkEmailsParams>
   ): ReturnType<typeof modules.sendBulkEmails>;
+
+  // ------------------------------------------------------------
+  // Templates
+  // ------------------------------------------------------------
+
+  /**
+   * List Templates
+   *
+   * @description Retrieve the account templates
+   *
+   * @see https://developers.mailersend.com/api/v1/templates.html#get-templates
+   *
+   * @param {Object} options - List templates options
+   */
+  listTemplates(
+    options: modules.ListTemplatesParams
+  ): ReturnType<typeof modules.listTemplates>;
+
+  /**
+   * Template by ID
+   *
+   * @description Retrieve the information of a single template, its category, domain, and stats
+   *
+   * @see https://developers.mailersend.com/api/v1/templates.html#get-a-single-template
+   *
+   * @param {String} templateId - Unique template identifier
+   */
+  templateById(templateId: string): ReturnType<typeof modules.templateById>;
 }

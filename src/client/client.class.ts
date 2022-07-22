@@ -51,4 +51,15 @@ export class Client implements IClient {
   public async sendBulkEmails(options: Array<modules.SendBulkEmailsParams>) {
     return modules.sendBulkEmails(this._apiKey, options);
   }
+
+  // ------------------------------------------------------------
+  // Templates
+  // ------------------------------------------------------------
+
+  public async listTemplates(options: modules.ListTemplatesParams) {
+    return modules.listTemplates(this._apiKey, options);
+  }
+  public async templateById(templateId: string) {
+    return modules.templateById(this._apiKey, templateId);
+  }
 }
