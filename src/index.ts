@@ -1,6 +1,6 @@
 import { Client } from "./client";
 
-export { sendBulkEmails, sendEmail } from "./modules";
+export { sendBulkEmails, sendEmail, activityList } from "./modules";
 
 export { Client };
 
