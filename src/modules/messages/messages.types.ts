@@ -55,3 +55,26 @@ export type ListMessagesResponse = BaseResponse<Array<TrimmedMessage>> &
   ResponseMeta;
 
 export type MessageInfoByIdResponse = BaseResponse<Message>;
+
+export interface ListSmsMessagesParams extends Record<string, any> {
+  /**
+   * Min: 10
+   *
+   * Max: 100
+   *
+   * @default 25
+   */
+  limit?: number;
+  page?: number;
+}
+
+export interface ListSmsMessagesData {
+  created_at: string;
+  from: string;
+  id: string;
+  paused: boolean;
+  text: string;
+  to: Array<string>;
+}
+
+export type ListSmsMessagesResponse = BaseResponse<Array<ListSmsMessagesData>>;

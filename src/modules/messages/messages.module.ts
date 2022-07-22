@@ -3,6 +3,8 @@ import { fetch } from "~/fetch";
 import type {
   ListMessagesParams,
   ListMessagesResponse,
+  ListSmsMessagesParams,
+  ListSmsMessagesResponse,
   MessageInfoByIdResponse,
 } from ".";
 
@@ -25,6 +27,29 @@ export async function listMessages<TResponse = ListMessagesResponse>(
   return fetch({
     apiKey,
     endpoint: "/messages",
+    json: true,
+    method: "GET",
+    params: options,
+  });
+}
+
+/**
+ * List SMS Messages
+ *
+ * @description Retrieve a information about all SMS messages
+ *
+ * @see https://developers.mailersend.com/api/v1/sms-messages.html#get-a-list-of-sms-messages
+ *
+ * @param {String} apiKey - Unique API access token
+ * @param {Object} [options] - List SMS messages options
+ */
+export async function listSmsMessages<TResponse = ListSmsMessagesResponse>(
+  apiKey: string,
+  options: ListSmsMessagesParams = {}
+): Promise<TResponse> {
+  return fetch({
+    apiKey,
+    endpoint: "/sms-messages",
     json: true,
     method: "GET",
     params: options,
