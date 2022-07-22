@@ -1,8 +1,8 @@
 export {
-  activityList,
-  type ActivityListData,
-  type ActivityListParams,
-  type ActivityListResponse,
+  listActivity,
+  type ListActivityData,
+  type ListActivityParams,
+  type ListActivityResponse,
 } from "./activity";
 
 export {

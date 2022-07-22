@@ -11,15 +11,15 @@ import { Client } from "@nuro.dev/mailersend.ts";
 
 const client = new Client("API_KEY");
 
-const result = await client.activityList({
+const result = await client.listActivity({
   domainId: "...",
 });
 ```
 
 ```typescript
-import { activityList } from "@nuro.dev/mailersend.ts";
+import { listActivity } from "@nuro.dev/mailersend.ts";
 
-const result = await activityList("API_KEY", {
+const result = await listActivity("API_KEY", {
   domainId: "...",
 });
 ```

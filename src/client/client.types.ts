@@ -6,7 +6,7 @@ export interface IClient {
   // ------------------------------------------------------------
 
   /**
-   * Activity List
+   * List Activity
    *
    * @description Get information about your domain activity, including your sent emails and whether they were received by the recipient.
    *
@@ -16,9 +16,9 @@ export interface IClient {
    *
    * @param {Object} options - Activity list options
    */
-  activityList(
-    options: modules.ActivityListParams
-  ): ReturnType<typeof modules.activityList>;
+  listActivity(
+    options: modules.ListActivityParams
+  ): ReturnType<typeof modules.listActivity>;
 
   // ------------------------------------------------------------
   // Analytics

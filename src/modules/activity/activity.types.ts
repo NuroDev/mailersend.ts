@@ -1,6 +1,6 @@
 import type { BaseResponse } from "~/types/request";
 
-export interface ActivityListParams extends Record<string, any> {
+export interface ListActivityParams extends Record<string, any> {
   /**
    * Timestamp is assumed to be UTC.
    *
@@ -26,7 +26,7 @@ export interface ActivityListParams extends Record<string, any> {
   page?: number;
 }
 
-export interface ActivityListData {
+export interface ListActivityData {
   id: string;
   created_at: string;
   updated_at: string;
@@ -51,8 +51,8 @@ export interface ActivityListData {
   };
 }
 
-export interface ActivityListResponse
-  extends BaseResponse<Array<ActivityListData>> {
+export interface ListActivityResponse
+  extends BaseResponse<Array<ListActivityData>> {
   links?: {
     first: string;
     last: string;
