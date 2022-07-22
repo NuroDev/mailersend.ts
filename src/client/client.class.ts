@@ -21,6 +21,9 @@ export class Client implements IClient {
   public async listActivity(options: modules.ListActivityParams) {
     return modules.listActivity(this._apiKey, options);
   }
+  public async listSmsActivity(options: modules.ListSmsActivityParams = {}) {
+    return modules.listSmsActivity(this._apiKey, options);
+  }
 
   // ------------------------------------------------------------
   // Analytics

@@ -43,6 +43,21 @@ describe("Client", () => {
         throw error;
       }
     });
+
+    it.concurrent("List SMS Activity", async () => {
+      try {
+        const listSmsActivityResponse = await client.listSmsActivity(
+          MAILERSEND_API_KEY
+        );
+
+        expect(listSmsActivityResponse).not.toBeNull();
+        expect(listSmsActivityResponse.data).toBeDefined();
+        expect(Array.isArray(listSmsActivityResponse.data)).toBeTruthy();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
   });
 
   describe("Analytics", () => {

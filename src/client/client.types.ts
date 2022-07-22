@@ -20,6 +20,19 @@ export interface IClient {
     options: modules.ListActivityParams
   ): ReturnType<typeof modules.listActivity>;
 
+  /**
+   * List SMS Activity
+   *
+   * @description Get information about your SMS activity.
+   *
+   * @see https://developers.mailersend.com/api/v1/sms-activity.html#get-a-list-of-activities
+   *
+   * @param {Object} options - Activity list options
+   */
+  listSmsActivity(
+    options: modules.ListSmsActivityParams
+  ): ReturnType<typeof modules.listSmsActivity>;
+
   // ------------------------------------------------------------
   // Analytics
   // ------------------------------------------------------------
