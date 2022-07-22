@@ -1,4 +1,4 @@
-import type { BaseReponse } from "~/types/request";
+import type { BaseResponse } from "~/types/request";
 import type { Event, GroupBy } from "~/types/meta";
 
 export interface ActivityByDateParams extends Record<string, any> {
@@ -38,7 +38,7 @@ export interface ActivityByDateData {
   stats: Array<Record<keyof Event, number>>;
 }
 
-export type ActivityByDateResponse = BaseReponse<ActivityByDateData>;
+export type ActivityByDateResponse = BaseResponse<ActivityByDateData>;
 
 export interface ActivityByCountryParams extends Record<string, any> {
   domain_id?: string;
@@ -74,7 +74,7 @@ export interface ActivityByCountryData {
   }>;
 }
 
-export type ActivityByCountryResponse = BaseReponse<ActivityByCountryData>;
+export type ActivityByCountryResponse = BaseResponse<ActivityByCountryData>;
 
 export interface ActivityByUserAgentParams extends Record<string, any> {
   domain_id?: string;
@@ -110,7 +110,7 @@ export interface ActivityByUserAgentData {
   }>;
 }
 
-export type ActivityByUserAgentResponse = BaseReponse<ActivityByUserAgentData>;
+export type ActivityByUserAgentResponse = BaseResponse<ActivityByUserAgentData>;
 
 export interface ActivityByReadingEnvironmentParams
   extends Record<string, any> {
@@ -148,4 +148,4 @@ export interface ActivityByReadingEnvironmentData {
 }
 
 export type ActivityByReadingEnvironmentResponse =
-  BaseReponse<ActivityByReadingEnvironmentData>;
+  BaseResponse<ActivityByReadingEnvironmentData>;

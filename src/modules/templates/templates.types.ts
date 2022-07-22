@@ -1,4 +1,4 @@
-import type { BaseReponse } from "~/types/request";
+import type { BaseResponse } from "~/types/request";
 import type { ResponseLinks, ResponseMeta } from "~/types/meta";
 
 export interface ListTemplatesParams extends Record<string, any> {
@@ -14,7 +14,7 @@ export interface ListTemplatesParams extends Record<string, any> {
   limit?: number;
 }
 
-export type ListTemplatesResponse = BaseReponse<
+export type ListTemplatesResponse = BaseResponse<
   Array<{
     created_at: string;
     id: string;
@@ -26,7 +26,7 @@ export type ListTemplatesResponse = BaseReponse<
   ResponseLinks &
   ResponseMeta;
 
-export type TemplateByIdResponse = BaseReponse<{
+export type TemplateByIdResponse = BaseResponse<{
   categories: Array<unknown>;
   category: {
     id: string;

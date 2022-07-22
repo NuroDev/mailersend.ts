@@ -1,4 +1,4 @@
-import type { BaseReponse } from "~/types/request";
+import type { BaseResponse } from "~/types/request";
 import type { ResponseLinks, ResponseMeta } from "~/types/meta";
 
 export interface ListMessagesParams extends Record<string, any> {
@@ -50,8 +50,8 @@ export interface Message {
 
 export type TrimmedMessage = Pick<Message, "created_at" | "id" | "updated_at">;
 
-export type ListMessagesResponse = BaseReponse<Array<TrimmedMessage>> &
+export type ListMessagesResponse = BaseResponse<Array<TrimmedMessage>> &
   ResponseLinks &
   ResponseMeta;
 
-export type MessageInfoByIdResponse = BaseReponse<Message>;
+export type MessageInfoByIdResponse = BaseResponse<Message>;

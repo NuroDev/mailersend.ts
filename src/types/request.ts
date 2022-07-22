@@ -9,7 +9,7 @@ export type HttpMethod =
   | "PUT"
   | "TRACE";
 
-export interface BaseReponse<TData = Record<string, any>> {
+export interface BaseResponse<TData = Record<string, any>> {
   data: TData;
 }
 
