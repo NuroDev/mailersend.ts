@@ -68,13 +68,30 @@ export interface ListSmsMessagesParams extends Record<string, any> {
   page?: number;
 }
 
-export interface ListSmsMessagesData {
-  created_at: string;
-  from: string;
+export interface SmsMessage {
   id: string;
-  paused: boolean;
-  text: string;
+  from: string;
   to: Array<string>;
+  text: string;
+  paused: boolean;
+  created_at: string;
+  sms: Array<{
+    error_description: unknown | null;
+    error_type: unknown | null;
+    from: string;
+    id: string;
+    segment_count: number;
+    status: string;
+    text: string;
+    to: string;
+  }>;
 }
 
+export type ListSmsMessagesData = Pick<
+  SmsMessage,
+  "created_at" | "from" | "id" | "paused" | "text" | "to"
+>;
+
 export type ListSmsMessagesResponse = BaseResponse<Array<ListSmsMessagesData>>;
+
+export type SmsMessageByIdResponse = BaseResponse<SmsMessage>;

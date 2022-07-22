@@ -75,3 +75,25 @@ export async function messageById<TResponse = MessageInfoByIdResponse>(
     method: "GET",
   });
 }
+
+/**
+ * SMS Message by ID
+ *
+ * @description Retrieve SMS message information for a provided SMS message ID
+ *
+ * @see https://developers.mailersend.com/api/v1/sms-messages.html#get-an-sms-message
+ *
+ * @param {String} apiKey - Unique API access token
+ * @param {String} smsMessageId - Unique message identifier
+ */
+export async function smsMessageById<TResponse = MessageInfoByIdResponse>(
+  apiKey: string,
+  smsMessageId: string
+): Promise<TResponse> {
+  return fetch({
+    apiKey,
+    endpoint: `/sms-messages/${smsMessageId}`,
+    json: true,
+    method: "GET",
+  });
+}

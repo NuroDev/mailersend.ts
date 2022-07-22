@@ -2,12 +2,10 @@ import { beforeAll, describe, it, expect } from "vitest";
 
 import "dotenv/config";
 
-import { listMessages, listSmsMessages, messageById } from ".";
+import { listMessages, listSmsMessages, messageById, smsMessageById } from ".";
 
-const { MAILERSEND_API_KEY, MAILERSEND_MESSAGE_ID } = process.env as Record<
-  string,
-  string
->;
+const { MAILERSEND_API_KEY, MAILERSEND_MESSAGE_ID, MAILERSEND_SMS_MESSAGE_ID } =
+  process.env as Record<string, string>;
 
 describe("Messages", () => {
   beforeAll(() => {
@@ -22,6 +20,19 @@ describe("Messages", () => {
       expect(listMessagesResponse).not.toBeNull();
       expect(listMessagesResponse.data).toBeDefined();
       expect(Array.isArray(listMessagesResponse.data)).toBeTruthy();
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  });
+
+  it.concurrent("List SMS Messages", async () => {
+    try {
+      const listSmsMessagesResponse = await listSmsMessages(MAILERSEND_API_KEY);
+
+      expect(listSmsMessagesResponse).not.toBeNull();
+      expect(listSmsMessagesResponse.data).toBeDefined();
+      expect(Array.isArray(listSmsMessagesResponse.data)).toBeTruthy();
     } catch (error) {
       console.error(error);
       throw error;
@@ -47,13 +58,19 @@ describe("Messages", () => {
     }
   });
 
-  it.concurrent("List SMS Messages", async () => {
-    try {
-      const listSmsMessagesResponse = await listSmsMessages(MAILERSEND_API_KEY);
+  it.concurrent("SMS message by ID", async () => {
+    if (!MAILERSEND_SMS_MESSAGE_ID)
+      throw "No MailerSend SMS message ID found in environment variables";
 
-      expect(listSmsMessagesResponse).not.toBeNull();
-      expect(listSmsMessagesResponse.data).toBeDefined();
-      expect(Array.isArray(listSmsMessagesResponse.data)).toBeTruthy();
+    try {
+      const smsMessageByIdResponse = await smsMessageById(
+        MAILERSEND_API_KEY,
+        MAILERSEND_SMS_MESSAGE_ID
+      );
+
+      expect(smsMessageByIdResponse).not.toBeNull();
+      expect(smsMessageByIdResponse.data).toBeDefined();
+      expect(Array.isArray(smsMessageByIdResponse.data)).toBeTruthy();
     } catch (error) {
       console.error(error);
       throw error;

@@ -18,6 +18,7 @@ export {
   sendBulkEmails,
   sendEmail,
   sendSms,
+  smsMessageById,
   templateById,
   updateToken,
 } from "./modules";

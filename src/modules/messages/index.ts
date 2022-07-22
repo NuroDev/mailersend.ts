@@ -1,4 +1,9 @@
-export { listMessages, listSmsMessages, messageById } from "./messages.module";
+export {
+  listMessages,
+  listSmsMessages,
+  messageById,
+  smsMessageById,
+} from "./messages.module";
 
 export {
   type ListMessagesParams,
@@ -6,5 +11,9 @@ export {
   type ListSmsMessagesData,
   type ListSmsMessagesParams,
   type ListSmsMessagesResponse,
+  type Message,
   type MessageInfoByIdResponse,
+  type SmsMessage,
+  type SmsMessageByIdResponse,
+  type TrimmedMessage,
 } from "./messages.types";
