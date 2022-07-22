@@ -41,7 +41,7 @@ export async function listActivity<TResponse = ListActivityResponse>(
  * @see https://developers.mailersend.com/api/v1/sms-activity.html#get-a-list-of-activities
  *
  * @param {String} apiKey - Unique API access token
- * @param {Object} options - Activity list options
+ * @param {Object} options - SMS Activity list options
  */
 export async function listSmsActivity<TResponse = ListSmsActivityResponse>(
   apiKey: string,
@@ -53,5 +53,27 @@ export async function listSmsActivity<TResponse = ListSmsActivityResponse>(
     json: true,
     method: "GET",
     params: options,
+  });
+}
+
+/**
+ * SMS Activity by ID
+ *
+ * @description Get activity information for a single SMS message.
+ *
+ * @see https://developers.mailersend.com/api/v1/sms-activity.html#get-activity-of-a-single-message
+ *
+ * @param {String} apiKey - Unique API access token
+ * @param {Object} smsMessageId - SMS message ID
+ */
+export async function smsActivityById<TResponse = ListSmsActivityResponse>(
+  apiKey: string,
+  smsMessageId: string
+): Promise<TResponse> {
+  return fetch({
+    apiKey,
+    endpoint: `/sms-activity/${smsMessageId}`,
+    json: true,
+    method: "GET",
   });
 }

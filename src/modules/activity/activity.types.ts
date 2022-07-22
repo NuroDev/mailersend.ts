@@ -96,3 +96,30 @@ export interface SmsActivity {
 export type ListSmsActivityResponse = BaseResponse<Array<SmsActivity>> &
   ResponseLinks &
   ResponseMeta;
+
+export interface SmsActivityByIdData {
+  created_at: string;
+  from: string;
+  id: string;
+  paused: boolean;
+  text: string;
+  sms: Array<{
+    error_description: unknown | null;
+    error_type: unknown | null;
+    from: string;
+    id: string;
+    segment_count: number;
+    status: string;
+    text: string;
+    to: string;
+  }>;
+  sms_activity: Array<
+    Pick<
+      SmsActivity,
+      "created_at" | "from" | "sms_message_id" | "status" | "to"
+    >
+  >;
+  to: Array<string>;
+}
+
+export type SmsActivityByIdResonse = BaseResponse<SmsActivityByIdData>;

@@ -1,4 +1,8 @@
-export { listActivity, listSmsActivity } from "./activity.module";
+export {
+  listActivity,
+  listSmsActivity,
+  smsActivityById,
+} from "./activity.module";
 
 export {
   type Activity,
@@ -7,4 +11,6 @@ export {
   type ListSmsActivityParams,
   type ListSmsActivityResponse,
   type SmsActivity,
+  type SmsActivityByIdData,
+  type SmsActivityByIdResonse,
 } from "./activity.types";

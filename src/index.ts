@@ -19,6 +19,7 @@ export {
   sendBulkEmails,
   sendEmail,
   sendSms,
+  smsActivityById,
   smsMessageById,
   templateById,
   updateToken,

@@ -1,12 +1,15 @@
 export {
   listActivity,
   listSmsActivity,
+  smsActivityById,
   type Activity,
   type ListActivityParams,
   type ListActivityResponse,
   type ListSmsActivityParams,
   type ListSmsActivityResponse,
   type SmsActivity,
+  type SmsActivityByIdData,
+  type SmsActivityByIdResonse,
 } from "./activity";
 
 export {

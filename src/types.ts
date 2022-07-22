@@ -43,6 +43,8 @@ export {
   type SendSmsParams,
   type SendSmsResponse,
   type SmsActivity,
+  type SmsActivityByIdData,
+  type SmsActivityByIdResonse,
   type SmsMessage,
   type SmsMessageByIdResponse,
   type TemplateByIdResponse,

@@ -2,12 +2,10 @@ import { describe, it, expect, beforeAll } from "vitest";
 
 import "dotenv/config";
 
-import { listActivity, listSmsActivity } from ".";
+import { listActivity, listSmsActivity, smsActivityById } from ".";
 
-const { MAILERSEND_API_KEY, MAILERSEND_DOMAIN_ID } = process.env as Record<
-  string,
-  string
->;
+const { MAILERSEND_API_KEY, MAILERSEND_DOMAIN_ID, MAILERSEND_SMS_MESSAGE_ID } =
+  process.env as Record<string, string>;
 
 describe("Activity", () => {
   beforeAll(() => {
@@ -44,5 +42,25 @@ describe("Activity", () => {
       console.error(error);
       throw error;
     }
+  });
+
+  it.concurrent("SMS Activity by ID", async () => {
+    // TODO: Requires SMS access in MailerSend which I currently do not have
+    // if (!MAILERSEND_SMS_MESSAGE_ID)
+    //   throw "No MailerSend SMS message ID found in environment variables";
+    //
+    // try {
+    //   const smsActivityByIdResponse = await smsActivityById(
+    //     MAILERSEND_API_KEY,
+    //     MAILERSEND_SMS_MESSAGE_ID
+    //   );
+    //
+    //   expect(smsActivityByIdResponse).not.toBeNull();
+    //   expect(smsActivityByIdResponse.data).toBeDefined();
+    //   expect(Array.isArray(smsActivityByIdResponse.data)).toBeTruthy();
+    // } catch (error) {
+    //   console.error(error);
+    //   throw error;
+    // }
   });
 });
