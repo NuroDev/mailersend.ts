@@ -21,7 +21,7 @@ describe("SMS", () => {
     //     text: "Hey {{name}}! This is just a friendly hello :D",
     //   });
     //
-    //   expect(sendSmsResponse).not.toBeNull();
+    //   expect(sendSmsResponse).toBeDefined();
     //   expect(sendSmsResponse.success).toBeTruthy();
     // } catch (error) {
     //   console.error(error);
