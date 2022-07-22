@@ -24,7 +24,7 @@ const result = await listMessages("API_KEY", {
 });
 ```
 
-## Message Info by ID
+## Message by ID
 
 [Official Documentation](https://developers.mailersend.com/api/v1/messages.html#get-information-for-a-single-message)
 

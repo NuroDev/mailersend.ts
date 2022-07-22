@@ -6,14 +6,14 @@ export {
 } from "./messages.module";
 
 export {
+  type ListMessage,
   type ListMessagesParams,
   type ListMessagesResponse,
   type ListSmsMessagesData,
   type ListSmsMessagesParams,
   type ListSmsMessagesResponse,
   type Message,
-  type MessageInfoByIdResponse,
+  type MessageByIdResponse,
   type SmsMessage,
   type SmsMessageByIdResponse,
-  type TrimmedMessage,
 } from "./messages.types";

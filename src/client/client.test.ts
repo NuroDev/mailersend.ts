@@ -234,7 +234,7 @@ describe("Client", () => {
       }
     });
 
-    it.concurrent("Message Info by ID", async () => {
+    it.concurrent("Message by ID", async () => {
       if (!MAILERSEND_MESSAGE_ID)
         throw "No MailerSend message ID found in environment variables";
 

@@ -5,7 +5,8 @@ import type {
   ListMessagesResponse,
   ListSmsMessagesParams,
   ListSmsMessagesResponse,
-  MessageInfoByIdResponse,
+  MessageByIdResponse,
+  SmsMessageByIdResponse,
 } from ".";
 
 /**
@@ -16,7 +17,7 @@ import type {
  * @see https://developers.mailersend.com/api/v1/messages.html#get-a-list-of-messages
  *
  * @param {String} apiKey - Unique API access token
- * @param {Object} options - List messages options
+ * @param {Object} [options] - List messages options
  */
 export async function listMessages<TResponse = ListMessagesResponse>(
   apiKey: string,
@@ -64,7 +65,7 @@ export async function listSmsMessages<TResponse = ListSmsMessagesResponse>(
  * @param {String} apiKey - Unique API access token
  * @param {String} messageId - Unique message identifier
  */
-export async function messageById<TResponse = MessageInfoByIdResponse>(
+export async function messageById<TResponse = MessageByIdResponse>(
   apiKey: string,
   messageId: string
 ): Promise<TResponse> {
@@ -86,7 +87,7 @@ export async function messageById<TResponse = MessageInfoByIdResponse>(
  * @param {String} apiKey - Unique API access token
  * @param {String} smsMessageId - Unique message identifier
  */
-export async function smsMessageById<TResponse = MessageInfoByIdResponse>(
+export async function smsMessageById<TResponse = SmsMessageByIdResponse>(
   apiKey: string,
   smsMessageId: string
 ): Promise<TResponse> {
