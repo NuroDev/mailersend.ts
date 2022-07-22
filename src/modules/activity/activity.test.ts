@@ -2,7 +2,7 @@ import { describe, it, expect, beforeAll } from "vitest";
 
 import "dotenv/config";
 
-import { listActivity } from ".";
+import { listActivity, listSmsActivity } from ".";
 
 const { MAILERSEND_API_KEY, MAILERSEND_DOMAIN_ID } = process.env as Record<
   string,
@@ -27,6 +27,19 @@ describe("Activity", () => {
       expect(listActivityResponse).not.toBeNull();
       expect(listActivityResponse.data).toBeDefined();
       expect(Array.isArray(listActivityResponse.data)).toBeTruthy();
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  });
+
+  it.concurrent("List SMS Activity", async () => {
+    try {
+      const listSmsActivityResponse = await listSmsActivity(MAILERSEND_API_KEY);
+
+      expect(listSmsActivityResponse).not.toBeNull();
+      expect(listSmsActivityResponse.data).toBeDefined();
+      expect(Array.isArray(listSmsActivityResponse.data)).toBeTruthy();
     } catch (error) {
       console.error(error);
       throw error;

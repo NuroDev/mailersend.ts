@@ -1,4 +1,5 @@
 import type { BaseResponse } from "~/types/request";
+import type { ResponseLinks, ResponseMeta } from "~/types/meta";
 
 export interface ListActivityParams extends Record<string, any> {
   /**
@@ -66,3 +67,32 @@ export interface ListActivityResponse extends BaseResponse<Array<Activity>> {
     to: number;
   };
 }
+
+export interface ListSmsActivityParams extends Record<string, any> {
+  date_from?: number;
+  date_to?: number;
+  /**
+   * Min: 10
+   *
+   * Max: 100
+   *
+   * @default 25
+   */
+  limit?: number;
+  page?: number;
+  sms_number_id?: string;
+  status?: Array<"processed" | "queued" | "sent" | "delivered" | "failed">;
+}
+
+export interface SmsActivity {
+  content: string;
+  created_at: string;
+  from: string;
+  sms_message_id: string;
+  status: string;
+  to: string;
+}
+
+export type ListSmsActivityResponse = BaseResponse<Array<SmsActivity>> &
+  ResponseLinks &
+  ResponseMeta;

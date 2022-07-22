@@ -11,6 +11,7 @@ export {
   listActivity,
   listMessages,
   listPhoneNumbers,
+  listSmsActivity,
   listSmsMessages,
   listTemplates,
   messageById,
