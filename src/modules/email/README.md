@@ -1,0 +1,101 @@
+# Email
+
+## Send Email
+
+[Official Documentation](https://developers.mailersend.com/api/v1/email.html#send-an-email)
+
+---
+
+```typescript
+import { Client } from "@nuro.dev/mailersend.ts";
+
+const client = new Client("...");
+
+const result = await client.sendEmail({
+  from: {
+    email: "elon@spacex.com",
+    name: "Elon Musk",
+  },
+  to: [
+    {
+      email: "tim@apple.com",
+      name: "Tim Apple",
+    },
+  ],
+  subject: "The future of humanity...",
+  html: "<h1>Hello World</h1>",
+  text: "Hello World",
+});
+```
+
+```typescript
+import { sendEmail } from "@nuro.dev/mailersend.ts";
+
+const result = await sendEmail("API_KEY", {
+  from: {
+    email: "elon@spacex.com",
+    name: "Elon Musk",
+  },
+  to: [
+    {
+      email: "tim@apple.com",
+      name: "Tim Apple",
+    },
+  ],
+  subject: "The future of humanity...",
+  html: "<h1>Hello World</h1>",
+  text: "Hello World",
+});
+```
+
+## Send Bulk Emails
+
+[Official Documentation](https://developers.mailersend.com/api/v1/email.html#send-bulk-emails)
+
+---
+
+```typescript
+import { Client } from "@nuro.dev/mailersend.ts";
+
+const client = new Client("...");
+
+const result = await client.sendBulkEmails([
+  {
+    from: {
+      email: "elon@spacex.com",
+      name: "Elon Musk",
+    },
+    to: [
+      {
+        email: "tim@apple.com",
+        name: "Tim Apple",
+      },
+    ],
+    subject: "The future of humanity...",
+    html: "<h1>Hello World</h1>",
+    text: "Hello World",
+  },
+]);
+```
+
+```typescript
+import { sendBulkEmails } from "@nuro.dev/mailersend.ts";
+
+const result = await sendBulkEmails("API_KEY", [
+  {
+    from: {
+      email: "elon@spacex.com",
+      name: "Elon Musk",
+    },
+    to: [
+      {
+        email: "tim@apple.com",
+        name: "Tim Apple",
+      },
+    ],
+    subject: "The future of humanity...",
+    html: "<h1>Hello World</h1>",
+    text: "Hello World",
+  },
+]);
+```

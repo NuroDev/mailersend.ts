@@ -6,7 +6,7 @@ export interface Attachment<T = string> {
 
 export interface Recipient {
   email: string;
-  name: string;
+  name?: string;
 }
 
 /**
@@ -16,26 +16,24 @@ export type EmailParams = {
   attachments?: Array<Attachment>;
   bcc?: Array<Recipient>;
   cc?: Array<Recipient>;
-  from: {
-    email: string;
-    name?: string;
-  };
+  from: Recipient;
   personalization?: Array<{
     email: string;
     data: Record<string, any>;
   }>;
   precedence_bulk?: boolean;
   recipients?: Array<Recipient>;
-  reply_to?: {
-    email?: string;
-    name?: string;
-  };
+  reply_to?: Recipient;
   send_at?: number;
   subject: string;
   tags?: Array<string>;
-  to: Array<{
+  to: Array<Recipient>;
+  variables?: Array<{
     email: string;
-    name?: string;
+    substitutions: Array<{
+      var: string;
+      value: string | number | boolean;
+    }>;
   }>;
 } & (
   | {
@@ -44,12 +42,5 @@ export type EmailParams = {
     }
   | {
       template_id: string;
-      variables: Array<{
-        email: string;
-        substitutions: Array<{
-          var: string;
-          value: string;
-        }>;
-      }>;
     }
 );
