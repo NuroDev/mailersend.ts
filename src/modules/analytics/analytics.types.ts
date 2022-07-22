@@ -38,7 +38,7 @@ export interface ActivityByDateData {
   stats: Array<Record<keyof Event, number>>;
 }
 
-export type ActivityByDateResponse = BaseReponse<Array<ActivityByDateData>>;
+export type ActivityByDateResponse = BaseReponse<ActivityByDateData>;
 
 export interface ActivityByCountryParams extends Record<string, any> {
   domain_id?: string;
