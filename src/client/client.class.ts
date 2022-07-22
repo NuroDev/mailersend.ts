@@ -79,7 +79,7 @@ export class Client implements IClient {
   // Phone Numbers
   // ------------------------------------------------------------
 
-  public listPhoneNumbers(options: modules.ListPhoneNumbersParams) {
+  public async listPhoneNumbers(options: modules.ListPhoneNumbersParams) {
     return modules.listPhoneNumbers(this._apiKey, options);
   }
 
@@ -87,7 +87,7 @@ export class Client implements IClient {
   // SMS
   // ------------------------------------------------------------
 
-  public sendSms(options: modules.SendSmsParams) {
+  public async sendSms(options: modules.SendSmsParams) {
     return modules.sendSms(this._apiKey, options);
   }
 
