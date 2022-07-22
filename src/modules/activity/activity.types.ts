@@ -26,7 +26,7 @@ export interface ListActivityParams extends Record<string, any> {
   page?: number;
 }
 
-export interface ListActivityData {
+export interface Activity {
   id: string;
   created_at: string;
   updated_at: string;
@@ -51,8 +51,7 @@ export interface ListActivityData {
   };
 }
 
-export interface ListActivityResponse
-  extends BaseResponse<Array<ListActivityData>> {
+export interface ListActivityResponse extends BaseResponse<Array<Activity>> {
   links?: {
     first: string;
     last: string;
