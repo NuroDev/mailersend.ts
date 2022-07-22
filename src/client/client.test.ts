@@ -5,8 +5,8 @@ import "dotenv/config";
 import { Client } from ".";
 
 const {
+  MAILERSEND_API_KEY,
   MAILERSEND_DOMAIN_ID,
-  MAILERSEND_ROOT_API_KEY,
   MAILERSEND_TEMPLATE_ID,
   MAILERSEND_TEST_RECIPIENT_EMAIL,
   MAILERSEND_TEST_SENDER_EMAIL,
@@ -18,10 +18,10 @@ describe("Client", () => {
   let client: Client;
 
   beforeAll(() => {
-    if (!MAILERSEND_ROOT_API_KEY)
+    if (!MAILERSEND_API_KEY)
       throw "No MailerSend API key found in environment variables";
 
-    client = new Client(MAILERSEND_ROOT_API_KEY);
+    client = new Client(MAILERSEND_API_KEY);
   });
 
   describe("Activity", () => {

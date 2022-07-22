@@ -4,15 +4,12 @@ import "dotenv/config";
 
 import { listTemplates, templateById } from ".";
 
-const {
-  MAILERSEND_ROOT_API_KEY,
-  MAILERSEND_DOMAIN_ID,
-  MAILERSEND_TEMPLATE_ID,
-} = process.env as Record<string, string>;
+const { MAILERSEND_API_KEY, MAILERSEND_DOMAIN_ID, MAILERSEND_TEMPLATE_ID } =
+  process.env as Record<string, string>;
 
 describe("Templates", () => {
   beforeAll(() => {
-    if (!MAILERSEND_ROOT_API_KEY)
+    if (!MAILERSEND_API_KEY)
       throw "No MailerSend API key found in environment variables";
   });
 
@@ -21,12 +18,9 @@ describe("Templates", () => {
       throw "No MailerSend domain ID found in environment variables";
 
     try {
-      const listTemplatesResponse = await listTemplates(
-        MAILERSEND_ROOT_API_KEY,
-        {
-          domain_id: MAILERSEND_DOMAIN_ID,
-        }
-      );
+      const listTemplatesResponse = await listTemplates(MAILERSEND_API_KEY, {
+        domain_id: MAILERSEND_DOMAIN_ID,
+      });
 
       expect(listTemplatesResponse).toBeDefined();
       expect(listTemplatesResponse.data).toBeDefined();
@@ -40,7 +34,7 @@ describe("Templates", () => {
   it.concurrent("Template by ID", async () => {
     try {
       const templateByIdResponse = await templateById(
-        MAILERSEND_ROOT_API_KEY,
+        MAILERSEND_API_KEY,
         MAILERSEND_TEMPLATE_ID
       );
 
