@@ -66,3 +66,21 @@ export {
   type UpdateTokenParams,
   type UpdateTokenResponse,
 } from "./tokens";
+
+export {
+  createWebhook,
+  deleteWebhook,
+  listWebhooks,
+  updateWebhook,
+  webhookById,
+  type CreateWebhookParams,
+  type CreateWebhookResponse,
+  type DeleteWebhookResponse,
+  type ListWebhooksParams,
+  type ListWebhooksResponse,
+  type UpdateWebhookParams,
+  type UpdateWebhookResponse,
+  type Webhook,
+  type WebhookByIdResponse,
+  type WebhookEvent,
+} from "./webhooks";
