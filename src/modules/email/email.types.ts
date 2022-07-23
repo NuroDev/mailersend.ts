@@ -1,11 +1,27 @@
 import type { BaseResponse } from "~/types/request";
 import type { EmailParams } from "~/types/email";
 
+/**
+ * @see https://developers.mailersend.com/general.html#activity-status-list
+ */
+export type EmailStatus =
+  | "clicked"
+  | "delivered"
+  | "hard_bounced"
+  | "junk"
+  | "opened"
+  | "processed"
+  | "queued"
+  | "sent"
+  | "soft_bounced"
+  | "spam_complaints"
+  | "unsubscribed";
+
 export interface BulkEmailStatusData {
   created_at: string;
   id: string;
   messages_id: string | null;
-  state: "queued" | "completed";
+  state: EmailStatus;
   suppressed_recipients_count: number;
   suppressed_recipients: unknown | null;
   total_recipients_count: number;
