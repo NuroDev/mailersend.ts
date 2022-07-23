@@ -4,6 +4,8 @@ import "dotenv/config";
 
 import { Client } from ".";
 
+import type { Token } from "~/types";
+
 const {
   MAILERSEND_API_KEY,
   MAILERSEND_DOMAIN_ID,
@@ -288,34 +290,48 @@ describe("Client", () => {
   });
 
   describe("Tokens", () => {
-    it.concurrent("Create Token", async () => {
+    let newToken: Token;
+
+    it("Create Token", async () => {
       try {
         const createTokenResponse = await client.createToken({
           domain_id: MAILERSEND_DOMAIN_ID,
-          name: "CLIENT_CREATE_TEST_API_TOKEN",
+          name: "CREATE_TEST_API_TOKEN",
           scopes: ["activity_read", "analytics_read", "domains_read"],
         });
 
         expect(createTokenResponse).toBeDefined();
         expect(createTokenResponse.data).toBeDefined();
+
+        newToken = createTokenResponse.data;
       } catch (error) {
         console.error(error);
         throw error;
       }
     });
 
-    // TODO: Add `updateToken` test
+    it("Update Token", async () => {
+      if (!newToken) throw "No token found to delete";
 
-    it.concurrent("Delete Token", async () => {
       try {
-        const newToken = await client.createToken({
-          domain_id: MAILERSEND_DOMAIN_ID,
-          name: "CLIENT_DELETE_TEST_API_TOKEN",
-          scopes: ["activity_read", "analytics_read", "domains_read"],
+        const updateTokenResponse = await client.updateToken({
+          tokenId: newToken.id,
+          status: "pause",
         });
-        if (!newToken.data.id) throw "No new token ID found.";
 
-        const deleteTokenResponse = await client.deleteToken(newToken.data.id);
+        expect(updateTokenResponse).toBeDefined();
+        expect(updateTokenResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("Delete Token", async () => {
+      if (!newToken) throw "No token found to delete";
+
+      try {
+        const deleteTokenResponse = await client.deleteToken(newToken.id);
 
         expect(deleteTokenResponse).toBeDefined();
         expect(deleteTokenResponse.success).toBeTruthy();
