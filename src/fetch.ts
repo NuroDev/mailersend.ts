@@ -29,6 +29,9 @@ export async function fetch<
         url.searchParams.append(`${key}[]`, v.toString())
       );
 
+    if (typeof value === "boolean")
+      return url.searchParams.append(key, value ? "1" : "0");
+
     return url.searchParams.append(key, value.toString());
   });
 
