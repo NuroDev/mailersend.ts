@@ -17,14 +17,14 @@ export interface CreateTokenParams extends Record<string, any> {
   >;
 }
 
-export interface CreateTokenData {
+export interface Token {
   accessToken: string;
   created_at: string;
   id: string;
   name: string;
 }
 
-export type CreateTokenResponse = BaseResponse<CreateTokenData>;
+export type CreateTokenResponse = BaseResponse<Token>;
 
 export interface UpdateTokenParams extends Record<string, any> {
   status: "pause" | "unpause";
