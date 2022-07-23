@@ -223,4 +223,69 @@ export interface IClient {
   updateToken(
     options: modules.UpdateTokenParams
   ): ReturnType<typeof modules.updateToken>;
+
+  // ------------------------------------------------------------
+  // Webhooks
+  // ------------------------------------------------------------
+
+  /**
+   * Create Webhook
+   *
+   * @description Create a new webhook
+   *
+   * @see https://developers.mailersend.com/api/v1/webhooks.html#create-a-webhook
+   *
+   * @param {Object} options - Create webhook options
+   */
+  createWebhook(
+    options: modules.CreateWebhookParams
+  ): ReturnType<typeof modules.createWebhook>;
+
+  /**
+   * List Webhooks
+   *
+   * @description If you want to retrieve information about webhooks
+   *
+   * @see https://developers.mailersend.com/api/v1/webhooks.html#list-webhooks
+   *
+   * @param {Object} options - List webhook options
+   */
+  listWebhooks(
+    options: modules.ListWebhooksParams
+  ): ReturnType<typeof modules.listWebhooks>;
+
+  /**
+   * Webhook by ID
+   *
+   * @description To retrieve information about a single webhook
+   *
+   * @see https://developers.mailersend.com/api/v1/webhooks.html#get-a-webhook
+   *
+   * @param {String} webhookId - Unique webhook identifier
+   */
+  webhookById(webhookId: string): ReturnType<typeof modules.webhookById>;
+
+  /**
+   * Update Webhook
+   *
+   * @description Update a webhook
+   *
+   * @see https://developers.mailersend.com/api/v1/webhooks.html#update-a-webhook
+   *
+   * @param {Object} options - Update webhook options
+   */
+  updateWebhook(
+    options: modules.UpdateWebhookParams
+  ): ReturnType<typeof modules.updateWebhook>;
+
+  /**
+   * Delete Webhook
+   *
+   * @description Delete a webhook
+   *
+   * @see https://developers.mailersend.com/api/v1/webhooks.html#update-a-webhook
+   *
+   * @param {String} webhookId - Unique webhook identifier
+   */
+  deleteWebhook(webhookId: string): ReturnType<typeof modules.deleteWebhook>;
 }
