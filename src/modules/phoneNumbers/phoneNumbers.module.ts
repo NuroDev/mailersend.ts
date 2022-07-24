@@ -39,15 +39,15 @@ export async function listPhoneNumbers<TResponse = ListPhoneNumbersResponse>(
  * @see https://developers.mailersend.com/api/v1/sms-numbers.html#get-an-sms-phone-number
  *
  * @param {String} apiKey - Unique API access token
- * @param {Object} smsNumberId - Unique SMS phone number identifier
+ * @param {Object} phoneNumberId - Unique SMS phone number identifier
  */
 export async function phoneNumberById<TResponse = PhoneNumberByIdResponse>(
   apiKey: string,
-  smsNumberId: string
+  phoneNumberId: string
 ): Promise<TResponse> {
   return fetch({
     apiKey,
-    endpoint: `/sms-numbers/${smsNumberId}`,
+    endpoint: `/sms-numbers/${phoneNumberId}`,
     json: true,
     method: "GET",
   });
