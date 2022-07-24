@@ -4,6 +4,8 @@ import type {
   ListPhoneNumbersParams,
   ListPhoneNumbersResponse,
   PhoneNumberByIdResponse,
+  UpdatePhoneNumberParams,
+  UpdatePhoneNumberResponse,
 } from ".";
 
 /**
@@ -48,5 +50,30 @@ export async function phoneNumberById<TResponse = PhoneNumberByIdResponse>(
     endpoint: `/sms-numbers/${smsNumberId}`,
     json: true,
     method: "GET",
+  });
+}
+
+/**
+ * Update Phone Number
+ *
+ * @description Updates the data of a provided phone number using a provided phone number ID
+ *
+ * @see https://developers.mailersend.com/api/v1/sms-numbers.html#update-a-single-sms-phone-number
+ *
+ * @param {String} apiKey - Unique API access token
+ * @param {Object} options - Update phone number options
+ */
+export async function updatePhoneNumber<TResponse = UpdatePhoneNumberResponse>(
+  apiKey: string,
+  options: UpdatePhoneNumberParams
+): Promise<TResponse> {
+  const { phoneNumberId, ...params } = options;
+
+  return fetch({
+    apiKey,
+    endpoint: `/sms-numbers/${phoneNumberId}`,
+    json: true,
+    method: "PUT",
+    params,
   });
 }

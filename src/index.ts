@@ -41,6 +41,7 @@ export {
   smsMessageById,
   templateById,
   updateDomain,
+  updatePhoneNumber,
   updateToken,
   updateWebhook,
   verificationStatus,

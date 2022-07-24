@@ -26,3 +26,10 @@ export type ListPhoneNumbersResponse = BaseResponse<Array<PhoneNumber>> &
   ResponseLinks;
 
 export type PhoneNumberByIdResponse = BaseResponse<PhoneNumber>;
+
+export interface UpdatePhoneNumberParams extends Record<string, any> {
+  paused?: boolean;
+  phoneNumberId: string;
+}
+
+export type UpdatePhoneNumberResponse = BaseResponse<PhoneNumber>;

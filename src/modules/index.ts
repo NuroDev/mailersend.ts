@@ -95,10 +95,13 @@ export {
 export {
   phoneNumberById,
   listPhoneNumbers,
-  type GetPhoneNumberResponse,
+  updatePhoneNumber,
   type ListPhoneNumbersParams,
   type ListPhoneNumbersResponse,
   type PhoneNumber,
+  type PhoneNumberByIdResponse,
+  type UpdatePhoneNumberParams,
+  type UpdatePhoneNumberResponse,
 } from "./phoneNumbers";
 
 export {

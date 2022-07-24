@@ -2,7 +2,7 @@ import { describe, it, expect, beforeAll } from "vitest";
 
 import "dotenv/config";
 
-import { listPhoneNumbers, phoneNumberById } from ".";
+import { listPhoneNumbers, phoneNumberById, updatePhoneNumber } from ".";
 
 const { MAILERSEND_API_KEY, MAILERSEND_SMS_PHONE_ID } = process.env as Record<
   string,
@@ -38,6 +38,28 @@ describe("Phone Numbers", () => {
     //   const phoneNumberByIdResponse = await phoneNumberById(
     //     MAILERSEND_API_KEY,
     //     MAILERSEND_SMS_PHONE_ID
+    //   );
+    //
+    //   expect(phoneNumberByIdResponse).toBeDefined();
+    //   expect(phoneNumberByIdResponse.data).toBeDefined();
+    // } catch (error) {
+    //   console.error(error);
+    //   throw error;
+    // }
+  });
+
+  it.concurrent("Update Phone Number by ID", async () => {
+    // TODO: Requires SMS access in MailerSend which I currently do not have
+    // if (!MAILERSEND_SMS_PHONE_ID)
+    //   throw "No SMS phone ID found in environment variables";
+    //
+    // try {
+    //   const phoneNumberByIdResponse = await updatePhoneNumber(
+    //     MAILERSEND_API_KEY,
+    //     {
+    //       paused: true,
+    //       phoneNumberId: MAILERSEND_SMS_PHONE_ID,
+    //     }
     //   );
     //
     //   expect(phoneNumberByIdResponse).toBeDefined();

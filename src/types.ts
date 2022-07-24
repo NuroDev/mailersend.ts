@@ -36,7 +36,6 @@ export {
   type DomainByIdData,
   type DomainByIdResponse,
   type EmailStatus,
-  type GetPhoneNumberResponse,
   type ListActivityParams,
   type ListActivityResponse,
   type ListDomainsData,
@@ -67,6 +66,7 @@ export {
   type Message,
   type MessageByIdResponse,
   type PhoneNumber,
+  type PhoneNumberByIdResponse,
   type RecipientByIdData,
   type RecipientByIdResponse,
   type RecipientsForDomainData,
@@ -101,4 +101,6 @@ export {
   type Webhook,
   type WebhookByIdResponse,
   type WebhookEvent,
+  type UpdatePhoneNumberParams,
+  type UpdatePhoneNumberResponse,
 } from "./modules";
