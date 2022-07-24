@@ -77,6 +77,108 @@ export interface IClient {
   ): ReturnType<typeof modules.activityByUserAgent>;
 
   // ------------------------------------------------------------
+  // Domains
+  // ------------------------------------------------------------
+
+  /**
+   * Add Domain
+   *
+   * @description If you want to add a new domain
+   *
+   * @see https://developers.mailersend.com/api/v1/domains.html#add-a-domain
+   *
+   * @param {Object} options - Add domain options
+   */
+  addDomain(
+    options: modules.AddDomainParams
+  ): ReturnType<typeof modules.addDomain>;
+
+  /**
+   * Delete Domain
+   *
+   * @description If you want to delete a domain name
+   *
+   * @see https://developers.mailersend.com/api/v1/domains.html#delete-a-domain
+   *
+   * @param {String} domainId - Unique domain identifier
+   */
+  deleteDomain(domainId: string): ReturnType<typeof modules.deleteDomain>;
+
+  /**
+   * DNS Records
+   *
+   * @description If you want to retrieve the domain's DNS records
+   *
+   * @see https://developers.mailersend.com/api/v1/domains.html#get-dns-records
+   *
+   * @param {String} domainId - Unique domain identifier
+   */
+  dnsRecords(domainId: string): ReturnType<typeof modules.dnsRecords>;
+
+  /**
+   * Domain by ID
+   *
+   * @description Retrieve information about a single domain name
+   *
+   * @see https://developers.mailersend.com/api/v1/domains.html#get-a-single-domain
+   *
+   * @param {String} domainId - Unique domain identifier
+   */
+  domainById(domainId: string): ReturnType<typeof modules.domainById>;
+
+  /**
+   * List Domains
+   *
+   * @description Retrieve information about multiple domains
+   *
+   * @see https://developers.mailersend.com/api/v1/domains.html#get-a-list-of-domains
+   *
+   * @param {Object} [options] - List domains options
+   */
+  listDomains(
+    options: modules.ListDomainsParams
+  ): ReturnType<typeof modules.listDomains>;
+
+  /**
+   * Recipients For Domain
+   *
+   * @description If you want to retrieve information (creation date, update date, deletion date) about the recipients for a domain name
+   *
+   * @see https://developers.mailersend.com/api/v1/domains.html#get-recipients-for-a-domain
+   *
+   * @param {Object} options - Recipients for domain options
+   */
+  recipientsForDomain(
+    options: modules.RecipientsForDomainParams
+  ): ReturnType<typeof modules.recipientsForDomain>;
+
+  /**
+   * Update Domain Settings
+   *
+   * @description If you want to update the domain name settings
+   *
+   * @see https://developers.mailersend.com/api/v1/domains.html#update-domain-settings
+   *
+   * @param {Object} options - Update domain settings options
+   */
+  updateDomainSettings(
+    options: modules.UpdateDomainSettingsParams
+  ): ReturnType<typeof modules.updateDomainSettings>;
+
+  /**
+   * Verification Status
+   *
+   * @description If you want to retrieve the verification status for a domain
+   *
+   * @see https://developers.mailersend.com/api/v1/domains.html#get-verification-status
+   *
+   * @param {String} domainId - Unique domain identifier
+   */
+  verificationStatus(
+    domainId: string
+  ): ReturnType<typeof modules.verificationStatus>;
+
+  // ------------------------------------------------------------
   // Email
   // ------------------------------------------------------------
 

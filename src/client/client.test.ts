@@ -4,13 +4,14 @@ import "dotenv/config";
 
 import { Client } from ".";
 
-import type { Token, Webhook } from "~/types";
+import type { AddDomainData, Token, Webhook } from "~/types";
 
 const {
   MAILERSEND_API_KEY,
   MAILERSEND_DOMAIN_ID,
   MAILERSEND_MESSAGE_ID,
   MAILERSEND_TEMPLATE_ID,
+  MAILERSEND_TEST_DOMAIN,
   MAILERSEND_TEST_RECIPIENT_EMAIL,
   MAILERSEND_TEST_SENDER_EMAIL,
 } = process.env as Record<string, string>;
@@ -116,6 +117,129 @@ describe("Client", () => {
 
         expect(activityUserAgentResponse).not.toBeNull();
         expect(activityUserAgentResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+  });
+
+  describe("Domains", () => {
+    let newDomain: AddDomainData;
+
+    it("Add Domain", async () => {
+      try {
+        const addDomainResponse = await client.addDomain({
+          name: MAILERSEND_TEST_DOMAIN,
+        });
+
+        expect(addDomainResponse).toBeDefined();
+        expect(addDomainResponse.data).toBeDefined();
+
+        newDomain = addDomainResponse.data;
+      } catch (error) {
+        console.error(error);
+      }
+    });
+
+    it("DNS Records", async () => {
+      if (!newDomain?.id) throw "No new domain ID found";
+
+      try {
+        const dnsRecordsResponse = await client.dnsRecords(newDomain.id);
+
+        expect(dnsRecordsResponse).toBeDefined();
+        expect(dnsRecordsResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("Domain by ID", async () => {
+      if (!newDomain?.id) throw "No new domain ID found";
+
+      try {
+        const domainByIdResponse = await client.domainById(newDomain.id);
+
+        expect(domainByIdResponse).toBeDefined();
+        expect(domainByIdResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("List Domains", async () => {
+      try {
+        const listDomainsResponse = await client.listDomains();
+
+        expect(listDomainsResponse).toBeDefined();
+        expect(listDomainsResponse.data).toBeDefined();
+        expect(Array.isArray(listDomainsResponse.data)).toBeTruthy();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("Recipients for Domain", async () => {
+      if (!newDomain?.id) throw "No new domain ID found";
+
+      try {
+        const recipientsForDomainResponse = await client.recipientsForDomain({
+          domainId: newDomain.id,
+        });
+
+        expect(recipientsForDomainResponse).toBeDefined();
+        expect(recipientsForDomainResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("Update Domain Settings", async () => {
+      if (!newDomain?.id) throw "No new domain ID found";
+
+      try {
+        const updateDomainSettingsResponse = await client.updateDomainSettings({
+          domainId: newDomain.id,
+        });
+
+        expect(updateDomainSettingsResponse).toBeDefined();
+        expect(updateDomainSettingsResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("Verification Status", async () => {
+      if (!newDomain?.id) throw "No new domain ID found";
+
+      try {
+        const verificationStatusResponse = await client.verificationStatus(
+          newDomain.id
+        );
+
+        expect(verificationStatusResponse).toBeDefined();
+        expect(verificationStatusResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("Delete Domain", async () => {
+      if (!newDomain?.id) throw "No new domain ID found";
+
+      try {
+        const deleteDomainResponse = await client.deleteDomain(newDomain.id);
+
+        expect(deleteDomainResponse).toBeDefined();
+        expect(deleteDomainResponse.success).toBeDefined();
+        // expect(deleteDomainResponse.success).toBeTruthy();
       } catch (error) {
         console.error(error);
         throw error;

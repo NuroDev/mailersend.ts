@@ -42,6 +42,37 @@ export class Client implements IClient {
   }
 
   // ------------------------------------------------------------
+  // Domain
+  // ------------------------------------------------------------
+
+  public async addDomain(options: modules.AddDomainParams) {
+    return modules.addDomain(this._apiKey, options);
+  }
+  public async deleteDomain(domainId: string) {
+    return modules.deleteDomain(this._apiKey, domainId);
+  }
+  public async dnsRecords(domainId: string) {
+    return modules.dnsRecords(this._apiKey, domainId);
+  }
+  public async domainById(domainId: string) {
+    return modules.domainById(this._apiKey, domainId);
+  }
+  public async listDomains(options: modules.ListDomainsParams = {}) {
+    return modules.listDomains(this._apiKey, options);
+  }
+  public async recipientsForDomain(options: modules.RecipientsForDomainParams) {
+    return modules.recipientsForDomain(this._apiKey, options);
+  }
+  public async updateDomainSettings(
+    options: modules.UpdateDomainSettingsParams
+  ) {
+    return modules.updateDomainSettings(this._apiKey, options);
+  }
+  public async verificationStatus(domainId: string) {
+    return modules.verificationStatus(this._apiKey, domainId);
+  }
+
+  // ------------------------------------------------------------
   // Email
   // ------------------------------------------------------------
 
