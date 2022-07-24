@@ -84,12 +84,22 @@ export interface ListSmsActivityParams extends Record<string, any> {
   status?: Array<"processed" | "queued" | "sent" | "delivered" | "failed">;
 }
 
+/**
+ * @see https://developers.mailersend.com/general.html#sms-status-list
+ */
+export type SmsStatus =
+  | "delivered"
+  | "failed"
+  | "processed"
+  | "queued"
+  | "sent";
+
 export interface SmsActivity {
   content: string;
   created_at: string;
   from: string;
   sms_message_id: string;
-  status: string;
+  status: SmsStatus;
   to: string;
 }
 

@@ -13,4 +13,5 @@ export {
   type SmsActivity,
   type SmsActivityByIdData,
   type SmsActivityByIdResonse,
+  type SmsStatus,
 } from "./activity.types";
