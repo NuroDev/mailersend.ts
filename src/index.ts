@@ -41,6 +41,7 @@ export {
   sendSms,
   smsActivityById,
   smsMessageById,
+  smsRecipientById,
   templateById,
   updateDomain,
   updatePhoneNumber,

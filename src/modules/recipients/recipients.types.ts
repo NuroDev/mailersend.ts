@@ -44,16 +44,14 @@ export interface ListSmsRecipientsParams extends Record<string, any> {
   status?: "active" | "opt_out";
 }
 
-export interface ListSmsRecipientsData {
+export interface SmsRecipient {
   created_at: string;
   id: string;
   number: string;
   status: string;
 }
 
-export type ListSmsRecipientsResponse = BaseResponse<
-  Array<ListSmsRecipientsData>
->;
+export type ListSmsRecipientsResponse = BaseResponse<Array<SmsRecipient>>;
 
 export interface RecipientByIdData {
   created_at: string;
@@ -76,6 +74,22 @@ export interface RecipientByIdData {
 }
 
 export type RecipientByIdResponse = BaseResponse<RecipientByIdData>;
+
+export interface SmsRecipientByIdData extends SmsRecipient {
+  sms: Array<{
+    created_at: string;
+    error_description: string | null;
+    error_type: string | null;
+    from: string;
+    id: string;
+    segment_count: number;
+    status: string;
+    text: string;
+    to: string;
+  }>;
+}
+
+export type SmsRecipientByIdResponse = BaseResponse<SmsRecipientByIdData>;
 
 export interface DeleteRecipientResponse {
   success: boolean;

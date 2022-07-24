@@ -12,6 +12,7 @@ import type {
   ListSmsRecipientsResponse,
   ListSuppressionsResponse,
   RecipientByIdResponse,
+  SmsRecipientByIdResponse,
   SuppressionListParams,
 } from ".";
 
@@ -78,6 +79,28 @@ export async function recipientById<TResponse = RecipientByIdResponse>(
   return fetch({
     apiKey,
     endpoint: `/recipients/${recipientId}`,
+    json: true,
+    method: "GET",
+  });
+}
+
+/**
+ * SMS Recipient by ID
+ *
+ * @description Retrieve the information of a single SMS recipient
+ *
+ * @see https://developers.mailersend.com/api/v1/sms-recipients.html#get-an-sms-recipient
+ *
+ * @param {String} apiKey - Unique API access token
+ * @param {String} recipientId - Unique recipient identifier
+ */
+export async function smsRecipientById<TResponse = SmsRecipientByIdResponse>(
+  apiKey: string,
+  recipientId: string
+): Promise<TResponse> {
+  return fetch({
+    apiKey,
+    endpoint: `/sms-recipients/${recipientId}`,
     json: true,
     method: "GET",
   });
