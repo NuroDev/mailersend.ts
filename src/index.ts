@@ -27,6 +27,7 @@ export {
   listScheduledMessages,
   listSmsActivity,
   listSmsMessages,
+  listSmsRecipients,
   listSuppressions,
   listTemplates,
   listWebhooks,

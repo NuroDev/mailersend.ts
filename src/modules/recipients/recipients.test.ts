@@ -7,6 +7,7 @@ import {
   deleteFromSuppressionList,
   deleteRecipient,
   listRecipients,
+  listSmsRecipients,
   listSuppressions,
   recipientById,
 } from "./recipients.module";
@@ -77,6 +78,21 @@ describe("Recipients", () => {
       console.error(error);
       throw error;
     }
+  });
+
+  it.concurrent("List SMS Recipients", async () => {
+    // TODO: Requires SMS access in MailerSend which I currently do not have
+    // try {
+    //   const listSmsRecipientsResponse = await listSmsRecipients(
+    //     MAILERSEND_API_KEY
+    //   );
+    //
+    //   expect(listSmsRecipientsResponse).toBeDefined();
+    //   expect(listSmsRecipientsResponse.data).toBeDefined();
+    // } catch (error) {
+    //   console.error(error);
+    //   throw error;
+    // }
   });
 
   it.concurrent("Recipient by ID", async () => {

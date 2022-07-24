@@ -8,6 +8,8 @@ import type {
   DeleteRecipientResponse,
   ListRecipientsParams,
   ListRecipientsResponse,
+  ListSmsRecipientsParams,
+  ListSmsRecipientsResponse,
   ListSuppressionsResponse,
   RecipientByIdResponse,
   SuppressionListParams,
@@ -30,6 +32,29 @@ export async function listRecipients<TResponse = ListRecipientsResponse>(
   return fetch({
     apiKey,
     endpoint: "/recipients",
+    json: true,
+    method: "GET",
+    params: options,
+  });
+}
+
+/**
+ * List SMS Recipients
+ *
+ * @description Retrieve the list of all SMS recipients
+ *
+ * @see https://developers.mailersend.com/api/v1/sms-recipients.html#get-a-list-of-sms-recipients
+ *
+ * @param {String} apiKey - Unique API access token
+ * @param {Object} options - List sms recipients options
+ */
+export async function listSmsRecipients<TResponse = ListSmsRecipientsResponse>(
+  apiKey: string,
+  options: ListSmsRecipientsParams = {}
+): Promise<TResponse> {
+  return fetch({
+    apiKey,
+    endpoint: "/sms-recipients",
     json: true,
     method: "GET",
     params: options,
