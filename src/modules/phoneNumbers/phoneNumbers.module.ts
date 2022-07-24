@@ -1,6 +1,10 @@
 import { fetch } from "~/fetch";
 
-import type { ListPhoneNumbersParams, ListPhoneNumbersResponse } from ".";
+import type {
+  ListPhoneNumbersParams,
+  ListPhoneNumbersResponse,
+  PhoneNumberByIdResponse,
+} from ".";
 
 /**
  * List Phone Numbers
@@ -35,7 +39,7 @@ export async function listPhoneNumbers<TResponse = ListPhoneNumbersResponse>(
  * @param {String} apiKey - Unique API access token
  * @param {Object} smsNumberId - Unique SMS phone number identifier
  */
-export async function phoneNumberById<TResponse = ListPhoneNumbersResponse>(
+export async function phoneNumberById<TResponse = PhoneNumberByIdResponse>(
   apiKey: string,
   smsNumberId: string
 ): Promise<TResponse> {

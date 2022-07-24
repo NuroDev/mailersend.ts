@@ -25,4 +25,4 @@ export type ListPhoneNumbersResponse = BaseResponse<Array<PhoneNumber>> &
   ResponseMeta &
   ResponseLinks;
 
-export type GetPhoneNumberResponse = BaseResponse<PhoneNumber>;
+export type PhoneNumberByIdResponse = BaseResponse<PhoneNumber>;
