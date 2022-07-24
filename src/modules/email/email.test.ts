@@ -11,44 +11,11 @@ const {
 } = process.env as Record<string, string>;
 
 describe("Email", () => {
+  let bulkEmailId: string;
+
   beforeAll(() => {
     if (!MAILERSEND_API_KEY)
       throw "No MailerSend API key found in environment variables";
-  });
-
-  it.concurrent("Bulk Email Status", async () => {
-    try {
-      const bulkEmailsResponse = await sendBulkEmails(MAILERSEND_API_KEY, [
-        {
-          from: {
-            email: MAILERSEND_TEST_SENDER_EMAIL,
-            name: "TEST SENDER",
-          },
-          to: [
-            {
-              email: MAILERSEND_TEST_RECIPIENT_EMAIL,
-              name: "TEST RECIPIENT",
-            },
-          ],
-          subject: `BULK TEST EMAIL - ${Date.now()}`,
-          html: `<h1>BULK TEST EMAIL</h1>`,
-          text: "BULK TEST EMAIL",
-        },
-      ]);
-      if (!bulkEmailsResponse.bulk_email_id)
-        throw "No bulk emails id found in response";
-
-      const bulkEmailStatusResponse = await bulkEmailStatus(
-        MAILERSEND_API_KEY,
-        bulkEmailsResponse.bulk_email_id
-      );
-
-      expect(bulkEmailStatusResponse).toBeDefined();
-      expect(bulkEmailStatusResponse.data).toBeDefined();
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
   });
 
   it.concurrent("Send Email", async () => {
@@ -75,6 +42,7 @@ describe("Email", () => {
         html: `<h1>TEST EMAIL</h1>`,
         text: "TEST EMAIL",
       });
+
       expect(sendEmailResponse).not.toBeNull();
       expect(sendEmailResponse.success).toBeTruthy();
     } catch (error) {
@@ -83,7 +51,7 @@ describe("Email", () => {
     }
   });
 
-  it.concurrent("Send Bulk Emails", async () => {
+  it("Send Bulk Emails", async () => {
     if (!MAILERSEND_TEST_SENDER_EMAIL || !MAILERSEND_TEST_RECIPIENT_EMAIL)
       throw "No or invalid test email addresses found in environment variables";
 
@@ -105,9 +73,29 @@ describe("Email", () => {
           text: "BULK TEST EMAIL",
         },
       ]);
+
       expect(bulkEmailsResponse).not.toBeNull();
       expect(bulkEmailsResponse.bulk_email_id).toBeDefined();
       expect(bulkEmailsResponse.message).toBeDefined();
+
+      bulkEmailId = bulkEmailsResponse.bulk_email_id;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  });
+
+  it("Bulk Email Status", async () => {
+    if (!bulkEmailId) throw "No or invalid bulk email ID found";
+
+    try {
+      const bulkEmailStatusResponse = await bulkEmailStatus(
+        MAILERSEND_API_KEY,
+        bulkEmailId
+      );
+
+      expect(bulkEmailStatusResponse).toBeDefined();
+      expect(bulkEmailStatusResponse.data).toBeDefined();
     } catch (error) {
       console.error(error);
       throw error;

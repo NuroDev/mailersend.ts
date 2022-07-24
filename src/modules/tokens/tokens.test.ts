@@ -2,7 +2,9 @@ import { beforeAll, describe, it, expect } from "vitest";
 
 import "dotenv/config";
 
-import { createToken, deleteToken } from ".";
+import { createToken, deleteToken, updateToken } from ".";
+
+import type { Token } from ".";
 
 const { MAILERSEND_API_KEY, MAILERSEND_DOMAIN_ID } = process.env as Record<
   string,
@@ -15,7 +17,9 @@ describe("Tokens", () => {
       throw "No MailerSend API key found in environment variables";
   });
 
-  it.concurrent("Create Token", async () => {
+  let newToken: Token;
+
+  it("Create Token", async () => {
     try {
       const createTokenResponse = await createToken(MAILERSEND_API_KEY, {
         domain_id: MAILERSEND_DOMAIN_ID,
@@ -25,26 +29,38 @@ describe("Tokens", () => {
 
       expect(createTokenResponse).toBeDefined();
       expect(createTokenResponse.data).toBeDefined();
+
+      newToken = createTokenResponse.data;
     } catch (error) {
       console.error(error);
       throw error;
     }
   });
 
-  // TODO: Add `updateToken` test
+  it("Update Token", async () => {
+    if (!newToken) throw "No token found to delete";
 
-  it.concurrent("Delete Token", async () => {
     try {
-      const newToken = await createToken(MAILERSEND_API_KEY, {
-        domain_id: MAILERSEND_DOMAIN_ID,
-        name: "DELETE_TEST_API_TOKEN",
-        scopes: ["activity_read", "analytics_read", "domains_read"],
+      const updateTokenResponse = await updateToken(MAILERSEND_API_KEY, {
+        tokenId: newToken.id,
+        status: "pause",
       });
-      if (!newToken.data.id) throw "No new token ID found.";
 
+      expect(updateTokenResponse).toBeDefined();
+      expect(updateTokenResponse.data).toBeDefined();
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  });
+
+  it("Delete Token", async () => {
+    if (!newToken) throw "No token found to delete";
+
+    try {
       const deleteTokenResponse = await deleteToken(
         MAILERSEND_API_KEY,
-        newToken.data.id
+        newToken.id
       );
 
       expect(deleteTokenResponse).toBeDefined();

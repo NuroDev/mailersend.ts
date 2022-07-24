@@ -48,6 +48,35 @@ export class Client implements IClient {
   }
 
   // ------------------------------------------------------------
+  // Domain
+  // ------------------------------------------------------------
+
+  public async addDomain(options: modules.AddDomainParams) {
+    return modules.addDomain(this._apiKey, options);
+  }
+  public async deleteDomain(domainId: string) {
+    return modules.deleteDomain(this._apiKey, domainId);
+  }
+  public async dnsRecords(domainId: string) {
+    return modules.dnsRecords(this._apiKey, domainId);
+  }
+  public async domainById(domainId: string) {
+    return modules.domainById(this._apiKey, domainId);
+  }
+  public async listDomains(options: modules.ListDomainsParams = {}) {
+    return modules.listDomains(this._apiKey, options);
+  }
+  public async recipientsForDomain(options: modules.RecipientsForDomainParams) {
+    return modules.recipientsForDomain(this._apiKey, options);
+  }
+  public async updateDomain(options: modules.UpdateDomainParams) {
+    return modules.updateDomain(this._apiKey, options);
+  }
+  public async verificationStatus(domainId: string) {
+    return modules.verificationStatus(this._apiKey, domainId);
+  }
+
+  // ------------------------------------------------------------
   // Email
   // ------------------------------------------------------------
 
@@ -114,5 +143,25 @@ export class Client implements IClient {
   }
   public async updateToken(options: modules.UpdateTokenParams) {
     return modules.updateToken(this._apiKey, options);
+  }
+
+  // ------------------------------------------------------------
+  // Webhooks
+  // ------------------------------------------------------------
+
+  public async createWebhook(options: modules.CreateWebhookParams) {
+    return modules.createWebhook(this._apiKey, options);
+  }
+  public async deleteWebhook(webhookId: string) {
+    return modules.deleteWebhook(this._apiKey, webhookId);
+  }
+  public async listWebhooks(options: modules.ListWebhooksParams) {
+    return modules.listWebhooks(this._apiKey, options);
+  }
+  public async updateWebhook(options: modules.UpdateWebhookParams) {
+    return modules.updateWebhook(this._apiKey, options);
+  }
+  public async webhookById(webhookId: string) {
+    return modules.webhookById(this._apiKey, webhookId);
   }
 }

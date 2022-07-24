@@ -4,11 +4,14 @@ import "dotenv/config";
 
 import { Client } from ".";
 
+import type { AddDomainData, Token, Webhook } from "~/types";
+
 const {
   MAILERSEND_API_KEY,
   MAILERSEND_DOMAIN_ID,
   MAILERSEND_MESSAGE_ID,
   MAILERSEND_TEMPLATE_ID,
+  MAILERSEND_TEST_DOMAIN,
   MAILERSEND_TEST_RECIPIENT_EMAIL,
   MAILERSEND_TEST_SENDER_EMAIL,
 } = process.env as Record<string, string>;
@@ -147,6 +150,129 @@ describe("Client", () => {
 
         expect(activityUserAgentResponse).not.toBeNull();
         expect(activityUserAgentResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+  });
+
+  describe("Domains", () => {
+    let newDomain: AddDomainData;
+
+    it("Add Domain", async () => {
+      try {
+        const addDomainResponse = await client.addDomain({
+          name: MAILERSEND_TEST_DOMAIN,
+        });
+
+        expect(addDomainResponse).toBeDefined();
+        expect(addDomainResponse.data).toBeDefined();
+
+        newDomain = addDomainResponse.data;
+      } catch (error) {
+        console.error(error);
+      }
+    });
+
+    it("DNS Records", async () => {
+      if (!newDomain?.id) throw "No new domain ID found";
+
+      try {
+        const dnsRecordsResponse = await client.dnsRecords(newDomain.id);
+
+        expect(dnsRecordsResponse).toBeDefined();
+        expect(dnsRecordsResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("Domain by ID", async () => {
+      if (!newDomain?.id) throw "No new domain ID found";
+
+      try {
+        const domainByIdResponse = await client.domainById(newDomain.id);
+
+        expect(domainByIdResponse).toBeDefined();
+        expect(domainByIdResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("List Domains", async () => {
+      try {
+        const listDomainsResponse = await client.listDomains();
+
+        expect(listDomainsResponse).toBeDefined();
+        expect(listDomainsResponse.data).toBeDefined();
+        expect(Array.isArray(listDomainsResponse.data)).toBeTruthy();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("Recipients for Domain", async () => {
+      if (!newDomain?.id) throw "No new domain ID found";
+
+      try {
+        const recipientsForDomainResponse = await client.recipientsForDomain({
+          domainId: newDomain.id,
+        });
+
+        expect(recipientsForDomainResponse).toBeDefined();
+        expect(recipientsForDomainResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("Update Domain", async () => {
+      if (!newDomain?.id) throw "No new domain ID found";
+
+      try {
+        const updateDomainSettingsResponse = await client.updateDomain({
+          domainId: newDomain.id,
+        });
+
+        expect(updateDomainSettingsResponse).toBeDefined();
+        expect(updateDomainSettingsResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("Verification Status", async () => {
+      if (!newDomain?.id) throw "No new domain ID found";
+
+      try {
+        const verificationStatusResponse = await client.verificationStatus(
+          newDomain.id
+        );
+
+        expect(verificationStatusResponse).toBeDefined();
+        expect(verificationStatusResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("Delete Domain", async () => {
+      if (!newDomain?.id) throw "No new domain ID found";
+
+      try {
+        const deleteDomainResponse = await client.deleteDomain(newDomain.id);
+
+        expect(deleteDomainResponse).toBeDefined();
+        expect(deleteDomainResponse.success).toBeDefined();
+        // expect(deleteDomainResponse.success).toBeTruthy();
       } catch (error) {
         console.error(error);
         throw error;
@@ -321,37 +447,143 @@ describe("Client", () => {
   });
 
   describe("Tokens", () => {
-    it.concurrent("Create Token", async () => {
+    let newToken: Token;
+
+    it("Create Token", async () => {
       try {
         const createTokenResponse = await client.createToken({
           domain_id: MAILERSEND_DOMAIN_ID,
-          name: "CLIENT_CREATE_TEST_API_TOKEN",
+          name: "CREATE_TEST_API_TOKEN",
           scopes: ["activity_read", "analytics_read", "domains_read"],
         });
 
         expect(createTokenResponse).toBeDefined();
         expect(createTokenResponse.data).toBeDefined();
+
+        newToken = createTokenResponse.data;
       } catch (error) {
         console.error(error);
         throw error;
       }
     });
 
-    // TODO: Add `updateToken` test
+    it("Update Token", async () => {
+      if (!newToken) throw "No token found to delete";
 
-    it.concurrent("Delete Token", async () => {
       try {
-        const newToken = await client.createToken({
-          domain_id: MAILERSEND_DOMAIN_ID,
-          name: "CLIENT_DELETE_TEST_API_TOKEN",
-          scopes: ["activity_read", "analytics_read", "domains_read"],
+        const updateTokenResponse = await client.updateToken({
+          tokenId: newToken.id,
+          status: "pause",
         });
-        if (!newToken.data.id) throw "No new token ID found.";
 
-        const deleteTokenResponse = await client.deleteToken(newToken.data.id);
+        expect(updateTokenResponse).toBeDefined();
+        expect(updateTokenResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("Delete Token", async () => {
+      if (!newToken) throw "No token found to delete";
+
+      try {
+        const deleteTokenResponse = await client.deleteToken(newToken.id);
 
         expect(deleteTokenResponse).toBeDefined();
         expect(deleteTokenResponse.success).toBeTruthy();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+  });
+
+  describe("Webhooks", () => {
+    let newWebhook: Webhook;
+
+    it("Create Webhook", async () => {
+      try {
+        const createWebhookResponse = await client.createWebhook({
+          domain_id: MAILERSEND_DOMAIN_ID,
+          events: [
+            "activity.clicked",
+            "activity.delivered",
+            "activity.hard_bounced",
+            "activity.opened",
+            "activity.sent",
+            "activity.soft_bounced",
+            "activity.spam_complaint",
+            "activity.unsubscribed",
+          ],
+          name: `TEST WEBHOOK - ${Date.now()}`,
+          url: `https://example.com/${Date.now()}`,
+        });
+
+        expect(createWebhookResponse).toBeDefined();
+        expect(createWebhookResponse.data).toBeDefined();
+
+        newWebhook = createWebhookResponse.data;
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("List Webhooks", async () => {
+      try {
+        const listWebhooksResponse = await client.listWebhooks({
+          domain_id: MAILERSEND_DOMAIN_ID,
+        });
+
+        expect(listWebhooksResponse).toBeDefined();
+        expect(Array.isArray(listWebhooksResponse.data)).toBeTruthy();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("Webhook by ID", async () => {
+      if (!newWebhook?.id) throw "No new webhook ID found";
+
+      try {
+        const webhookByIdResponse = await client.webhookById(newWebhook.id);
+
+        expect(webhookByIdResponse).toBeDefined();
+        expect(webhookByIdResponse.data).toBeDefined();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("Update Webhook", async () => {
+      if (!newWebhook?.id) throw "No new webhook ID found";
+
+      try {
+        const updateWebhookResponse = await client.updateWebhook({
+          enabled: false,
+          name: `NEW TEST WEBHOOK - ${Date.now()}`,
+          webhookId: newWebhook.id,
+        });
+
+        expect(updateWebhookResponse).toBeDefined();
+        expect(updateWebhookResponse.data).toBeTruthy();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it("Delete Webhook", async () => {
+      if (!newWebhook?.id) throw "No new webhook ID found";
+
+      try {
+        const deleteWebhookResponse = await client.deleteWebhook(newWebhook.id);
+
+        expect(deleteWebhookResponse).toBeDefined();
+        expect(deleteWebhookResponse.success).toBeTruthy();
       } catch (error) {
         console.error(error);
         throw error;

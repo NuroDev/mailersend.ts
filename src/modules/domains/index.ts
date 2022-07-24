@@ -1,0 +1,32 @@
+export {
+  addDomain,
+  deleteDomain,
+  dnsRecords,
+  domainById,
+  listDomains,
+  recipientsForDomain,
+  updateDomain,
+  verificationStatus,
+} from "./domains.module";
+
+export {
+  type AddDomainData,
+  type AddDomainParams,
+  type AddDomainResponse,
+  type DeleteDomainResponse,
+  type DnsRecordsData,
+  type DnsRecordsResponse,
+  type DomainByIdData,
+  type DomainByIdResponse,
+  type ListDomainsData,
+  type ListDomainsParams,
+  type ListDomainsResponse,
+  type RecipientsForDomainData,
+  type RecipientsForDomainParams,
+  type RecipientsForDomainResponse,
+  type UpdateDomainData,
+  type UpdateDomainParams,
+  type UpdateDomainResponse,
+  type VerificationStatusData,
+  type VerificationStatusResponse,
+} from "./domains.types";
