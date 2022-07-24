@@ -77,6 +77,17 @@ export {
 } from "./messages";
 
 export {
+  deleteScheduledMessage,
+  listScheduledMessages,
+  scheduledMessageById,
+  type DeleteScheduledMessageResponse,
+  type ListScheduledMessageData,
+  type ListScheduledMessagesParams,
+  type ListScheduledMessagesResponse,
+  type ScheduledMessageByIdResponse,
+} from "./scheduledMessages";
+
+export {
   listTemplates,
   templateById,
   type ListTemplatesParams,
