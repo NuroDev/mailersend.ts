@@ -100,6 +100,17 @@ export {
   type PhoneNumber,
 } from "./phoneNumbers";
 
+export {
+  deleteScheduledMessage,
+  listScheduledMessages,
+  scheduledMessageById,
+  type DeleteScheduledMessageResponse,
+  type ListScheduledMessageData,
+  type ListScheduledMessagesParams,
+  type ListScheduledMessagesResponse,
+  type ScheduledMessageByIdResponse,
+} from "./scheduledMessages";
+
 export { sendSms, type SendSmsParams, type SendSmsResponse } from "./sms";
 
 export {

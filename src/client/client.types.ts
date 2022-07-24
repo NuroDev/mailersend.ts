@@ -327,6 +327,47 @@ export interface IClient {
    * @param {Object} options - SMS options
    */
   sendSms(options: modules.SendSmsParams): ReturnType<typeof modules.sendSms>;
+  // Scheduled Messages
+  // ------------------------------------------------------------
+
+  /**
+   * Delete Scheduled Message
+   *
+   * @description Delete a scheduled message
+   *
+   * @see https://developers.mailersend.com/api/v1/message-schedules.html#delete-a-scheduled-message
+   *
+   * @param {String} messageId - Message ID from the Send an email's response headers or Get scheduled messages response.
+   */
+  deleteScheduledMessage(
+    messageId: string
+  ): ReturnType<typeof modules.deleteScheduledMessage>;
+
+  /**
+   * List Scheduled Messages
+   *
+   * @description Get information on scheduled messages, such as subject, time of creation, and time of sending
+   *
+   * @see https://developers.mailersend.com/api/v1/message-schedules.html#get-list-of-scheduled-messages
+   *
+   * @param {Object} [options] - List scheduled messages options
+   */
+  listScheduledMessages(
+    options: modules.ListScheduledMessagesParams
+  ): ReturnType<typeof modules.listScheduledMessages>;
+
+  /**
+   * Single Scheduled Message
+   *
+   * @description Get information about a specific scheduled message, like its subject, creation date, sending date and domain
+   *
+   * @see https://developers.mailersend.com/api/v1/message-schedules.html#get-a-single-scheduled-message
+   *
+   * @param {String} messageId - Message ID from the Send an email's response headers or Get scheduled messages response.
+   */
+  scheduledMessageById(
+    messageId: string
+  ): ReturnType<typeof modules.scheduledMessageById>;
 
   // ------------------------------------------------------------
   // Templates
