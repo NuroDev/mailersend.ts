@@ -93,6 +93,7 @@ To view the documentation on how to use each module, view the README.md for each
 - [🏠 Domains](src/modules/domains#domains)
 - [💌 Email](src/modules/email#email)
 - [💬 Messages](src/modules/messages#messages)
+- [🫂 Recipients](src/modules/recipients#recipients)
 - [📆 Scheduled Messages](src/modules/scheduledMessages#scheduled-messages)
 - [🏗️ Templates](src/modules/templates#templates)
 - [🔑 Tokens](src/modules/tokens#tokens)
@@ -102,5 +103,4 @@ To view the documentation on how to use each module, view the README.md for each
 
 These features are due to be implemented soon / are worked in being added
 
-- [🚦 Inbound Routing](src/modules/inboundRouting#inbound-routing)
-- [🫂 Recipients](src/modules/recipients#recipients)-->
+- [🚦 Inbound Routing](src/modules/inboundRouting#inbound-routing)-->
