@@ -379,6 +379,53 @@ describe("Client", () => {
     });
   });
 
+  describe("Scheduled Messages", () => {
+    // TODO: Find a way to create a new scheduled message to test deleting it
+    it.concurrent("Delete Scheduled Message", async () => {
+      // try {
+      //   const deleteScheduledMessageResponse = await client.deleteScheduledMessage(
+      //     "..."
+      //   );
+      //
+      //   expect(deleteScheduledMessageResponse).not.toBeNull();
+      //   expect(deleteScheduledMessageResponse.success).toBe(true);
+      // } catch (error) {
+      //   console.error(error);
+      //   throw error;
+      // }
+    });
+
+    it.concurrent("List Scheduled Messages", async () => {
+      try {
+        const listScheduledMessagesResponse =
+          await client.listScheduledMessages();
+        console.log(listScheduledMessagesResponse);
+
+        expect(listScheduledMessagesResponse).not.toBeNull();
+        expect(listScheduledMessagesResponse.data).not.toBeNull();
+        expect(Array.isArray(listScheduledMessagesResponse.data)).toBe(true);
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    // TODO: Create message or find a way to dynamically create a message & retrieve its ID to use in the test
+    it.concurrent("Scheduled Message by ID", async () => {
+      // try {
+      //   const scheduledMessageByIdResponse = await client.scheduledMessageById(
+      //     "..."
+      //   );
+      //
+      //   expect(scheduledMessageByIdResponse).not.toBeNull();
+      //   expect(scheduledMessageByIdResponse.data).not.toBeNull();
+      // } catch (error) {
+      //   console.error(error);
+      //   throw error;
+      // }
+    });
+  });
+
   describe("Template", () => {
     it.concurrent("List Templates", async () => {
       if (!MAILERSEND_DOMAIN_ID)

@@ -15,7 +15,7 @@ import type {
  * @see https://developers.mailersend.com/api/v1/message-schedules.html#get-list-of-scheduled-messages
  *
  * @param {String} apiKey - Unique API access token
- * @param {Object} options - Additional request options
+ * @param {Object} [options] - Additional request options
  */
 export async function listScheduledMessages<
   TResponse = ListScheduledMessagesResponse

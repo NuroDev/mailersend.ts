@@ -100,6 +100,22 @@ export class Client implements IClient {
   }
 
   // ------------------------------------------------------------
+  // Scheduled Messages
+  // ------------------------------------------------------------
+
+  public async deleteScheduledMessage(messageId: string) {
+    return modules.deleteScheduledMessage(this._apiKey, messageId);
+  }
+  public async listScheduledMessages(
+    options: modules.ListScheduledMessagesParams = {}
+  ) {
+    return modules.listScheduledMessages(this._apiKey, options);
+  }
+  public async scheduledMessageById(messageId: string) {
+    return modules.scheduledMessageById(this._apiKey, messageId);
+  }
+
+  // ------------------------------------------------------------
   // Templates
   // ------------------------------------------------------------
 
