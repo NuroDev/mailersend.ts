@@ -95,7 +95,7 @@ To view the documentation on how to use each module, view the README.md for each
 - [💬 Messages](src/modules/messages#messages)
 - [📆 Scheduled Messages](src/modules/scheduledMessages#scheduled-messages)
 - [🏗️ Templates](src/modules/templates#templates)
-- [🎟️ Tokens](src/modules/tokens#tokens)
+- [🔑 Tokens](src/modules/tokens#tokens)
 - [🪝 Webhooks](src/modules/webhooks#webhooks)
 
 <!-- ## 👀 Coming soon
