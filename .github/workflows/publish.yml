@@ -23,8 +23,8 @@ jobs:
       - name: Build
         run: yarn build:prod
 
-      - name: Test
-        run: yarn test
+      # - name: Test
+      #   run: yarn test
 
       - name: Publish
         uses: JS-DevTools/npm-publish@v1
