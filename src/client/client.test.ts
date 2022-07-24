@@ -199,11 +199,11 @@ describe("Client", () => {
       }
     });
 
-    it("Update Domain Settings", async () => {
+    it("Update Domain", async () => {
       if (!newDomain?.id) throw "No new domain ID found";
 
       try {
-        const updateDomainSettingsResponse = await client.updateDomainSettings({
+        const updateDomainSettingsResponse = await client.updateDomain({
           domainId: newDomain.id,
         });
 

@@ -24,7 +24,7 @@ export {
   sendBulkEmails,
   sendEmail,
   templateById,
-  updateDomainSettings,
+  updateDomain,
   updateToken,
   updateWebhook,
   verificationStatus,

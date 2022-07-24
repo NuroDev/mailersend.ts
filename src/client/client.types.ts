@@ -153,7 +153,7 @@ export interface IClient {
   ): ReturnType<typeof modules.recipientsForDomain>;
 
   /**
-   * Update Domain Settings
+   * Update Domain
    *
    * @description If you want to update the domain name settings
    *
@@ -161,9 +161,9 @@ export interface IClient {
    *
    * @param {Object} options - Update domain settings options
    */
-  updateDomainSettings(
-    options: modules.UpdateDomainSettingsParams
-  ): ReturnType<typeof modules.updateDomainSettings>;
+  updateDomain(
+    options: modules.UpdateDomainParams
+  ): ReturnType<typeof modules.updateDomain>;
 
   /**
    * Verification Status

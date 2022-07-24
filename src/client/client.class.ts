@@ -63,10 +63,8 @@ export class Client implements IClient {
   public async recipientsForDomain(options: modules.RecipientsForDomainParams) {
     return modules.recipientsForDomain(this._apiKey, options);
   }
-  public async updateDomainSettings(
-    options: modules.UpdateDomainSettingsParams
-  ) {
-    return modules.updateDomainSettings(this._apiKey, options);
+  public async updateDomain(options: modules.UpdateDomainParams) {
+    return modules.updateDomain(this._apiKey, options);
   }
   public async verificationStatus(domainId: string) {
     return modules.verificationStatus(this._apiKey, domainId);

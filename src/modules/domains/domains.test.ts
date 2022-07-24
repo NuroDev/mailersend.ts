@@ -9,7 +9,7 @@ import {
   domainById,
   listDomains,
   recipientsForDomain,
-  updateDomainSettings,
+  updateDomain,
   verificationStatus,
 } from ".";
 
@@ -104,11 +104,11 @@ describe("Domains", () => {
     }
   });
 
-  it("Update Domain Settings", async () => {
+  it("Update Domain", async () => {
     if (!newDomain?.id) throw "No new domain ID found";
 
     try {
-      const updateDomainSettingsResponse = await updateDomainSettings(
+      const updateDomainSettingsResponse = await updateDomain(
         MAILERSEND_API_KEY,
         {
           domainId: newDomain.id,

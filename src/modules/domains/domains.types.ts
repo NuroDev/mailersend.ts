@@ -166,7 +166,7 @@ export type RecipientsForDomainResponse = BaseResponse<
   ResponseLinks &
   ResponseMeta;
 
-export interface UpdateDomainSettingsParams extends Record<string, any> {
+export interface UpdateDomainParams extends Record<string, any> {
   custom_tracking_enabled?: boolean;
   custom_tracking_subdomain?: string;
   domainId: string;
@@ -180,7 +180,7 @@ export interface UpdateDomainSettingsParams extends Record<string, any> {
   track_unsubscribe?: boolean;
 }
 
-export interface UpdateDomainSettingsData {
+export interface UpdateDomainData {
   created_at: string;
   dkim: boolean;
   domain_settings: {
@@ -209,8 +209,7 @@ export interface UpdateDomainSettingsData {
   updated_at: string;
 }
 
-export type UpdateDomainSettingsResponse =
-  BaseResponse<UpdateDomainSettingsData>;
+export type UpdateDomainResponse = BaseResponse<UpdateDomainData>;
 
 type DnsRecordType = "A" | "AAAA" | "CNAME" | "MX" | "NS" | "TXT";
 

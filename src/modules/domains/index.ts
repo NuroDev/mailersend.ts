@@ -5,7 +5,7 @@ export {
   domainById,
   listDomains,
   recipientsForDomain,
-  updateDomainSettings,
+  updateDomain,
   verificationStatus,
 } from "./domains.module";
 
@@ -24,9 +24,9 @@ export {
   type RecipientsForDomainData,
   type RecipientsForDomainParams,
   type RecipientsForDomainResponse,
-  type UpdateDomainSettingsData,
-  type UpdateDomainSettingsParams,
-  type UpdateDomainSettingsResponse,
+  type UpdateDomainData,
+  type UpdateDomainParams,
+  type UpdateDomainResponse,
   type VerificationStatusData,
   type VerificationStatusResponse,
 } from "./domains.types";

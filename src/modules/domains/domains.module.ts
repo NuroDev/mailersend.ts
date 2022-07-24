@@ -10,8 +10,8 @@ import type {
   ListDomainsResponse,
   RecipientsForDomainParams,
   RecipientsForDomainResponse,
-  UpdateDomainSettingsParams,
-  UpdateDomainSettingsResponse,
+  UpdateDomainParams,
+  UpdateDomainResponse,
   VerificationStatusResponse,
 } from ".";
 
@@ -135,7 +135,7 @@ export async function recipientsForDomain<
 }
 
 /**
- * Update Domain Settings
+ * Update Domain
  *
  * @description If you want to update the domain name settings
  *
@@ -144,12 +144,11 @@ export async function recipientsForDomain<
  * @param {String} apiKey - Unique API access token
  * @param {Object} options - Update domain settings options
  */
-export async function updateDomainSettings<
-  TResponse = UpdateDomainSettingsResponse
->(
+export async function updateDomain<TResponse = UpdateDomainResponse>(
   apiKey: string,
-  { domainId, ...params }: UpdateDomainSettingsParams
+  options: UpdateDomainParams
 ): Promise<TResponse> {
+  const { domainId, ...params } = options;
   return fetch({
     apiKey,
     body: params,
