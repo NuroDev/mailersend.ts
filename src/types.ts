@@ -27,6 +27,7 @@ export {
   type DeleteDomainResponse,
   type DeleteFromSuppressionListParams,
   type DeleteFromSuppressionListResponse,
+  type DeletePhoneNumberResponse,
   type DeleteRecipientResponse,
   type DeleteScheduledMessageResponse,
   type DeleteTokenResponse,
@@ -91,6 +92,8 @@ export {
   type UpdateDomainData,
   type UpdateDomainParams,
   type UpdateDomainResponse,
+  type UpdatePhoneNumberParams,
+  type UpdatePhoneNumberResponse,
   type UpdateTokenData,
   type UpdateTokenParams,
   type UpdateTokenResponse,
@@ -101,6 +104,4 @@ export {
   type Webhook,
   type WebhookByIdResponse,
   type WebhookEvent,
-  type UpdatePhoneNumberParams,
-  type UpdatePhoneNumberResponse,
 } from "./modules";

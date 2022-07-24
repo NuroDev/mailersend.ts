@@ -93,9 +93,11 @@ export {
 } from "./messages";
 
 export {
-  phoneNumberById,
+  deletePhoneNumber,
   listPhoneNumbers,
+  phoneNumberById,
   updatePhoneNumber,
+  type DeletePhoneNumberResponse,
   type ListPhoneNumbersParams,
   type ListPhoneNumbersResponse,
   type PhoneNumber,

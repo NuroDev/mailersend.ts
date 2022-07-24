@@ -33,3 +33,7 @@ export interface UpdatePhoneNumberParams extends Record<string, any> {
 }
 
 export type UpdatePhoneNumberResponse = BaseResponse<PhoneNumber>;
+
+export interface DeletePhoneNumberResponse {
+  success: boolean;
+}

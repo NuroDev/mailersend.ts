@@ -12,6 +12,7 @@ export {
   createWebhook,
   deleteDomain,
   deleteFromSuppressionList,
+  deletePhoneNumber,
   deleteRecipient,
   deleteScheduledMessage,
   deleteToken,
