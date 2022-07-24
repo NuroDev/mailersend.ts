@@ -113,6 +113,33 @@ export class Client implements IClient {
   }
 
   // ------------------------------------------------------------
+  // Recipients
+  // ------------------------------------------------------------
+
+  public async listRecipients(options: modules.ListRecipientsParams = {}) {
+    return modules.listRecipients(this._apiKey, options);
+  }
+  public async recipientById(recipientId: string) {
+    return modules.recipientById(this._apiKey, recipientId);
+  }
+  public async deleteRecipient(recipientId: string) {
+    return modules.deleteRecipient(this._apiKey, recipientId);
+  }
+  public async listSuppressions(options: modules.SuppressionListParams = {}) {
+    return modules.listSuppressions(this._apiKey, options);
+  }
+  public async addToSuppressionList(
+    options: modules.AddToSuppressionListParams
+  ) {
+    return modules.addToSuppressionList(this._apiKey, options);
+  }
+  public async deleteFromSuppressionList(
+    options: modules.DeleteFromSuppressionListParams
+  ) {
+    return modules.deleteFromSuppressionList(this._apiKey, options);
+  }
+
+  // ------------------------------------------------------------
   // Scheduled Messages
   // ------------------------------------------------------------
 

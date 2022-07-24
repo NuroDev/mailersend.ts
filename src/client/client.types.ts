@@ -314,19 +314,86 @@ export interface IClient {
   ): ReturnType<typeof modules.listPhoneNumbers>;
 
   // ------------------------------------------------------------
-  // SMS
+  // Recipients
   // ------------------------------------------------------------
 
   /**
-   * Send SMS
+   * List Recipients
    *
-   * @description Send an SMS text message to a provided user
+   * @description Retrieve the email addresses of recipients
    *
-   * @see https://developers.mailersend.com/api/v1/sms.html#send-an-sms
+   * @see https://developers.mailersend.com/api/v1/recipients.html#get-recipients
    *
-   * @param {Object} options - SMS options
+   * @param {Object} options - List recipients options
    */
-  sendSms(options: modules.SendSmsParams): ReturnType<typeof modules.sendSms>;
+  listRecipients(
+    options: modules.ListRecipientsParams
+  ): ReturnType<typeof modules.listRecipients>;
+
+  /**
+   * Recipient by ID
+   *
+   * @description Retrieve the information of a single recipient and its domain
+   *
+   * @see https://developers.mailersend.com/api/v1/recipients.html#get-a-single-recipient
+   *
+   * @param {String} recipientId - Unique recipient identifier
+   */
+  recipientById(recipientId: string): ReturnType<typeof modules.recipientById>;
+
+  /**
+   * Delete Recipient
+   *
+   * @description Delete the information of a single recipient and its domain
+   *
+   * @see https://developers.mailersend.com/api/v1/recipients.html#delete-a-recipient
+   *
+   * @param {String} recipientId - Unique recipient identifier
+   */
+  deleteRecipient(
+    recipientId: string
+  ): ReturnType<typeof modules.deleteRecipient>;
+
+  /**
+   * List Suppressions
+   *
+   * @description Retrieve the recipients in a blocklist of an account or domain by passing the blocklist ID
+   *
+   * @see https://developers.mailersend.com/api/v1/recipients.html#get-recipients-from-a-suppression-list
+   *
+   * @param {Object} options - Suppression list options
+   */
+  listSuppressions(
+    options: modules.SuppressionListParams
+  ): ReturnType<typeof modules.listSuppressions>;
+
+  /**
+   * Add To Suppression List
+   *
+   * @description Add a recipient to a blocklist
+   *
+   * @see https://developers.mailersend.com/api/v1/recipients.html#add-recipients-to-a-suppression-list
+   *
+   * @param {Object} options - Add to suppression list options
+   */
+  addToSuppressionList(
+    options: modules.AddToSuppressionListParams
+  ): ReturnType<typeof modules.addToSuppressionList>;
+
+  /**
+   * Delete From Suppression List
+   *
+   * @description Delete one or more blocklist entries
+   *
+   * @see https://developers.mailersend.com/api/v1/recipients.html#delete-recipients-from-a-suppression-list
+   *
+   * @param {Object} options - Delete from suppression list options
+   */
+  deleteFromSuppressionList(
+    options: modules.DeleteFromSuppressionListParams
+  ): ReturnType<typeof modules.deleteFromSuppressionList>;
+
+  // ------------------------------------------------------------
   // Scheduled Messages
   // ------------------------------------------------------------
 
@@ -368,6 +435,21 @@ export interface IClient {
   scheduledMessageById(
     messageId: string
   ): ReturnType<typeof modules.scheduledMessageById>;
+
+  // ------------------------------------------------------------
+  // SMS
+  // ------------------------------------------------------------
+
+  /**
+   * Send SMS
+   *
+   * @description Send an SMS text message to a provided user
+   *
+   * @see https://developers.mailersend.com/api/v1/sms.html#send-an-sms
+   *
+   * @param {Object} options - SMS options
+   */
+  sendSms(options: modules.SendSmsParams): ReturnType<typeof modules.sendSms>;
 
   // ------------------------------------------------------------
   // Templates

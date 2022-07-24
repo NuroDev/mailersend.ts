@@ -95,14 +95,14 @@ To view the documentation on how to use each module, view the README.md for each
 - [💬 Messages](src/modules/messages#messages)
 - [📱 Phone Numbers](src/modules/phoneNumbers#phone-numbers)
 - [💬 SMS](src/modules/sms#sms)
+- [🫂 Recipients](src/modules/recipients#recipients)
 - [📆 Scheduled Messages](src/modules/scheduledMessages#scheduled-messages)
 - [🏗️ Templates](src/modules/templates#templates)
-- [🎟️ Tokens](src/modules/tokens#tokens)
+- [🔑 Tokens](src/modules/tokens#tokens)
 - [🪝 Webhooks](src/modules/webhooks#webhooks)
 
 <!-- ## 👀 Coming soon
 
 These features are due to be implemented soon / are worked in being added
 
-- [🚦 Inbound Routing](src/modules/inboundRouting#inbound-routing)
-- [🫂 Recipients](src/modules/recipients#recipients)-->
+- [🚦 Inbound Routing](src/modules/inboundRouting#inbound-routing)-->

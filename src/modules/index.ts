@@ -68,6 +68,7 @@ export {
   sendEmail,
   type BulkEmailStatusData,
   type BulkEmailStatusResponse,
+  type EmailStatus,
   type SendBulkEmailsParams,
   type SendBulkEmailsResponse,
   type SendEmailParams,
@@ -99,6 +100,29 @@ export {
   type ListPhoneNumbersResponse,
   type PhoneNumber,
 } from "./phoneNumbers";
+
+export {
+  addToSuppressionList,
+  deleteFromSuppressionList,
+  deleteRecipient,
+  listRecipients,
+  listSuppressions,
+  recipientById,
+  type AddToSuppressionListData,
+  type AddToSuppressionListParams,
+  type AddToSuppressionListResponse,
+  type DeleteFromSuppressionListParams,
+  type DeleteFromSuppressionListResponse,
+  type DeleteRecipientResponse,
+  type ListRecipientsData,
+  type ListRecipientsParams,
+  type ListRecipientsResponse,
+  type ListSuppressionsData,
+  type ListSuppressionsResponse,
+  type RecipientByIdData,
+  type RecipientByIdResponse,
+  type SuppressionListParams,
+} from "./recipients";
 
 export {
   deleteScheduledMessage,
