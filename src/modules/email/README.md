@@ -1,5 +1,22 @@
 # Email
 
+## Bulk Email Status
+
+[Official Documentation](https://developers.mailersend.com/api/v1/email.html#get-bulk-email-status)
+
+---
+
+```typescript
+import { Client } from "@nuro.dev/mailersend.ts";
+const client = new Client("API_KEY");
+const result = await client.bulkEmailStatus("BULK_EMAIL_ID");
+```
+
+```typescript
+import { bulkEmailStatus } from "@nuro.dev/mailersend.ts";
+const result = await bulkEmailStatus("API_KEY", "BULK_EMAIL_ID");
+```
+
 ## Send Email
 
 [Official Documentation](https://developers.mailersend.com/api/v1/email.html#send-an-email)
