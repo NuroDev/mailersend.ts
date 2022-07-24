@@ -100,6 +100,7 @@ export interface AddDomainParams {
   return_path_subdomain?: string;
 }
 
+// TODO: Convert to single base `Domain` type
 export interface AddDomainData {
   can: {
     manage: boolean;
@@ -111,7 +112,7 @@ export interface AddDomainData {
     inbound_routing_enabled: boolean;
     inbound_routing_subdomain: string;
     precedence_bulk: boolean;
-    return_path_subdomain: "mta";
+    return_path_subdomain: string;
     send_paused: boolean;
     track_clicks: boolean;
     track_content: boolean;

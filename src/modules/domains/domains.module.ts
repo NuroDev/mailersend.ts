@@ -23,7 +23,7 @@ import type {
  * @see https://developers.mailersend.com/api/v1/domains.html#get-a-list-of-domains
  *
  * @param {String} apiKey - Unique API access token
- * @param {Object} options - List domains options
+ * @param {Object} [options] - List domains options
  */
 export async function listDomains<TResponse = ListDomainsResponse>(
   apiKey: string,
