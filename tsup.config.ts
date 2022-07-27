@@ -12,4 +12,6 @@ export default defineConfig({
   format: ["cjs", "esm"],
   minify: isProduction,
   sourcemap: true,
+  splitting: false,
+  target: "node16",
 });
