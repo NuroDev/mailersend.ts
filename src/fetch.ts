@@ -1,6 +1,4 @@
-import nodeFetch from "node-fetch";
-
-import type { Response } from "node-fetch";
+import nodeFetch from "unfetch";
 
 import type { RequestOptions } from "~/types/request";
 
