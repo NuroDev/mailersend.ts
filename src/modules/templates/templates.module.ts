@@ -14,11 +14,11 @@ import type {
  * @see https://developers.mailersend.com/api/v1/templates.html#get-templates
  *
  * @param {String} apiKey - Unique API access token
- * @param {Object} options - Additional request parameters
+ * @param {Object} [options] - Additional request parameters
  */
 export async function listTemplates<TResponse = ListTemplatesResponse>(
   apiKey: string,
-  options: ListTemplatesParams
+  options: ListTemplatesParams = {}
 ): Promise<TResponse> {
   return fetch({
     apiKey,
