@@ -1,6 +1,6 @@
 {
   "name": "@nurodev/mailersend.ts",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Lightweight MailerSend Node.js api written in TypeScript",
   "repository": {
     "type": "git",
