@@ -1,6 +1,6 @@
 {
   "name": "@nurodev/mailersend.ts",
-  "version": "0.1.6",
+  "version": "0.1.9",
   "description": "Lightweight MailerSend Node.js api written in TypeScript",
   "repository": {
     "type": "git",
@@ -21,7 +21,6 @@
     "typescript"
   ],
   "license": "MIT",
-  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -39,18 +38,17 @@
     "test:ui": "vitest watch --ui"
   },
   "dependencies": {
-    "node-fetch": "^3.2.9"
+    "undici": "^5.20.0"
   },
   "devDependencies": {
-    "@types/node": "^18.0.6",
-    "@types/node-fetch": "^2.6.2",
-    "@vitest/ui": "^0.18.1",
+    "@types/node": "^18.6.1",
+    "@vitest/ui": "^0.19.1",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.1",
     "minifaker": "^1.34.1",
     "rimraf": "^3.0.2",
-    "tsup": "^6.1.3",
+    "tsup": "^6.2.0",
     "typescript": "^4.7.4",
-    "vitest": "^0.18.1"
+    "vitest": "^0.19.1"
   }
 }

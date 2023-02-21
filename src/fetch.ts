@@ -1,6 +1,4 @@
-import nodeFetch from "node-fetch";
-
-import type { Response } from "node-fetch";
+import { fetch as coreFetch } from "undici";
 
 import type { RequestOptions } from "~/types/request";
 
@@ -35,7 +33,7 @@ export async function fetch<
     return url.searchParams.append(key, value.toString());
   });
 
-  const response = await nodeFetch(url.href, {
+  const response = await coreFetch(url.href, {
     method,
     headers: {
       "Content-Type": "application/json",

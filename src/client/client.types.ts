@@ -531,7 +531,7 @@ export interface IClient {
    *
    * @see https://developers.mailersend.com/api/v1/webhooks.html#create-a-webhook
    *
-   * @param {Object} options - Create webhook options
+   * @param {Object} [options] - Create webhook options
    */
   createWebhook(
     options: modules.CreateWebhookParams
