@@ -38,11 +38,10 @@
     "test:ui": "vitest watch --ui"
   },
   "dependencies": {
-    "node-fetch": "^3.2.9"
+    "undici": "^5.20.0"
   },
   "devDependencies": {
     "@types/node": "^18.6.1",
-    "@types/node-fetch": "^2.6.2",
     "@vitest/ui": "^0.19.1",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.1",
