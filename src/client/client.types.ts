@@ -20,6 +20,32 @@ export interface IClient {
     options: modules.ListActivityParams
   ): ReturnType<typeof modules.listActivity>;
 
+  /**
+   * List SMS Activity
+   *
+   * @description Get information about your SMS activity.
+   *
+   * @see https://developers.mailersend.com/api/v1/sms-activity.html#get-a-list-of-activities
+   *
+   * @param {Object} options - Activity list options
+   */
+  listSmsActivity(
+    options: modules.ListSmsActivityParams
+  ): ReturnType<typeof modules.listSmsActivity>;
+
+  /**
+   * SMS Activity by ID
+   *
+   * @description Get activity information for a single SMS message.
+   *
+   * @see https://developers.mailersend.com/api/v1/sms-activity.html#get-activity-of-a-single-message
+   *
+   * @param {Object} smsMessageId - SMS message ID
+   */
+  smsActivityById(
+    smsMessageId: string
+  ): ReturnType<typeof modules.smsActivityById>;
+
   // ------------------------------------------------------------
   // Analytics
   // ------------------------------------------------------------
@@ -247,6 +273,19 @@ export interface IClient {
   ): ReturnType<typeof modules.listMessages>;
 
   /**
+   * List SMS Messages
+   *
+   * @description Retrieve a information about all messaged
+   *
+   * @see https://developers.mailersend.com/api/v1/messages.html#get-a-list-of-messages
+   *
+   * @param {Object} [options] - List SMS messages options
+   */
+  listSmsMessages(
+    options: modules.ListSmsMessagesParams
+  ): ReturnType<typeof modules.listSmsMessages>;
+
+  /**
    * Message by ID
    *
    * @description Retrieve information for a single message
@@ -256,6 +295,23 @@ export interface IClient {
    * @param {String} messageId - Unique message identifier
    */
   messageById(messageId: string): ReturnType<typeof modules.messageById>;
+
+  // ------------------------------------------------------------
+  // Phone Numbers
+  // ------------------------------------------------------------
+
+  /**
+   * List Phone Numbers
+   *
+   * @description Lists all SMS phone numbers associated with your account.
+   *
+   * @see https://developers.mailersend.com/api/v1/sms-numbers.html#get-a-list-of-sms-phone-numbers
+   *
+   * @param {Object} [options] - List phone numbers options
+   */
+  listPhoneNumbers(
+    options: modules.ListPhoneNumbersParams
+  ): ReturnType<typeof modules.listPhoneNumbers>;
 
   // ------------------------------------------------------------
   // Recipients
@@ -379,6 +435,21 @@ export interface IClient {
   scheduledMessageById(
     messageId: string
   ): ReturnType<typeof modules.scheduledMessageById>;
+
+  // ------------------------------------------------------------
+  // SMS
+  // ------------------------------------------------------------
+
+  /**
+   * Send SMS
+   *
+   * @description Send an SMS text message to a provided user
+   *
+   * @see https://developers.mailersend.com/api/v1/sms.html#send-an-sms
+   *
+   * @param {Object} options - SMS options
+   */
+  sendSms(options: modules.SendSmsParams): ReturnType<typeof modules.sendSms>;
 
   // ------------------------------------------------------------
   // Templates

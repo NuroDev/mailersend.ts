@@ -7,8 +7,10 @@ import {
   deleteFromSuppressionList,
   deleteRecipient,
   listRecipients,
+  listSmsRecipients,
   listSuppressions,
   recipientById,
+  smsRecipientById,
 } from "./recipients.module";
 
 const {
@@ -16,6 +18,7 @@ const {
   MAILERSEND_DOMAIN_ID,
   MAILERSEND_TEST_RECIPIENT_EMAIL,
   MAILERSEND_TEST_RECIPIENT_ID,
+  MAILERSEND_TEST_SMS_RECIPIENT_ID,
 } = process.env as Record<string, string>;
 
 describe("Recipients", () => {
@@ -79,6 +82,21 @@ describe("Recipients", () => {
     }
   });
 
+  it.concurrent("List SMS Recipients", async () => {
+    // TODO: Requires SMS access in MailerSend which I currently do not have
+    // try {
+    //   const listSmsRecipientsResponse = await listSmsRecipients(
+    //     MAILERSEND_API_KEY
+    //   );
+    //
+    //   expect(listSmsRecipientsResponse).toBeDefined();
+    //   expect(listSmsRecipientsResponse.data).toBeDefined();
+    // } catch (error) {
+    //   console.error(error);
+    //   throw error;
+    // }
+  });
+
   it.concurrent("Recipient by ID", async () => {
     if (!MAILERSEND_TEST_RECIPIENT_ID)
       throw "No MailerSend test recipient ID found in environment variables";
@@ -95,6 +113,26 @@ describe("Recipients", () => {
       console.error(error);
       throw error;
     }
+  });
+
+  it.concurrent("SMS Recipient by ID", async () => {
+    // TODO: Requires SMS access in MailerSend which I currently do not have
+    // if (!MAILERSEND_TEST_SMS_RECIPIENT_ID)
+    //   throw "No MailerSend test recipient ID found in environment variables";
+    //
+    // try {
+    //   const smsRecipientByIdResponse = await smsRecipientById(
+    //     MAILERSEND_API_KEY,
+    //     MAILERSEND_TEST_SMS_RECIPIENT_ID
+    //   );
+    //
+    //   expect(smsRecipientByIdResponse).toBeDefined();
+    //   expect(smsRecipientByIdResponse.data).toBeDefined();
+    //   expect(Array.isArray(smsRecipientByIdResponse.data.sms)).toBeTruthy();
+    // } catch (error) {
+    //   console.error(error);
+    //   throw error;
+    // }
   });
 
   it.concurrent("Suppression List", async () => {

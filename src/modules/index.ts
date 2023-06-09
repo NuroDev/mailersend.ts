@@ -1,8 +1,16 @@
 export {
   listActivity,
+  listSmsActivity,
+  smsActivityById,
   type Activity,
   type ListActivityParams,
   type ListActivityResponse,
+  type ListSmsActivityParams,
+  type ListSmsActivityResponse,
+  type SmsActivity,
+  type SmsActivityByIdData,
+  type SmsActivityByIdResonse,
+  type SmsStatus,
 } from "./activity";
 
 export {
@@ -69,21 +77,44 @@ export {
 
 export {
   listMessages,
+  listSmsMessages,
   messageById,
+  smsMessageById,
   type ListMessage,
   type ListMessagesParams,
   type ListMessagesResponse,
+  type ListSmsMessagesData,
+  type ListSmsMessagesParams,
+  type ListSmsMessagesResponse,
   type Message,
   type MessageByIdResponse,
+  type SmsMessage,
+  type SmsMessageByIdResponse,
 } from "./messages";
+
+export {
+  deletePhoneNumber,
+  listPhoneNumbers,
+  phoneNumberById,
+  updatePhoneNumber,
+  type DeletePhoneNumberResponse,
+  type ListPhoneNumbersParams,
+  type ListPhoneNumbersResponse,
+  type PhoneNumber,
+  type PhoneNumberByIdResponse,
+  type UpdatePhoneNumberParams,
+  type UpdatePhoneNumberResponse,
+} from "./phoneNumbers";
 
 export {
   addToSuppressionList,
   deleteFromSuppressionList,
   deleteRecipient,
   listRecipients,
+  listSmsRecipients,
   listSuppressions,
   recipientById,
+  smsRecipientById,
   type AddToSuppressionListData,
   type AddToSuppressionListParams,
   type AddToSuppressionListResponse,
@@ -93,10 +124,15 @@ export {
   type ListRecipientsData,
   type ListRecipientsParams,
   type ListRecipientsResponse,
+  type ListSmsRecipientsParams,
+  type ListSmsRecipientsResponse,
   type ListSuppressionsData,
   type ListSuppressionsResponse,
   type RecipientByIdData,
   type RecipientByIdResponse,
+  type SmsRecipient,
+  type SmsRecipientByIdData,
+  type SmsRecipientByIdResponse,
   type SuppressionListParams,
 } from "./recipients";
 
@@ -110,6 +146,8 @@ export {
   type ListScheduledMessagesResponse,
   type ScheduledMessageByIdResponse,
 } from "./scheduledMessages";
+
+export { sendSms, type SendSmsParams, type SendSmsResponse } from "./sms";
 
 export {
   listTemplates,

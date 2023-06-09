@@ -47,6 +47,39 @@ describe("Client", () => {
         throw error;
       }
     });
+
+    it.concurrent("List SMS Activity", async () => {
+      try {
+        const listSmsActivityResponse = await client.listSmsActivity();
+
+        expect(listSmsActivityResponse).not.toBeNull();
+        expect(listSmsActivityResponse.data).toBeDefined();
+        expect(Array.isArray(listSmsActivityResponse.data)).toBeTruthy();
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    });
+
+    it.concurrent("SMS Activity by ID", async () => {
+      // TODO: Requires SMS access in MailerSend which I currently do not have
+      // if (!MAILERSEND_SMS_MESSAGE_ID)
+      //   throw "No MailerSend SMS message ID found in environment variables";
+      //
+      // try {
+      //   const smsActivityByIdResponse = await smsActivityById(
+      //     MAILERSEND_API_KEY,
+      //     MAILERSEND_SMS_MESSAGE_ID
+      //   );
+      //
+      //   expect(smsActivityByIdResponse).not.toBeNull();
+      //   expect(smsActivityByIdResponse.data).toBeDefined();
+      //   expect(Array.isArray(smsActivityByIdResponse.data)).toBeTruthy();
+      // } catch (error) {
+      //   console.error(error);
+      //   throw error;
+      // }
+    });
   });
 
   describe("Analytics", () => {

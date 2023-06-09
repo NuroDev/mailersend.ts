@@ -93,6 +93,8 @@ To view the documentation on how to use each module, view the README.md for each
 - [🏠 Domains](src/modules/domains#domains)
 - [💌 Email](src/modules/email#email)
 - [💬 Messages](src/modules/messages#messages)
+- [📱 Phone Numbers](src/modules/phoneNumbers#phone-numbers)
+- [💬 SMS](src/modules/sms#sms)
 - [🫂 Recipients](src/modules/recipients#recipients)
 - [📆 Scheduled Messages](src/modules/scheduledMessages#scheduled-messages)
 - [🏗️ Templates](src/modules/templates#templates)

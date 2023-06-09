@@ -30,6 +30,29 @@ export type ListRecipientsResponse = BaseResponse<Array<ListRecipientsData>> &
   ResponseLinks &
   ResponseMeta;
 
+export interface ListSmsRecipientsParams extends Record<string, any> {
+  /**
+   * Min: 10
+   *
+   * Max: 100
+   *
+   * Default 25
+   */
+  limit?: number;
+  page?: number;
+  sms_number_id?: string;
+  status?: "active" | "opt_out";
+}
+
+export interface SmsRecipient {
+  created_at: string;
+  id: string;
+  number: string;
+  status: string;
+}
+
+export type ListSmsRecipientsResponse = BaseResponse<Array<SmsRecipient>>;
+
 export interface RecipientByIdData {
   created_at: string;
   deleted_at: string;
@@ -51,6 +74,22 @@ export interface RecipientByIdData {
 }
 
 export type RecipientByIdResponse = BaseResponse<RecipientByIdData>;
+
+export interface SmsRecipientByIdData extends SmsRecipient {
+  sms: Array<{
+    created_at: string;
+    error_description: string | null;
+    error_type: string | null;
+    from: string;
+    id: string;
+    segment_count: number;
+    status: string;
+    text: string;
+    to: string;
+  }>;
+}
+
+export type SmsRecipientByIdResponse = BaseResponse<SmsRecipientByIdData>;
 
 export interface DeleteRecipientResponse {
   success: boolean;

@@ -3,8 +3,10 @@ export {
   deleteFromSuppressionList,
   deleteRecipient,
   listRecipients,
+  listSmsRecipients,
   listSuppressions,
   recipientById,
+  smsRecipientById,
 } from "./recipients.module";
 
 export {
@@ -17,9 +19,14 @@ export {
   type ListRecipientsData,
   type ListRecipientsParams,
   type ListRecipientsResponse,
+  type ListSmsRecipientsParams,
+  type ListSmsRecipientsResponse,
   type ListSuppressionsData,
   type ListSuppressionsResponse,
   type RecipientByIdData,
   type RecipientByIdResponse,
+  type SmsRecipient,
+  type SmsRecipientByIdData,
+  type SmsRecipientByIdResponse,
   type SuppressionListParams,
 } from "./recipients.types";

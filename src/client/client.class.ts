@@ -21,6 +21,12 @@ export class Client implements IClient {
   public async listActivity(options: modules.ListActivityParams) {
     return modules.listActivity(this._apiKey, options);
   }
+  public async listSmsActivity(options: modules.ListSmsActivityParams = {}) {
+    return modules.listSmsActivity(this._apiKey, options);
+  }
+  public async smsActivityById(smsMessageId: string) {
+    return modules.smsActivityById(this._apiKey, smsMessageId);
+  }
 
   // ------------------------------------------------------------
   // Analytics
@@ -88,15 +94,22 @@ export class Client implements IClient {
   // Messages
   // ------------------------------------------------------------
 
-  public async listMessages(
-    params: modules.ListMessagesParams = {
-      limit: 25,
-    }
-  ) {
+  public async listMessages(params: modules.ListMessagesParams = {}) {
     return modules.listMessages(this._apiKey, params);
+  }
+  public async listSmsMessages(params: modules.ListSmsMessagesParams = {}) {
+    return modules.listSmsMessages(this._apiKey, params);
   }
   public async messageById(messageId: string) {
     return modules.messageById(this._apiKey, messageId);
+  }
+
+  // ------------------------------------------------------------
+  // Phone Numbers
+  // ------------------------------------------------------------
+
+  public async listPhoneNumbers(options: modules.ListPhoneNumbersParams) {
+    return modules.listPhoneNumbers(this._apiKey, options);
   }
 
   // ------------------------------------------------------------
@@ -140,6 +153,14 @@ export class Client implements IClient {
   }
   public async scheduledMessageById(messageId: string) {
     return modules.scheduledMessageById(this._apiKey, messageId);
+  }
+
+  // ------------------------------------------------------------
+  // SMS
+  // ------------------------------------------------------------
+
+  public async sendSms(options: modules.SendSmsParams) {
+    return modules.sendSms(this._apiKey, options);
   }
 
   // ------------------------------------------------------------

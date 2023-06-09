@@ -8,8 +8,11 @@ import type {
   DeleteRecipientResponse,
   ListRecipientsParams,
   ListRecipientsResponse,
+  ListSmsRecipientsParams,
+  ListSmsRecipientsResponse,
   ListSuppressionsResponse,
   RecipientByIdResponse,
+  SmsRecipientByIdResponse,
   SuppressionListParams,
 } from ".";
 
@@ -37,6 +40,29 @@ export async function listRecipients<TResponse = ListRecipientsResponse>(
 }
 
 /**
+ * List SMS Recipients
+ *
+ * @description Retrieve the list of all SMS recipients
+ *
+ * @see https://developers.mailersend.com/api/v1/sms-recipients.html#get-a-list-of-sms-recipients
+ *
+ * @param {String} apiKey - Unique API access token
+ * @param {Object} options - List sms recipients options
+ */
+export async function listSmsRecipients<TResponse = ListSmsRecipientsResponse>(
+  apiKey: string,
+  options: ListSmsRecipientsParams = {}
+): Promise<TResponse> {
+  return fetch({
+    apiKey,
+    endpoint: "/sms-recipients",
+    json: true,
+    method: "GET",
+    params: options,
+  });
+}
+
+/**
  * Recipient by ID
  *
  * @description Retrieve the information of a single recipient and its domain
@@ -53,6 +79,28 @@ export async function recipientById<TResponse = RecipientByIdResponse>(
   return fetch({
     apiKey,
     endpoint: `/recipients/${recipientId}`,
+    json: true,
+    method: "GET",
+  });
+}
+
+/**
+ * SMS Recipient by ID
+ *
+ * @description Retrieve the information of a single SMS recipient
+ *
+ * @see https://developers.mailersend.com/api/v1/sms-recipients.html#get-an-sms-recipient
+ *
+ * @param {String} apiKey - Unique API access token
+ * @param {String} recipientId - Unique recipient identifier
+ */
+export async function smsRecipientById<TResponse = SmsRecipientByIdResponse>(
+  apiKey: string,
+  recipientId: string
+): Promise<TResponse> {
+  return fetch({
+    apiKey,
+    endpoint: `/sms-recipients/${recipientId}`,
     json: true,
     method: "GET",
   });
